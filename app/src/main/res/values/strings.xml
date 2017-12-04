@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Zone Vision</string>
+    <string name="heroWebsite" translatable="false">hero.com</string>
+    <string name="domain">Domain</string>
+    <string name="searchFailed">Search failed!</string>
+    <string name="appName_domain">%s - ZoneVision</string>
+</resources>

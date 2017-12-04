@@ -1,0 +1,2 @@
+include ':app', ':CommonUtils'
+project(':CommonUtils').projectDir = new File(settingsDir, '../CommonUtils/utils')
