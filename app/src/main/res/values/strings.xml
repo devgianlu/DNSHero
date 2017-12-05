@@ -4,4 +4,9 @@
     <string name="domain">Domain</string>
     <string name="searchFailed">Search failed!</string>
     <string name="appName_domain">%s - DNSHero</string>
+    <string name="dnsRecords">DNS records</string>
+    <string name="authoritative">Authoritative</string>
+    <string name="resolver">Resolver</string>
+    <string name="diagnostic">Diagnostic</string>
+    <string name="failedLoading">Failed loading!</string>
 </resources>

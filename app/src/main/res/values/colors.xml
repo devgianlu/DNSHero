@@ -3,4 +3,8 @@
     <color name="colorPrimary">#424358</color>
     <color name="colorPrimaryDark">#313242</color>
     <color name="colorAccent">#5DD8EA</color>
+
+    <color name="passed">#cced69</color>
+    <color name="failed">#ed7069</color>
+    <color name="info">#5dd8ea</color>
 </resources>

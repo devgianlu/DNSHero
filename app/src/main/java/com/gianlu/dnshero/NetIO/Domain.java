@@ -2,6 +2,7 @@ package com.gianlu.dnshero.NetIO;
 
 
 import com.gianlu.commonutils.CommonUtils;
+import com.gianlu.commonutils.Sorting.Filterable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,6 +10,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -62,6 +64,14 @@ public class Domain implements Serializable {
                 case "info":
                     return INFO;
             }
+        }
+    }
+
+    public static final class NaturalOrderComparator implements Comparator<Diagnostic> {
+
+        @Override
+        public int compare(Diagnostic o1, Diagnostic o2) {
+            return 0;
         }
     }
 
@@ -225,17 +235,19 @@ public class Domain implements Serializable {
         }
     }
 
-    public class Diagnostic implements Serializable {
+    public class Diagnostic implements Serializable, Filterable<DiagnosticStatus> {
         public final String name;
         public final String description;
         public final DiagnosticStatus status;
         public final HashMap<String, Boolean> sources;
+        public final String recommendation;
 
         public Diagnostic(JSONObject obj) throws JSONException {
             JSONObject definition = obj.getJSONObject("definition");
             name = definition.getString("name");
             description = definition.getString("description");
             status = DiagnosticStatus.parse(obj.getString("status"));
+            recommendation = obj.optString("recommendation", null);
 
             JSONObject sourcesObj = obj.getJSONObject("sources");
             sources = new HashMap<>();
@@ -244,6 +256,11 @@ public class Domain implements Serializable {
                 String key = keys.next();
                 sources.put(key, sourcesObj.getBoolean(key));
             }
+        }
+
+        @Override
+        public DiagnosticStatus getFilterable() {
+            return status;
         }
     }
 }
