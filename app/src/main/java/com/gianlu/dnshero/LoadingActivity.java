@@ -1,4 +1,4 @@
-package com.gianlu.zonevision;
+package com.gianlu.dnshero;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import android.widget.ProgressBar;
 
 import com.gianlu.commonutils.Logging;
 import com.gianlu.commonutils.Toaster;
-import com.gianlu.zonevision.NetIO.Domain;
-import com.gianlu.zonevision.NetIO.ZoneVisionAPI;
+import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
 
 public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.ISearch {
     private TextInputLayout domain;

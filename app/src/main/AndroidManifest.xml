@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gianlu.zonevision">
+    package="com.gianlu.dnshero">
 
     <application
         android:allowBackup="true"
@@ -14,10 +14,8 @@
         <activity
             android:name=".LoadingActivity"
             android:theme="@style/FullscreenTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -28,13 +26,14 @@
 
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".DomainActivity" />
+            android:name=".DomainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>

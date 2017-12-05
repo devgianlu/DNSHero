@@ -1,4 +1,4 @@
-package com.gianlu.zonevision.NetIO;
+package com.gianlu.dnshero.NetIO;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -49,7 +50,7 @@ public class ZoneVisionAPI {
 
                     JSONObject json = null;
                     HttpEntity entity = resp.getEntity();
-                    if (entity != null) json = new JSONObject(EntityUtils.toString(entity));
+                    if (entity != null) json = new JSONObject(EntityUtils.toString(entity, Charset.forName("UTF-8")));
 
                     final StatusLine sl = resp.getStatusLine();
                     int code = sl.getStatusCode();
