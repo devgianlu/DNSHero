@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class Domain implements Serializable {
     public final String name;
     public final boolean apex;
-    public final RootDNSServer root;
+    public final RootNameserver root;
     public final DNSRecords authoritative;
     public final DNSRecords resolver;
     public final ArrayList<Diagnostic> diagnostics;
@@ -25,7 +25,7 @@ public class Domain implements Serializable {
     public Domain(JSONObject obj) throws JSONException {
         name = obj.getString("name");
         apex = obj.getBoolean("apex");
-        root = new RootDNSServer(obj.getJSONObject("parent"));
+        root = new RootNameserver(obj.getJSONObject("parent"));
         authoritative = new DNSRecords(obj.getJSONObject("authoritative"));
         resolver = new DNSRecords(obj.getJSONObject("resolver"));
         diagnostics = CommonUtils.toTList(obj.getJSONObject("diagnostics").getJSONArray("results"), Diagnostic.class, this);
@@ -221,13 +221,13 @@ public class Domain implements Serializable {
         }
     }
 
-    public class RootDNSServer implements Serializable {
+    public class RootNameserver implements Serializable {
         public final String name;
         public final float rtt;
         public final ArrayList<String> nameservers;
         public final Glue glue;
 
-        public RootDNSServer(JSONObject obj) throws JSONException {
+        public RootNameserver(JSONObject obj) throws JSONException {
             name = obj.getString("source");
             nameservers = CommonUtils.toStringsList(obj.getJSONArray("name-servers"), true);
             glue = new Glue(obj.getJSONObject("glue"));
