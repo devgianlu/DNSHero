@@ -13,20 +13,20 @@ import android.view.ViewGroup;
 
 import com.gianlu.commonutils.Logging;
 import com.gianlu.commonutils.RecyclerViewLayout;
+import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class DNSRecordFragment<E extends Domain.GeneralRecordEntry, D extends Domain.DNSRecordsArrayList.RelevantData, A extends DNSRecordsAdapter<E, D, ? extends DNSRecordsAdapter.ViewHolder>> extends Fragment {
+public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAdapter<E, ? extends DNSRecordsAdapter.ViewHolder>> extends Fragment {
 
     @SuppressWarnings("unchecked")
-    private static <A extends DNSRecordsAdapter<E, D, VH>,
+    private static <A extends DNSRecordsAdapter<E, VH>,
             VH extends DNSRecordsAdapter.ViewHolder,
-            D extends Domain.DNSRecordsArrayList.RelevantData,
-            F extends DNSRecordFragment<E, D, A>,
-            E extends Domain.GeneralRecordEntry> F getInstance(Context context, @StringRes int title, Class<A> adapter, Domain.DNSRecordsArrayList<E, D> authoritative, Domain.DNSRecordsArrayList<E, D> resolver) {
-        DNSRecordFragment<E, D, A> fragment = new DNSRecordFragment<>();
+            F extends DNSRecordFragment<E, A>,
+            E extends DNSRecord.Entry> F getInstance(Context context, @StringRes int title, Class<A> adapter, Domain.DNSRecordsArrayList<E> authoritative, Domain.DNSRecordsArrayList<E> resolver) {
+        DNSRecordFragment<E, A> fragment = new DNSRecordFragment<>();
         Bundle args = new Bundle();
         args.putString("title", context.getString(title));
         args.putSerializable("adapterClass", adapter);
@@ -36,7 +36,7 @@ public class DNSRecordFragment<E extends Domain.GeneralRecordEntry, D extends Do
         return (F) fragment;
     }
 
-    public static DNSRecordFragment<Domain.MXEntry, Domain.MXEntries.RelevantData, MXAdapter> getMXInstance(Context context, Domain domain) {
+    public static DNSRecordFragment<DNSRecord.MXEntry, MXAdapter> getMXInstance(Context context, Domain domain) {
         return getInstance(context, R.string.mx, MXAdapter.class, domain.authoritative.mx, domain.resolver.mx);
     }
 
@@ -48,13 +48,13 @@ public class DNSRecordFragment<E extends Domain.GeneralRecordEntry, D extends Do
         layout.disableSwipeRefresh();
 
         Bundle args = getArguments();
-        Domain.DNSRecordsArrayList<E, D> authoritative;
-        Domain.DNSRecordsArrayList<E, D> resolver;
+        Domain.DNSRecordsArrayList<E> authoritative;
+        Domain.DNSRecordsArrayList<E> resolver;
         Class<A> adapterClass;
         if (getContext() == null || args == null
                 || (adapterClass = (Class<A>) args.getSerializable("adapterClass")) == null
-                || (authoritative = (Domain.DNSRecordsArrayList<E, D>) args.getSerializable("authoritative")) == null
-                || (resolver = (Domain.DNSRecordsArrayList<E, D>) args.getSerializable("resolver")) == null) {
+                || (authoritative = (Domain.DNSRecordsArrayList<E>) args.getSerializable("authoritative")) == null
+                || (resolver = (Domain.DNSRecordsArrayList<E>) args.getSerializable("resolver")) == null) {
 
             layout.showMessage(R.string.failedLoading, true);
             return layout;
