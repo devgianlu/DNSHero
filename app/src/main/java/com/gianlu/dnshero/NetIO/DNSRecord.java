@@ -29,10 +29,6 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
             ttl = obj.getInt("ttl");
         }
 
-        public DNSRecord<E> getParent() {
-            return DNSRecord.this;
-        }
-
         public abstract boolean equals(Object obj);
     }
 

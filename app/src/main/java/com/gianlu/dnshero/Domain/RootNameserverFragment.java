@@ -45,7 +45,7 @@ public class RootNameserverFragment extends Fragment {
         name.setText(root.name);
 
         SuperTextView rtt = layout.findViewById(R.id.rootNsFragment_rtt);
-        rtt.setHtml(R.string.rtt, Utils.formatRTT(root.rtt));
+        rtt.setHtml(R.string.rttBlack, Utils.formatRTT(root.rtt));
 
         final LinearLayout nameservers = layout.findViewById(R.id.rootNsFragment_nameservers);
         for (String nameserver : root.nameservers)
