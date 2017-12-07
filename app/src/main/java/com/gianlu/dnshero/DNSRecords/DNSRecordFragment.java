@@ -48,6 +48,14 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
         return getInstance(context, R.string.aaaa, AAdapter.class, domain.authoritative.aaaa, domain.resolver.aaaa);
     }
 
+    public static DNSRecordFragment<DNSRecord.CNAMEEntry, CNAMEAdapter> getCNAMEInstance(Context context, Domain domain) {
+        return getInstance(context, R.string.cname, CNAMEAdapter.class, domain.authoritative.cname, domain.resolver.cname);
+    }
+
+    public static DNSRecordFragment<DNSRecord.TXTEntry, TXTAdapter> getTXTInstance(Context context, Domain domain) {
+        return getInstance(context, R.string.txt, TXTAdapter.class, domain.authoritative.txt, domain.resolver.txt);
+    }
+
     @Nullable
     @Override
     @SuppressWarnings("unchecked")
