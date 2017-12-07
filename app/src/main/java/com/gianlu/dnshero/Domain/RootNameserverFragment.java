@@ -18,8 +18,7 @@ import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.GlueView;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
-
-import java.text.DecimalFormat;
+import com.gianlu.dnshero.Utils;
 
 public class RootNameserverFragment extends Fragment {
     public static RootNameserverFragment getInstance(Context context, Domain.RootNameserver root) {
@@ -46,7 +45,7 @@ public class RootNameserverFragment extends Fragment {
         name.setText(root.name);
 
         SuperTextView rtt = layout.findViewById(R.id.rootNsFragment_rtt);
-        rtt.setHtml(R.string.rtt, new DecimalFormat("#.000").format(root.rtt) + "ms");
+        rtt.setHtml(R.string.rtt, Utils.formatRTT(root.rtt));
 
         final LinearLayout nameservers = layout.findViewById(R.id.rootNsFragment_nameservers);
         for (String nameserver : root.nameservers)

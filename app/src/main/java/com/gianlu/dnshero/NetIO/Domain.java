@@ -1,6 +1,8 @@
 package com.gianlu.dnshero.NetIO;
 
 
+import android.support.annotation.NonNull;
+
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.Sorting.Filterable;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class Domain implements Serializable {
     public final String name;
@@ -37,13 +40,6 @@ public class Domain implements Serializable {
         float value = Float.parseFloat(str.substring(0, str.length() - 2));
         if (str.endsWith("µs")) return value / 1000f; // microseconds
         else return value; // milliseconds
-    }
-
-    private <E extends GeneralRecordEntry> ArrayList<DNSRecord<E>> toDNSRecordsList(JSONArray array, Class<E> entryClass) throws JSONException {
-        ArrayList<DNSRecord<E>> items = new ArrayList<>();
-        for (int i = 0; i < array.length(); i++)
-            items.add(new DNSRecord<>(array.getJSONObject(i), entryClass));
-        return items;
     }
 
     public enum DiagnosticStatus {
@@ -180,21 +176,162 @@ public class Domain implements Serializable {
 
     public class DNSRecords implements Serializable {
         public final ArrayList<NS> ns;
-        public final ArrayList<DNSRecord<SOAEntry>> soa;
-        public final ArrayList<DNSRecord<MXEntry>> mx;
-        public final ArrayList<DNSRecord<AEntry>> a;
-        public final ArrayList<DNSRecord<AEntry>> aaaa;
-        public final ArrayList<DNSRecord<TXTEntry>> txt;
-        public final ArrayList<DNSRecord<CNAMEEntry>> cname;
+        public final SOAEntries soa;
+        public final MXEntries mx;
+        public final AEntries a;
+        public final AEntries aaaa;
+        public final TXTEntries txt;
+        public final CNAMEEntries cname;
 
         public DNSRecords(JSONObject obj) throws JSONException {
             ns = CommonUtils.toTList(obj.getJSONArray("ns"), NS.class, Domain.this);
-            soa = toDNSRecordsList(obj.getJSONArray("soa"), SOAEntry.class);
-            mx = toDNSRecordsList(obj.getJSONArray("mx"), MXEntry.class);
-            a = toDNSRecordsList(obj.getJSONArray("a"), AEntry.class);
-            aaaa = toDNSRecordsList(obj.getJSONArray("aaaa"), AEntry.class);
-            txt = toDNSRecordsList(obj.getJSONArray("txt"), TXTEntry.class);
-            cname = toDNSRecordsList(obj.getJSONArray("cname"), CNAMEEntry.class);
+            soa = new SOAEntries(obj.getJSONArray("soa"));
+            mx = new MXEntries(obj.getJSONArray("mx"));
+            a = new AEntries(obj.getJSONArray("a"));
+            aaaa = new AEntries(obj.getJSONArray("aaaa"));
+            txt = new TXTEntries(obj.getJSONArray("txt"));
+            cname = new CNAMEEntries(obj.getJSONArray("cname"));
+        }
+    }
+
+    public abstract class DNSRecordsArrayList<E extends GeneralRecordEntry, R extends DNSRecordsArrayList.RelevantData> extends ArrayList<DNSRecord<E>> implements Serializable {
+        public DNSRecordsArrayList(JSONArray array, Class<E> entryClass) throws JSONException {
+            makeList(array, entryClass);
+        }
+
+        private void makeList(JSONArray array, Class<E> entryClass) throws JSONException {
+            for (int i = 0; i < array.length(); i++)
+                add(new DNSRecord<>(array.getJSONObject(i), entryClass));
+        }
+
+        @NonNull
+        public abstract List<R> createRelevantDataList();
+
+        public abstract class RelevantData {
+            public final String name;
+
+            public RelevantData(String name) {
+                this.name = name;
+            }
+
+            @Override
+            public int hashCode() {
+                return name.hashCode();
+            }
+        }
+    }
+
+    public class SOAEntries extends DNSRecordsArrayList<SOAEntry, SOAEntries.RelevantData> implements Serializable {
+
+        public SOAEntries(JSONArray array) throws JSONException {
+            super(array, SOAEntry.class);
+        }
+
+        @NonNull
+        @Override
+        public List<SOAEntries.RelevantData> createRelevantDataList() {
+            return new ArrayList<>();
+        }
+
+        public abstract class RelevantData extends DNSRecordsArrayList.RelevantData {
+            public RelevantData(String name) {
+                super(name);
+            }
+        }
+    }
+
+    public class MXEntries extends DNSRecordsArrayList<MXEntry, MXEntries.RelevantData> implements Serializable {
+
+        public MXEntries(JSONArray array) throws JSONException {
+            super(array, MXEntry.class);
+        }
+
+        @NonNull
+        @Override
+        public List<MXEntries.RelevantData> createRelevantDataList() {
+            List<RelevantData> list = new ArrayList<>();
+            for (DNSRecord<MXEntry> dns : this) {
+                for (MXEntry entry : dns.records) {
+                    RelevantData data = new RelevantData(entry.exchange, entry.preference);
+                    if (!list.contains(data)) list.add(data);
+                }
+            }
+
+            return list;
+        }
+
+        public class RelevantData extends DNSRecordsArrayList.RelevantData {
+            private final int preference;
+
+            public RelevantData(String name, int preference) {
+                super(name);
+                this.preference = preference;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                RelevantData that = (RelevantData) o;
+                return preference == that.preference && name.equals(that.name);
+            }
+        }
+    }
+
+    public class AEntries extends DNSRecordsArrayList<AEntry, AEntries.RelevantData> implements Serializable {
+
+        public AEntries(JSONArray array) throws JSONException {
+            super(array, AEntry.class);
+        }
+
+        @NonNull
+        @Override
+        public List<AEntries.RelevantData> createRelevantDataList() {
+            return new ArrayList<>();
+        }
+
+        public abstract class RelevantData extends DNSRecordsArrayList.RelevantData {
+            public RelevantData(String name) {
+                super(name);
+            }
+        }
+    }
+
+    public class TXTEntries extends DNSRecordsArrayList<TXTEntry, TXTEntries.RelevantData> implements Serializable {
+
+        public TXTEntries(JSONArray array) throws JSONException {
+            super(array, TXTEntry.class);
+        }
+
+        @NonNull
+        @Override
+        public List<TXTEntries.RelevantData> createRelevantDataList() {
+            return new ArrayList<>();
+        }
+
+        public abstract class RelevantData extends DNSRecordsArrayList.RelevantData {
+            public RelevantData(String name) {
+                super(name);
+            }
+        }
+    }
+
+    public class CNAMEEntries extends DNSRecordsArrayList<CNAMEEntry, CNAMEEntries.RelevantData> implements Serializable {
+
+        public CNAMEEntries(JSONArray array) throws JSONException {
+            super(array, CNAMEEntry.class);
+        }
+
+        @NonNull
+        @Override
+        public List<CNAMEEntries.RelevantData> createRelevantDataList() {
+            return new ArrayList<>();
+        }
+
+        public abstract class RelevantData extends DNSRecordsArrayList.RelevantData {
+            public RelevantData(String name) {
+                super(name);
+            }
         }
     }
 

@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
 import com.gianlu.dnshero.Domain.DiagnosticFragment;
-import com.gianlu.dnshero.DNSRecords.MX.MXFragment;
 import com.gianlu.dnshero.Domain.PagerAdapter;
 import com.gianlu.dnshero.Domain.RootNameserverFragment;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -63,7 +63,7 @@ public class DomainActivity extends AppCompatActivity {
         pager.setAdapter(new PagerAdapter(getSupportFragmentManager(),
                 DiagnosticFragment.getInstance(this, domain.diagnostics),
                 RootNameserverFragment.getInstance(this, domain.root),
-                MXFragment.getInstance(this, domain)));
+                DNSRecordFragment.getMXInstance(this, domain)));
 
         tabs.setupWithViewPager(pager);
     }
