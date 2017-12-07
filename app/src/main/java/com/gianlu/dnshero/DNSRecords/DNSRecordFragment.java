@@ -40,6 +40,14 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
         return getInstance(context, R.string.mx, MXAdapter.class, domain.authoritative.mx, domain.resolver.mx);
     }
 
+    public static DNSRecordFragment<DNSRecord.AEntry, AAdapter> getAInstance(Context context, Domain domain) {
+        return getInstance(context, R.string.a, AAdapter.class, domain.authoritative.a, domain.resolver.a);
+    }
+
+    public static DNSRecordFragment<DNSRecord.AEntry, AAdapter> getAAAAInstance(Context context, Domain domain) {
+        return getInstance(context, R.string.aaaa, AAdapter.class, domain.authoritative.aaaa, domain.resolver.aaaa);
+    }
+
     @Nullable
     @Override
     @SuppressWarnings("unchecked")

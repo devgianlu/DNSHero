@@ -13,32 +13,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/dnsRecordItem_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
-            android:paddingTop="16dp">
-
-            <TextView
-                android:id="@+id/mxItem_preference"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/mxItem_exchange"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/primary_text_light"
-                android:textSize="20sp" />
-
-        </LinearLayout>
+            android:paddingTop="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,13 +37,13 @@
                 android:orientation="vertical">
 
                 <com.gianlu.commonutils.SuperTextView
-                    android:id="@+id/mxItem_name"
+                    android:id="@+id/dnsRecordItem_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/secondary_text_light" />
 
                 <com.gianlu.commonutils.SuperTextView
-                    android:id="@+id/mxItem_ttl"
+                    android:id="@+id/dnsRecordItem_ttl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/secondary_text_light" />
@@ -70,7 +51,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/mxItem_toggle"
+                android:id="@+id/dnsRecordItem_toggle"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="bottom"
@@ -83,7 +64,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/mxItem_details"
+            android:id="@+id/dnsRecordItem_details"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/colorPrimary"
@@ -102,7 +83,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/mxItem_sources"
+                android:id="@+id/dnsRecordItem_sources"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />

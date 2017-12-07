@@ -24,4 +24,6 @@
     <string name="sources">Sources</string>
     <string name="publicResolver">Public resolver</string>
     <string name="authoritativeServer">Authoritative server</string>
+    <string name="a">A</string>
+    <string name="aaaa">AAAA</string>
 </resources>

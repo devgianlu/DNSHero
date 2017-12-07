@@ -63,6 +63,8 @@ public class DomainActivity extends AppCompatActivity {
         pager.setAdapter(new PagerAdapter(getSupportFragmentManager(),
                 DiagnosticFragment.getInstance(this, domain.diagnostics),
                 RootNameserverFragment.getInstance(this, domain.root),
+                DNSRecordFragment.getAInstance(this, domain),
+                DNSRecordFragment.getAAAAInstance(this, domain),
                 DNSRecordFragment.getMXInstance(this, domain)));
 
         tabs.setupWithViewPager(pager);
