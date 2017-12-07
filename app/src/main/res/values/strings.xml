@@ -18,4 +18,5 @@
     <string name="v6">v6</string>
     <string name="rtt"><![CDATA[<b><font color=\'black\'>RTT:</font></b>]]> %s</string>
     <string name="noGlueRecords">No glue records provided for this nameserver</string>
+    <string name="mx">MX</string>
 </resources>
