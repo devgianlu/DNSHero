@@ -58,7 +58,6 @@ public class DomainActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.appName_domain, domain.name));
 
-        // TODO: SOA record
         // TODO: Nameservers (domain.authoritative.ns)
 
         pager.setAdapter(new PagerAdapter(getSupportFragmentManager(),
@@ -68,7 +67,8 @@ public class DomainActivity extends AppCompatActivity {
                 DNSRecordFragment.getAAAAInstance(this, domain),
                 DNSRecordFragment.getCNAMEInstance(this, domain),
                 DNSRecordFragment.getMXInstance(this, domain),
-                DNSRecordFragment.getTXTInstance(this, domain)));
+                DNSRecordFragment.getTXTInstance(this, domain),
+                DNSRecordFragment.getSOAInstance(this, domain)));
 
         tabs.setupWithViewPager(pager);
     }

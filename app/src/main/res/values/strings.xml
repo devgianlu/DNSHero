@@ -28,4 +28,12 @@
     <string name="aaaa">AAAA</string>
     <string name="cname">CNAME</string>
     <string name="txt">TXT</string>
+    <string name="soa">SOA</string>
+    <string name="serial"><![CDATA[<b>Serial:</b> %d]]></string>
+    <string name="refresh"><![CDATA[<b>Refresh:</b> %ds]]></string>
+    <string name="retry"><![CDATA[<b>Retry:</b> %ds]]></string>
+    <string name="expire"><![CDATA[<b>Expire:</b> %ds]]></string>
+    <string name="minimumTttl"><![CDATA[<b>Minimum TTL:</b> %ds]]></string>
+    <string name="primaryDns"><![CDATA[<b>Primary DNS:</b> %s]]></string>
+    <string name="emailLabel"><![CDATA[<b>Email:</b> %s]]></string>
 </resources>

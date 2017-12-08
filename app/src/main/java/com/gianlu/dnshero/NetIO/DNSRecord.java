@@ -53,6 +53,10 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
             minimum_ttl = obj.getInt("minimum-ttl");
         }
 
+        public String getEmailAddress() {
+            return rname.replaceFirst("\\.", "@");
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

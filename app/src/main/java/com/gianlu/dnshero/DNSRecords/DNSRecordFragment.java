@@ -56,6 +56,10 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
         return getInstance(context, R.string.txt, TXTAdapter.class, domain.authoritative.txt, domain.resolver.txt);
     }
 
+    public static DNSRecordFragment<DNSRecord.SOAEntry, SOAAdapter> getSOAInstance(Context context, Domain domain) {
+        return getInstance(context, R.string.soa, SOAAdapter.class, domain.authoritative.soa, domain.resolver.soa);
+    }
+
     @Nullable
     @Override
     @SuppressWarnings("unchecked")
