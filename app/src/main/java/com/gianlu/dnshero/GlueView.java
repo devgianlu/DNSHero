@@ -11,16 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.NetIO.Domain;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class GlueView extends LinearLayout {
-    private final LinearLayout glues;
     private final int dp4;
+    private final LayoutInflater inflater;
 
     public GlueView(Context context) {
         this(context, null, 0);
@@ -33,64 +34,62 @@ public class GlueView extends LinearLayout {
     public GlueView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        inflater = LayoutInflater.from(context);
         dp4 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getContext().getResources().getDisplayMetrics());
-
-        LayoutInflater.from(context).inflate(R.layout.view_glue, this, true);
         setOrientation(VERTICAL);
-
-        glues = findViewById(R.id.glueView_glues);
-        final ImageButton toggle = findViewById(R.id.glueView_toggle);
-        toggle.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonUtils.handleCollapseClick(toggle, glues);
-            }
-        });
-    }
-
-    private void populate(ArrayList<Domain.Glue.Entry> glue, @StringRes int titleRes, boolean paddingTop) {
-        if (glue != null && !glue.isEmpty()) {
-            SuperTextView title = new SuperTextView(getContext(), getContext().getString(titleRes), ContextCompat.getColor(getContext(), android.R.color.primary_text_light));
-            title.setTypeface(Typeface.DEFAULT_BOLD);
-            glues.addView(title);
-
-            if (paddingTop) {
-                LinearLayout.LayoutParams params = (LayoutParams) title.getLayoutParams();
-                params.topMargin = dp4 * 2;
-            }
-
-            int secondary = ContextCompat.getColor(getContext(), android.R.color.secondary_text_light);
-
-            boolean first = true;
-            for (Domain.Glue.Entry entry : glue) {
-                LinearLayout layout = new LinearLayout(getContext());
-                layout.setOrientation(VERTICAL);
-
-                SuperTextView name = new SuperTextView(getContext(), R.string.name, entry.name);
-                name.setTextColor(secondary);
-                layout.addView(name);
-
-                SuperTextView address = new SuperTextView(getContext(), R.string.address, entry.address);
-                address.setTextColor(secondary);
-                layout.addView(address);
-
-                glues.addView(layout);
-
-                LinearLayout.LayoutParams params = (LayoutParams) layout.getLayoutParams();
-                params.setMarginStart(dp4);
-                if (!first) params.topMargin = dp4;
-                first = false;
-            }
-        }
     }
 
     public void setGlue(Domain.Glue glue) {
-        glues.removeAllViews();
+        removeAllViews();
 
-        populate(glue.v4, R.string.v4, false);
-        populate(glue.v6, R.string.v6, true);
+        populateV4(glue.v4, R.string.glueV4);
+        populateV4(glue.v6, R.string.glueV6);
+    }
 
-        if (glues.getChildCount() == 0)
-            glues.addView(new SuperTextView(getContext(), getContext().getString(R.string.noGlueRecords), ContextCompat.getColor(getContext(), android.R.color.secondary_text_light)));
+    private void populateV4(List<Domain.Glue.Entry> glue, @StringRes int titleRes) {
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.view_glue, this, false);
+
+        TextView title = layout.findViewById(R.id.glueView_title);
+        title.setText(titleRes);
+
+        addView(layout);
+
+        if (glue != null && !glue.isEmpty()) {
+            final LinearLayout glues = layout.findViewById(R.id.glueView_glues);
+
+            layout.findViewById(R.id.glueView_toggle).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CommonUtils.handleCollapseClick((ImageButton) v, glues);
+                }
+            });
+
+            int secondary = ContextCompat.getColor(getContext(), android.R.color.secondary_text_light);
+            int accent = ContextCompat.getColor(getContext(), R.color.colorAccent);
+
+            boolean first = true;
+            for (Domain.Glue.Entry entry : glue) {
+                LinearLayout item = new LinearLayout(getContext());
+                item.setOrientation(VERTICAL);
+
+                SuperTextView name = new SuperTextView(getContext(), entry.name);
+                name.setTextColor(secondary);
+                name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                item.addView(name);
+
+                SuperTextView address = new SuperTextView(getContext(), entry.address);
+                address.setTextColor(accent);
+                address.setTypeface(Typeface.DEFAULT_BOLD);
+                item.addView(address);
+
+                glues.addView(item);
+
+                LinearLayout.LayoutParams params = (LayoutParams) item.getLayoutParams();
+                if (!first) params.topMargin = dp4;
+                first = false;
+            }
+        } else {
+            layout.addView(new SuperTextView(getContext(), getContext().getString(R.string.noGlueRecords), ContextCompat.getColor(getContext(), android.R.color.secondary_text_light)));
+        }
     }
 }

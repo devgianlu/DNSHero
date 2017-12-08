@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
 import com.gianlu.dnshero.Domain.DiagnosticFragment;
+import com.gianlu.dnshero.Domain.NameserversFragment;
 import com.gianlu.dnshero.Domain.PagerAdapter;
 import com.gianlu.dnshero.Domain.RootNameserverFragment;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -58,11 +59,10 @@ public class DomainActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.appName_domain, domain.name));
 
-        // TODO: Nameservers (domain.authoritative.ns)
-
         pager.setAdapter(new PagerAdapter(getSupportFragmentManager(),
-                DiagnosticFragment.getInstance(this, domain.diagnostics),
-                RootNameserverFragment.getInstance(this, domain.root),
+                DiagnosticFragment.getInstance(this, domain),
+                RootNameserverFragment.getInstance(this, domain),
+                NameserversFragment.getInstance(this, domain),
                 DNSRecordFragment.getAInstance(this, domain),
                 DNSRecordFragment.getAAAAInstance(this, domain),
                 DNSRecordFragment.getCNAMEInstance(this, domain),

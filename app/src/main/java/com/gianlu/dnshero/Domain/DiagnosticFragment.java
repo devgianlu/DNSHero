@@ -20,11 +20,11 @@ import java.util.ArrayList;
 public class DiagnosticFragment extends Fragment implements DiagnosticsAdapter.IAdapter {
     private RecyclerViewLayout layout;
 
-    public static DiagnosticFragment getInstance(Context context, ArrayList<Domain.Diagnostic> diagnostics) {
+    public static DiagnosticFragment getInstance(Context context, Domain domain) {
         DiagnosticFragment fragment = new DiagnosticFragment();
         Bundle args = new Bundle();
         args.putString("title", context.getString(R.string.diagnostic));
-        args.putSerializable("diagnostics", diagnostics);
+        args.putSerializable("diagnostics", domain.diagnostics);
         fragment.setArguments(args);
         return fragment;
     }

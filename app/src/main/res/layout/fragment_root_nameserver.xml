@@ -54,14 +54,14 @@
             android:id="@+id/rootNsFragment_nameservers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:orientation="vertical"
             android:paddingStart="8dp" />
 
         <com.gianlu.dnshero.GlueView
             android:id="@+id/rootNsFragment_glue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </ScrollView>
