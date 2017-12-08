@@ -42,11 +42,11 @@ public class GlueView extends LinearLayout {
     public void setGlue(Domain.Glue glue) {
         removeAllViews();
 
-        populateV4(glue.v4, R.string.glueV4);
-        populateV4(glue.v6, R.string.glueV6);
+        populate(glue.v4, R.string.glueV4);
+        populate(glue.v6, R.string.glueV6);
     }
 
-    private void populateV4(List<Domain.Glue.Entry> glue, @StringRes int titleRes) {
+    private void populate(List<Domain.Glue.Entry> glue, @StringRes int titleRes) {
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.view_glue, this, false);
 
         TextView title = layout.findViewById(R.id.glueView_title);
@@ -54,9 +54,8 @@ public class GlueView extends LinearLayout {
 
         addView(layout);
 
+        final LinearLayout glues = layout.findViewById(R.id.glueView_glues);
         if (glue != null && !glue.isEmpty()) {
-            final LinearLayout glues = layout.findViewById(R.id.glueView_glues);
-
             layout.findViewById(R.id.glueView_toggle).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,7 +88,7 @@ public class GlueView extends LinearLayout {
                 first = false;
             }
         } else {
-            layout.addView(new SuperTextView(getContext(), getContext().getString(R.string.noGlueRecords), ContextCompat.getColor(getContext(), android.R.color.secondary_text_light)));
+            glues.addView(new SuperTextView(getContext(), getContext().getString(R.string.noGlueRecords), ContextCompat.getColor(getContext(), android.R.color.secondary_text_light)));
         }
     }
 }
