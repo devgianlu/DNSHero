@@ -32,6 +32,7 @@ public class NameserversFragment extends Fragment {
     @SuppressWarnings("unchecked")
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         RecyclerViewLayout layout = new RecyclerViewLayout(inflater);
+        layout.disableSwipeRefresh();
 
         Bundle args = getArguments();
         ArrayList<Domain.NS> authoritative;
