@@ -60,7 +60,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
         return getInstance(context, R.string.soa, SOAAdapter.class, domain.authoritative.soa, domain.resolver.soa);
     }
 
-    @Nullable
+    @NonNull
     @Override
     @SuppressWarnings("unchecked")
     public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,12 +82,16 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
 
         layout.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-        try {
-            layout.loadListData(adapterClass.getConstructor(Context.class, Domain.DNSRecordsArrayList.class, Domain.DNSRecordsArrayList.class).newInstance(getContext(), authoritative, resolver));
-        } catch (java.lang.InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
-            Logging.logMe(ex);
-            layout.showMessage(R.string.failedLoading, true);
-            return layout;
+        if (authoritative.hasSomethingRelevant()) {
+            try {
+                layout.loadListData(adapterClass.getConstructor(Context.class, Domain.DNSRecordsArrayList.class, Domain.DNSRecordsArrayList.class).newInstance(getContext(), authoritative, resolver));
+            } catch (java.lang.InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
+                Logging.logMe(ex);
+                layout.showMessage(R.string.failedLoading, true);
+                return layout;
+            }
+        } else {
+            layout.showMessage(R.string.noRecords, false);
         }
 
         return layout;

@@ -45,4 +45,5 @@
     <string name="absentLowercase">absent</string>
     <string name="aTtl"><![CDATA[<b>A TTL:</b> %ds]]></string>
     <string name="aaaaTtl"><![CDATA[<b>AAAA TTL:</b> %ds]]></string>
+    <string name="noRecords">No records found</string>
 </resources>

@@ -122,6 +122,13 @@ public class Domain implements Serializable {
             return records;
         }
 
+        public boolean hasSomethingRelevant() {
+            for (DNSRecord<E> dns : this)
+                if (!dns.records.isEmpty()) return true;
+
+            return false;
+        }
+
         public List<E> createRelevantDataList() {
             List<E> list = new ArrayList<>();
             for (DNSRecord<E> dns : this)
