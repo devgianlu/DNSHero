@@ -55,14 +55,14 @@ public class GlueView extends LinearLayout {
         addView(layout);
 
         final LinearLayout glues = layout.findViewById(R.id.glueView_glues);
-        if (glue != null && !glue.isEmpty()) {
-            layout.findViewById(R.id.glueView_toggle).setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    CommonUtils.handleCollapseClick((ImageButton) v, glues);
-                }
-            });
+        layout.findViewById(R.id.glueView_toggle).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonUtils.handleCollapseClick((ImageButton) v, glues);
+            }
+        });
 
+        if (glue != null && !glue.isEmpty()) {
             int secondary = ContextCompat.getColor(getContext(), android.R.color.secondary_text_light);
             int accent = ContextCompat.getColor(getContext(), R.color.colorAccent);
 

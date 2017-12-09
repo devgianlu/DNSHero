@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gianlu.commonutils.RecyclerViewLayout;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
@@ -21,7 +23,6 @@ public class NameserversFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString("title", context.getString(R.string.nameservers));
         args.putSerializable("authoritative", domain.authoritative.ns);
-        args.putSerializable("resolver", domain.resolver.ns);
         fragment.setArguments(args);
         return fragment;
     }
@@ -30,17 +31,18 @@ public class NameserversFragment extends Fragment {
     @Override
     @SuppressWarnings("unchecked")
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        RecyclerViewLayout layout = new RecyclerViewLayout(inflater);
 
         Bundle args = getArguments();
         ArrayList<Domain.NS> authoritative;
-        ArrayList<Domain.NS> resolver;
-        if (getContext() == null || args == null
-                || (authoritative = (ArrayList<Domain.NS>) args.getSerializable("authoritative")) == null
-                || (resolver = (ArrayList<Domain.NS>) args.getSerializable("resolver")) == null)
-            return null;
+        if (getContext() == null || args == null || (authoritative = (ArrayList<Domain.NS>) args.getSerializable("authoritative")) == null) {
+            layout.showMessage(R.string.failedLoading, true);
+            return layout;
+        }
 
-        // TODO
+        layout.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        layout.loadListData(new NSAdapter(getContext(), authoritative));
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return layout;
     }
 }
