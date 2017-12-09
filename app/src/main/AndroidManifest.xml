@@ -35,5 +35,9 @@
         <activity
             android:name=".DomainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".PreferencesActivity"
+            android:parentActivityName=".DomainActivity" />
     </application>
 </manifest>

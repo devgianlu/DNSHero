@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
@@ -22,6 +23,12 @@ public class DomainActivity extends AppCompatActivity {
         context.startActivity(new Intent(context, DomainActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .putExtra("domain", domain));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.domain, menu);
+        return true;
     }
 
     @Override
@@ -76,6 +83,9 @@ public class DomainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.domain_preferences:
+                startActivity(new Intent(this, PreferencesActivity.class));
+                return true;
             case android.R.id.home:
                 onBackPressed();
                 return true;
