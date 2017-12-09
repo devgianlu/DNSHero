@@ -24,7 +24,7 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         public final String name;
         public final int ttl;
 
-        public Entry(JSONObject obj) throws JSONException {
+        Entry(JSONObject obj) throws JSONException {
             name = obj.getString("name");
             ttl = obj.getInt("ttl");
         }

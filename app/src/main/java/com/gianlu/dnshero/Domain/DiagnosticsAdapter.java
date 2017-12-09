@@ -1,8 +1,6 @@
 package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,24 +13,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.Sorting.OrderedRecyclerViewAdapter;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
-import java.util.Comparator;
 import java.util.List;
 
 
-public class DiagnosticsAdapter extends OrderedRecyclerViewAdapter<DiagnosticsAdapter.ViewHolder, Domain.Diagnostic, Void, Domain.DiagnosticStatus> {
+public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.ViewHolder> {
     private final Context context;
     private final LayoutInflater inflater;
-    private final IAdapter listener;
+    private final List<Domain.Diagnostic> diagnostics;
 
-    public DiagnosticsAdapter(Context context, List<Domain.Diagnostic> diagnostics, IAdapter listener) {
-        super(diagnostics, null);
+    public DiagnosticsAdapter(Context context, List<Domain.Diagnostic> diagnostics) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
-        this.listener = listener;
+        this.diagnostics = diagnostics;
     }
 
     @Override
@@ -42,7 +37,7 @@ public class DiagnosticsAdapter extends OrderedRecyclerViewAdapter<DiagnosticsAd
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Domain.Diagnostic diagnostic = objs.get(position);
+        Domain.Diagnostic diagnostic = diagnostics.get(position);
 
         int color;
         int textColor;
@@ -107,33 +102,9 @@ public class DiagnosticsAdapter extends OrderedRecyclerViewAdapter<DiagnosticsAd
         CommonUtils.setRecyclerViewTopMargin(context, holder);
     }
 
-    @Nullable
     @Override
-    protected RecyclerView getRecyclerView() {
-        return listener != null ? listener.getRecyclerView() : null;
-    }
-
-    @Override
-    protected boolean matchQuery(Domain.Diagnostic item, @Nullable String query) {
-        return true;
-    }
-
-    @Override
-    protected void onBindViewHolder(ViewHolder holder, int position, @NonNull Domain.Diagnostic payload) {
-    }
-
-    @Override
-    protected void shouldUpdateItemCount(int count) {
-    }
-
-    @NonNull
-    @Override
-    public Comparator<Domain.Diagnostic> getComparatorFor(Void sorting) {
-        return new Domain.NaturalOrderComparator();
-    }
-
-    public interface IAdapter {
-        RecyclerView getRecyclerView();
+    public int getItemCount() {
+        return diagnostics.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

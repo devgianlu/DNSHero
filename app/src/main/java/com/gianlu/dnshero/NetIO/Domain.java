@@ -2,7 +2,6 @@ package com.gianlu.dnshero.NetIO;
 
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.Sorting.Filterable;
 import com.gianlu.dnshero.Utils;
 
 import org.json.JSONArray;
@@ -57,14 +56,6 @@ public class Domain implements Serializable {
         }
     }
 
-    public static final class NaturalOrderComparator implements Comparator<Diagnostic> {
-
-        @Override
-        public int compare(Diagnostic o1, Diagnostic o2) {
-            return 0;
-        }
-    }
-
     public class NS implements Serializable {
         public final String source;
         public final ArrayList<String> nameservers;
@@ -92,7 +83,7 @@ public class Domain implements Serializable {
         public final TXTEntries txt;
         public final CNAMEEntries cname;
 
-        public DNSRecords(JSONObject obj) throws JSONException {
+        DNSRecords(JSONObject obj) throws JSONException {
             ns = CommonUtils.toTList(obj.getJSONArray("ns"), NS.class, Domain.this);
             soa = new SOAEntries(obj.getJSONArray("soa"));
             mx = new MXEntries(obj.getJSONArray("mx"));
@@ -104,7 +95,7 @@ public class Domain implements Serializable {
     }
 
     public abstract class DNSRecordsArrayList<E extends DNSRecord.Entry> extends ArrayList<DNSRecord<E>> implements Serializable, Comparator<E> {
-        public DNSRecordsArrayList(JSONArray array, Class<E> entryClass) throws JSONException {
+        DNSRecordsArrayList(JSONArray array, Class<E> entryClass) throws JSONException {
             makeList(array, entryClass);
         }
 
@@ -140,23 +131,21 @@ public class Domain implements Serializable {
 
             return list;
         }
+
+        @Override
+        public int compare(E e1, E e2) {
+            return e1.name.compareToIgnoreCase(e2.name);
+        }
     }
 
     public class SOAEntries extends DNSRecordsArrayList<DNSRecord.SOAEntry> implements Serializable {
-
-        public SOAEntries(JSONArray array) throws JSONException {
+        SOAEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.SOAEntry.class);
-        }
-
-        @Override
-        public int compare(DNSRecord.SOAEntry o1, DNSRecord.SOAEntry o2) {
-            return 0;
         }
     }
 
     public class MXEntries extends DNSRecordsArrayList<DNSRecord.MXEntry> implements Serializable {
-
-        public MXEntries(JSONArray array) throws JSONException {
+        MXEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.MXEntry.class);
         }
 
@@ -167,38 +156,20 @@ public class Domain implements Serializable {
     }
 
     public class AEntries extends DNSRecordsArrayList<DNSRecord.AEntry> implements Serializable {
-
-        public AEntries(JSONArray array) throws JSONException {
+        AEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.AEntry.class);
-        }
-
-        @Override
-        public int compare(DNSRecord.AEntry o1, DNSRecord.AEntry o2) {
-            return 0;
         }
     }
 
     public class TXTEntries extends DNSRecordsArrayList<DNSRecord.TXTEntry> implements Serializable {
-
-        public TXTEntries(JSONArray array) throws JSONException {
+        TXTEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.TXTEntry.class);
-        }
-
-        @Override
-        public int compare(DNSRecord.TXTEntry o1, DNSRecord.TXTEntry o2) {
-            return 0;
         }
     }
 
     public class CNAMEEntries extends DNSRecordsArrayList<DNSRecord.CNAMEEntry> implements Serializable {
-
-        public CNAMEEntries(JSONArray array) throws JSONException {
+        CNAMEEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.CNAMEEntry.class);
-        }
-
-        @Override
-        public int compare(DNSRecord.CNAMEEntry o1, DNSRecord.CNAMEEntry o2) {
-            return 0;
         }
     }
 
@@ -206,7 +177,7 @@ public class Domain implements Serializable {
         public final ArrayList<Entry> v4;
         public final ArrayList<Entry> v6;
 
-        public Glue(JSONObject obj) throws JSONException {
+        Glue(JSONObject obj) throws JSONException {
             if (CommonUtils.isStupidNull(obj, "v4")) v4 = null;
             else v4 = CommonUtils.toTList(obj.getJSONArray("v4"), Entry.class, this);
 
@@ -231,7 +202,7 @@ public class Domain implements Serializable {
         public final ArrayList<String> nameservers;
         public final Glue glue;
 
-        public RootNameserver(JSONObject obj) throws JSONException {
+        RootNameserver(JSONObject obj) throws JSONException {
             name = obj.getString("source");
             nameservers = CommonUtils.toStringsList(obj.getJSONArray("name-servers"), true);
             glue = new Glue(obj.getJSONObject("glue"));
@@ -239,7 +210,7 @@ public class Domain implements Serializable {
         }
     }
 
-    public class Diagnostic implements Serializable, Filterable<DiagnosticStatus> {
+    public class Diagnostic implements Serializable {
         public final String name;
         public final String description;
         public final DiagnosticStatus status;
@@ -260,11 +231,6 @@ public class Domain implements Serializable {
                 String key = keys.next();
                 sources.put(key, sourcesObj.getBoolean(key));
             }
-        }
-
-        @Override
-        public DiagnosticStatus getFilterable() {
-            return status;
         }
     }
 }
