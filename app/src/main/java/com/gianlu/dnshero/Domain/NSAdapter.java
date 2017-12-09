@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.GlueView;
+import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.SourceView;
@@ -45,14 +46,22 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
 
         if (authoritative.a.records.isEmpty()) {
             holder.a.setHtml(R.string.aRecord, context.getString(R.string.absentLowercase));
+            holder.aTtl.setVisibility(View.GONE);
         } else {
-            holder.a.setHtml(R.string.aRecord, authoritative.a.records.get(0).address);
+            DNSRecord.AEntry entry = authoritative.a.records.get(0);
+            holder.a.setHtml(R.string.aRecord, entry.address);
+            holder.aTtl.setVisibility(View.VISIBLE);
+            holder.aTtl.setHtml(R.string.aTtl, entry.ttl);
         }
 
         if (authoritative.aaaa.records.isEmpty()) {
             holder.aaaa.setHtml(R.string.aaaaRecord, context.getString(R.string.absentLowercase));
+            holder.aaaaTtl.setVisibility(View.GONE);
         } else {
-            holder.aaaa.setHtml(R.string.aaaaRecord, authoritative.aaaa.records.get(0).address);
+            DNSRecord.AEntry entry = authoritative.aaaa.records.get(0);
+            holder.aaaa.setHtml(R.string.aaaaRecord, entry.address);
+            holder.aaaaTtl.setVisibility(View.VISIBLE);
+            holder.aaaaTtl.setHtml(R.string.aaaaTtl, entry.ttl);
         }
 
         holder.aSource.setSource(authoritative.a, false);
@@ -77,7 +86,9 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
         final TextView source;
         final SuperTextView rtt;
         final SuperTextView a;
+        final SuperTextView aTtl;
         final SuperTextView aaaa;
+        final SuperTextView aaaaTtl;
         final GlueView glue;
         final ImageButton toggle;
         final LinearLayout details;
@@ -90,7 +101,9 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
             source = itemView.findViewById(R.id.nsItem_source);
             rtt = itemView.findViewById(R.id.nsItem_rtt);
             a = itemView.findViewById(R.id.nsItem_a);
+            aTtl = itemView.findViewById(R.id.nsItem_aTtl);
             aaaa = itemView.findViewById(R.id.nsItem_aaaa);
+            aaaaTtl = itemView.findViewById(R.id.nsItem_aaaaTtl);
             glue = itemView.findViewById(R.id.nsItem_glue);
             toggle = itemView.findViewById(R.id.nsItem_toggle);
             details = itemView.findViewById(R.id.nsItem_details);

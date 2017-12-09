@@ -20,7 +20,7 @@
     <string name="rttWhite"><![CDATA[<b><font color=\'white\'>RTT:</font></b>]]> %s</string>
     <string name="noGlueRecords">No glue records provided for this nameserver</string>
     <string name="mx">MX</string>
-    <string name="ttl"><![CDATA[<b>TTL:</b> %ss]]></string>
+    <string name="ttl"><![CDATA[<b>TTL:</b> %ds]]></string>
     <string name="sources">Sources</string>
     <string name="publicResolver">Public resolver</string>
     <string name="authoritativeServer">Authoritative server</string>
@@ -33,16 +33,16 @@
     <string name="refresh"><![CDATA[<b>Refresh:</b>]]> %ds</string>
     <string name="retry"><![CDATA[<b>Retry:</b>]]> %ds</string>
     <string name="expire"><![CDATA[<b>Expire:</b>]]> %ds</string>
-    <string name="minimumTttl"><![CDATA[<b>Minimum TTL:</b>]]> %ds</string>
+    <string name="minimumTtl"><![CDATA[<b>Minimum TTL:</b>]]> %ds</string>
     <string name="primaryDns"><![CDATA[<b>Primary DNS:</b>]]> %s</string>
     <string name="emailLabel"><![CDATA[<b>Email:</b>]]> %s</string>
     <string name="glueV4">Glue V4</string>
     <string name="glueV6">Glue V6</string>
     <string name="aRecord"><![CDATA[<b>A record:</b>]]> %s</string>
     <string name="aaaaRecord"><![CDATA[<b>AAAA record:</b>]]> %s</string>
-    <string name="aSources">A sources</string>
-    <string name="aaaaSources">AAAA sources</string>
     <string name="aaaaSource">AAAA source</string>
     <string name="aSource">A source</string>
     <string name="absentLowercase">absent</string>
+    <string name="aTtl"><![CDATA[<b>A TTL:</b> %ds]]></string>
+    <string name="aaaaTtl"><![CDATA[<b>AAAA TTL:</b> %ds]]></string>
 </resources>

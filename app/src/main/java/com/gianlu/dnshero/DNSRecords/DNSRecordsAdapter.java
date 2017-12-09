@@ -45,7 +45,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
         E resolver = relevantResolver.get(position);
 
         holder.name.setHtml(R.string.name, authoritative.name);
-        holder.ttl.setHtml(R.string.ttl, String.valueOf(authoritative.ttl));
+        holder.ttl.setHtml(R.string.ttl, authoritative.ttl);
         holder.toggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

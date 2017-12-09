@@ -23,7 +23,7 @@ public class SOAAdapter extends DNSRecordsAdapter<DNSRecord.SOAEntry, SOAAdapter
         holder.refresh.setHtml(R.string.refresh, authoritative.refresh);
         holder.retry.setHtml(R.string.retry, authoritative.retry);
         holder.expire.setHtml(R.string.expire, authoritative.expire);
-        holder.minimumTtl.setHtml(R.string.minimumTttl, authoritative.minimum_ttl);
+        holder.minimumTtl.setHtml(R.string.minimumTtl, authoritative.minimum_ttl);
     }
 
     @Override
