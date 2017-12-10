@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "755987533042-bhdr4arlj44hvf3p4p37sd3v1ltad7at.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gianlu.dnshero",
+            "certificate_hash": "712dbb7dc3d903aa43d243554e76b663d4de174e"
+          }
+        },
+        {
+          "client_id": "755987533042-mrq3cngkgg72cpumn7ue54gq0qcq01qd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gianlu.dnshero",
+            "certificate_hash": "a0610fdfe5ba01864834443a1e062253614c0293"
+          }
+        },
+        {
           "client_id": "755987533042-1blndl1oq58gpq6iqbke9cqnk0fv7sg2.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755987533042-1blndl1oq58gpq6iqbke9cqnk0fv7sg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
