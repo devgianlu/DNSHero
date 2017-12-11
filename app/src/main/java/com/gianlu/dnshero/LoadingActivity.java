@@ -13,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.gianlu.commonutils.Logging;
 import com.gianlu.commonutils.Toaster;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
@@ -37,8 +36,6 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
-        Logging.clearLogs(this);
 
         final ImageButton search = findViewById(R.id.loading_search);
         form = findViewById(R.id.loading_form);
@@ -81,6 +78,8 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                     form.setVisibility(View.GONE);
 
                     ZoneVisionAPI.get().search(query, LoadingActivity.this);
+
+                    ThisApplication.sendAnalytics(LoadingActivity.this, Utils.ACTION_SEARCH);
                 }
             }
         });
@@ -93,6 +92,8 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                 form.setVisibility(View.GONE);
 
                 ZoneVisionAPI.get().search(fragment.substring(1), LoadingActivity.this);
+
+                ThisApplication.sendAnalytics(LoadingActivity.this, Utils.ACTION_SEARCH_INTENT);
             }
         }
     }

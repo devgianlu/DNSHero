@@ -31,8 +31,7 @@ public class Domain implements Serializable {
         authoritative = new DNSRecords(obj.getJSONObject("authoritative"));
         resolver = new DNSRecords(obj.getJSONObject("resolver"));
         diagnostics = CommonUtils.toTList(obj.getJSONObject("diagnostics").getJSONArray("results"), Diagnostic.class, this);
-
-        System.out.println(obj); // TODO: errors missing
+        // TODO: errors field missing
     }
 
     public enum DiagnosticStatus {
