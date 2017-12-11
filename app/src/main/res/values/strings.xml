@@ -46,4 +46,9 @@
     <string name="aTtl"><![CDATA[<b>A TTL:</b> %ds]]></string>
     <string name="aaaaTtl"><![CDATA[<b>AAAA TTL:</b> %ds]]></string>
     <string name="noRecords">No records found</string>
+    <string name="help">Help</string>
+    <string name="passed">Passed</string>
+    <string name="failed">Failed</string>
+    <string name="info">Info</string>
+    <string name="skipped">Skipped</string>
 </resources>
