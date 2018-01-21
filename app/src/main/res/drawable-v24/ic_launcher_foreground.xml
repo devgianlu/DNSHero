@@ -8,13 +8,24 @@
         android:translateX="56.3295"
         android:translateY="57.32323">
         <path
+            android:fillType="evenOdd"
             android:pathData="M11,19L50.13,35.9L11,72.57L89.25,81.38L50.13,64.67L89.25,24.78L11,19Z"
             android:strokeColor="#00000000"
             android:strokeWidth="1">
             <aapt:attr name="android:fillColor">
-                <gradient android:type="linear">
-                    <item android:color="#FF5DD8EA" />
-                    <item android:color="#FFCCED69" />
+                <gradient
+
+                    android:endX="50.125"
+                    android:endY="81.37999725341797"
+                    android:startX="50.125"
+                    android:startY="19.0"
+                    android:type="linear">
+                    <item
+                        android:color="#FF5DD8EA"
+                        android:offset="0.0" />
+                    <item
+                        android:color="#FFCCED69"
+                        android:offset="1.0" />
                 </gradient>
             </aapt:attr>
         </path>

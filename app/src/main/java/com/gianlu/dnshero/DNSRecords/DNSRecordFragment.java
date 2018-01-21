@@ -86,7 +86,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
             try {
                 layout.loadListData(adapterClass.getConstructor(Context.class, Domain.DNSRecordsArrayList.class, Domain.DNSRecordsArrayList.class).newInstance(getContext(), authoritative, resolver));
             } catch (java.lang.InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
-                Logging.logMe(ex);
+                Logging.log(ex);
                 layout.showMessage(R.string.failedLoading, true);
                 return layout;
             }
