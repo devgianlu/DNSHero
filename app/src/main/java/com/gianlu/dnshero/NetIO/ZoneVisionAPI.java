@@ -8,31 +8,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.charset.Charset;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.HttpStatus;
-import cz.msebera.android.httpclient.StatusLine;
-import cz.msebera.android.httpclient.client.HttpClient;
-import cz.msebera.android.httpclient.client.methods.HttpGet;
-import cz.msebera.android.httpclient.impl.client.HttpClients;
-import cz.msebera.android.httpclient.util.EntityUtils;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class ZoneVisionAPI {
     private static final String BASE_URL = "http://api.zone.vision/";
     private static ZoneVisionAPI instance;
     private final ExecutorService executorService;
-    private final HttpClient client;
+    private final OkHttpClient client;
     private final Handler handler;
 
     private ZoneVisionAPI() {
         executorService = Executors.newSingleThreadExecutor();
-        client = HttpClients.createDefault();
+        client = new OkHttpClient();
         handler = new Handler(Looper.getMainLooper());
     }
 
@@ -45,16 +38,14 @@ public class ZoneVisionAPI {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                try {
-                    HttpResponse resp = client.execute(new HttpGet(new URI(BASE_URL + query.trim())));
+                try (final Response resp = client.newCall(new Request.Builder()
+                        .get().url(BASE_URL + query.trim()).build()).execute()) {
 
                     JSONObject json = null;
-                    HttpEntity entity = resp.getEntity();
-                    if (entity != null) json = new JSONObject(EntityUtils.toString(entity, Charset.forName("UTF-8")));
+                    ResponseBody body = resp.body();
+                    if (body != null) json = new JSONObject(body.string());
 
-                    final StatusLine sl = resp.getStatusLine();
-                    int code = sl.getStatusCode();
-                    if (json != null && code >= HttpStatus.SC_OK && code < HttpStatus.SC_MULTIPLE_CHOICES) {
+                    if (json != null && resp.code() >= 200 && resp.code() < 300) {
                         final Domain domain = new Domain(json);
 
                         handler.post(new Runnable() {
@@ -63,7 +54,7 @@ public class ZoneVisionAPI {
                                 if (listener != null) listener.onDone(domain);
                             }
                         });
-                    } else if (json != null && (code == HttpStatus.SC_BAD_REQUEST || code == HttpStatus.SC_INTERNAL_SERVER_ERROR)) {
+                    } else if (json != null && (resp.code() == 400 || resp.code() == 500)) {
                         String error = json.getString("error");
                         throw new ApiException(error);
                     } else {
@@ -71,11 +62,11 @@ public class ZoneVisionAPI {
                             @Override
                             public void run() {
                                 if (listener != null)
-                                    listener.onException(new StatusCodeException(sl));
+                                    listener.onException(new StatusCodeException(resp));
                             }
                         });
                     }
-                } catch (IOException | JSONException | URISyntaxException ex) {
+                } catch (IOException | JSONException ex) {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -103,8 +94,8 @@ public class ZoneVisionAPI {
     }
 
     public static class StatusCodeException extends Exception {
-        StatusCodeException(StatusLine sl) {
-            super(sl.getStatusCode() + ": " + sl.getReasonPhrase());
+        StatusCodeException(Response resp) {
+            super(resp.code() + ": " + resp.message());
         }
     }
 

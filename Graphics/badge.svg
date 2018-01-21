@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg height="100px" version="1.1" viewBox="0 0 100 100" width="100px"
+    xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#5DD8EA" offset="0%"></stop>
-            <stop stop-color="#CCED69" offset="100%"></stop>
+        <linearGradient id="linearGradient-1" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#5DD8EA" />
+            <stop offset="100%" stop-color="#CCED69" />
         </linearGradient>
     </defs>
-    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-9-Copy" fill="url(#linearGradient-1)">
-            <path d="M11,19 L50.125,35.8954923 L11,72.5725915 L89.25,81.3848797 L50.125,64.6704509 L89.25,24.779888 L11,19 Z" id="z"></path>
+    <g fill="none" fill-rule="evenodd" id="Page-2" stroke="none" stroke-width="1">
+        <g fill="url(#linearGradient-1)" id="Artboard-9-Copy">
+            <path
+                d="M11,19 L50.125,35.8954923 L11,72.5725915 L89.25,81.3848797 L50.125,64.6704509 L89.25,24.779888 L11,19 Z"
+                id="z" />
         </g>
     </g>
 </svg>
