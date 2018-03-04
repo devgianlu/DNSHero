@@ -1,6 +1,7 @@
 package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,19 +26,20 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
     private final Context context;
     private final List<Domain.NS> authoritative;
 
-    public NSAdapter(Context context, List<Domain.NS> authoritative) {
+    NSAdapter(Context context, List<Domain.NS> authoritative) {
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.authoritative = authoritative;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(parent);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Domain.NS authoritative = this.authoritative.get(position);
 
         holder.source.setText(authoritative.source);

@@ -2,6 +2,7 @@ package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
     private final List<E> relevantResolver;
     private final int dp8;
 
-    public DNSRecordsAdapter(Context context, Domain.DNSRecordsArrayList<E> authoritative, Domain.DNSRecordsArrayList<E> resolver) {
+    DNSRecordsAdapter(Context context, Domain.DNSRecordsArrayList<E> authoritative, Domain.DNSRecordsArrayList<E> resolver) {
         this.context = context;
         this.relevantAuthoritative = authoritative.createRelevantDataList();
         this.authoritative = authoritative;
@@ -40,7 +41,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
     }
 
     @Override
-    public final void onBindViewHolder(final VH holder, int position) {
+    public final void onBindViewHolder(@NonNull final VH holder, int position) {
         E authoritative = relevantAuthoritative.get(position);
         E resolver = relevantResolver.get(position);
 
@@ -93,13 +94,13 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
 
     public abstract class ViewHolder extends RecyclerView.ViewHolder {
         public final SuperTextView name;
-        public final SuperTextView ttl;
-        public final ImageButton toggle;
-        public final LinearLayout details;
-        public final LinearLayout sources;
-        protected final FrameLayout header;
+        final SuperTextView ttl;
+        final ImageButton toggle;
+        final LinearLayout details;
+        final LinearLayout sources;
+        final FrameLayout header;
 
-        public ViewHolder(ViewGroup parent, @LayoutRes int headerRes) {
+        ViewHolder(ViewGroup parent, @LayoutRes int headerRes) {
             super(inflater.inflate(R.layout.item_dns_record, parent, false));
 
             name = itemView.findViewById(R.id.dnsRecordItem_name);

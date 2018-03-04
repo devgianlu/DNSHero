@@ -1,6 +1,7 @@
 package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -20,7 +21,8 @@ public class CNAMEAdapter extends DNSRecordsAdapter<DNSRecord.CNAMEEntry, CNAMEA
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(parent);
     }
 
