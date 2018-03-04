@@ -1,6 +1,7 @@
 package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -31,12 +32,13 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(parent);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Domain.Diagnostic diagnostic = diagnostics.get(position);
 
         int color;
@@ -90,12 +92,7 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
         holder.toggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtils.animateCollapsingArrowBellows(holder.toggle, CommonUtils.isExpanded(holder.recommendation));
-
-                if (CommonUtils.isExpanded(holder.recommendation))
-                    CommonUtils.collapse(holder.recommendation);
-                else
-                    CommonUtils.expand(holder.recommendation);
+                CommonUtils.handleCollapseClick(holder.toggle, holder.recommendation);
             }
         });
 
