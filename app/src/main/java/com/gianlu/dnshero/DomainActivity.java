@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.gianlu.commonutils.Dialogs.ActivityWithDialog;
 import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
 import com.gianlu.dnshero.Domain.DiagnosticFragment;
 import com.gianlu.dnshero.Domain.NameserversFragment;
@@ -17,7 +17,7 @@ import com.gianlu.dnshero.Domain.PagerAdapter;
 import com.gianlu.dnshero.Domain.RootNameserverFragment;
 import com.gianlu.dnshero.NetIO.Domain;
 
-public class DomainActivity extends AppCompatActivity {
+public class DomainActivity extends ActivityWithDialog {
 
     public static void startActivity(Context context, Domain domain) {
         context.startActivity(new Intent(context, DomainActivity.class)
