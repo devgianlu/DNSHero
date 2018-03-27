@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gianlu.commonutils.CommonUtils;
+import com.gianlu.commonutils.Dialogs.DialogUtils;
 import com.gianlu.commonutils.RecyclerViewLayout;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
@@ -45,7 +45,7 @@ public class DiagnosticFragment extends Fragment {
                 .setView(R.layout.dialog_diagnostic_help)
                 .setPositiveButton(android.R.string.ok, null);
 
-        CommonUtils.showDialog(getActivity(), builder);
+        DialogUtils.showDialog(getActivity(), builder);
     }
 
     @Override
