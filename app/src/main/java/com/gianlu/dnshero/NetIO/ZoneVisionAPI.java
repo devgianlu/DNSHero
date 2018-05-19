@@ -3,6 +3,7 @@ package com.gianlu.dnshero.NetIO;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.annotation.UiThread;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +35,7 @@ public class ZoneVisionAPI {
         return instance;
     }
 
-    public void search(@NonNull final String query, final ISearch listener) {
+    public void search(@NonNull final String query, final OnSearch listener) {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
@@ -85,12 +86,15 @@ public class ZoneVisionAPI {
         });
     }
 
-    public interface ISearch {
-        void onDone(Domain domain);
+    public interface OnSearch {
+        @UiThread
+        void onDone(@NonNull Domain domain);
 
-        void onException(Exception ex);
+        @UiThread
+        void onException(@NonNull Exception ex);
 
-        void onApiException(ApiException ex);
+        @UiThread
+        void onApiException(@NonNull ApiException ex);
     }
 
     public static class StatusCodeException extends Exception {

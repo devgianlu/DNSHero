@@ -2,30 +2,29 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
-    android:viewportHeight="214.64647"
-    android:viewportWidth="214.64647">
+    android:viewportHeight="198.1352"
+    android:viewportWidth="198.1352">
     <group
-        android:translateX="56.3295"
-        android:translateY="57.32323">
+        android:translateX="48.150307"
+        android:translateY="49.0676">
         <path
             android:fillType="evenOdd"
-            android:pathData="M11,19L50.13,35.9L11,72.57L89.25,81.38L50.13,64.67L89.25,24.78L11,19Z"
+            android:pathData="M11,19L50.125,35.895L11,72.573L89.25,81.385L50.125,64.67L89.25,24.78L11,19Z"
             android:strokeColor="#00000000"
             android:strokeWidth="1">
             <aapt:attr name="android:fillColor">
                 <gradient
-
                     android:endX="50.125"
-                    android:endY="81.37999725341797"
+                    android:endY="81.385"
                     android:startX="50.125"
-                    android:startY="19.0"
+                    android:startY="19"
                     android:type="linear">
                     <item
                         android:color="#FF5DD8EA"
-                        android:offset="0.0" />
+                        android:offset="0" />
                     <item
                         android:color="#FFCCED69"
-                        android:offset="1.0" />
+                        android:offset="1" />
                 </gradient>
             </aapt:attr>
         </path>
