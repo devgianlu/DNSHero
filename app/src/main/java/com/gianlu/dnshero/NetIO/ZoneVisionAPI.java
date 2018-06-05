@@ -30,6 +30,7 @@ public class ZoneVisionAPI {
         handler = new Handler(Looper.getMainLooper());
     }
 
+    @NonNull
     public static ZoneVisionAPI get() {
         if (instance == null) instance = new ZoneVisionAPI();
         return instance;
