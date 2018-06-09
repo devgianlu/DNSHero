@@ -69,7 +69,7 @@ public class DiagnosticFragment extends Fragment {
         Bundle args = getArguments();
         ArrayList<Domain.Diagnostic> diagnostics;
         if (args == null || (diagnostics = (ArrayList<Domain.Diagnostic>) args.getSerializable("diagnostics")) == null) {
-            layout.showMessage(R.string.failedLoading, true);
+            layout.showError(R.string.failedLoading);
             return layout;
         }
 

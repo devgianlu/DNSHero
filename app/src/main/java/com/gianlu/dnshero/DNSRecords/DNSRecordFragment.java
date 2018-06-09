@@ -76,7 +76,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
                 || (authoritative = (Domain.DNSRecordsArrayList<E>) args.getSerializable("authoritative")) == null
                 || (resolver = (Domain.DNSRecordsArrayList<E>) args.getSerializable("resolver")) == null) {
 
-            layout.showMessage(R.string.failedLoading, true);
+            layout.showError(R.string.failedLoading);
             return layout;
         }
 
@@ -87,11 +87,11 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
                 layout.loadListData(adapterClass.getConstructor(Context.class, Domain.DNSRecordsArrayList.class, Domain.DNSRecordsArrayList.class).newInstance(getContext(), authoritative, resolver));
             } catch (java.lang.InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
                 Logging.log(ex);
-                layout.showMessage(R.string.failedLoading, true);
+                layout.showError(R.string.failedLoading);
                 return layout;
             }
         } else {
-            layout.showMessage(R.string.noRecords, false);
+            layout.showInfo(R.string.noRecords);
         }
 
         return layout;
