@@ -37,7 +37,7 @@ public class NameserversFragment extends Fragment {
         Bundle args = getArguments();
         ArrayList<Domain.NS> authoritative;
         if (getContext() == null || args == null || (authoritative = (ArrayList<Domain.NS>) args.getSerializable("authoritative")) == null) {
-            layout.showMessage(R.string.failedLoading, true);
+            layout.showError(R.string.failedLoading);
             return layout;
         }
 

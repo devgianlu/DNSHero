@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Start activity -->
         <activity
             android:name=".LoadingActivity"
             android:theme="@style/FullscreenTheme">
@@ -33,10 +34,17 @@
             </intent-filter>
         </activity>
 
+        <!-- Domain (all info) activity -->
         <activity
             android:name=".DomainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!-- Logs activity -->
+        <activity
+            android:name="com.gianlu.commonutils.LogsActivity"
+            android:parentActivityName=".PreferencesActivity" />
+
+        <!-- Preferences activity -->
         <activity
             android:name="com.gianlu.commonutils.LogsActivity"
             android:parentActivityName=".PreferencesActivity" />
@@ -44,5 +52,16 @@
         <activity
             android:name=".PreferencesActivity"
             android:parentActivityName=".DomainActivity" />
+
+        <!-- Logs provider -->
+        <provider
+            android:name="com.gianlu.commonutils.LogsProvider"
+            android:authorities="com.gianlu.dnshero.logs"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/logs_paths" />
+        </provider>
     </application>
 </manifest>

@@ -2,6 +2,7 @@ package com.gianlu.dnshero;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import com.gianlu.commonutils.Toaster;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
 
-public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.ISearch {
+public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.OnSearch {
     private TextInputLayout domain;
     private ProgressBar loading;
     private LinearLayout form;
@@ -99,17 +100,17 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
     }
 
     @Override
-    public void onDone(Domain domain) {
+    public void onDone(@NonNull Domain domain) {
         DomainActivity.startActivity(this, domain);
     }
 
     @Override
-    public void onException(Exception ex) {
-        Toaster.show(this, Utils.Messages.FAILED_SEARCH, ex);
+    public void onException(@NonNull Exception ex) {
+        Toaster.with(this).message(R.string.searchFailed).ex(ex).show();
     }
 
     @Override
-    public void onApiException(ZoneVisionAPI.ApiException ex) {
+    public void onApiException(@NonNull ZoneVisionAPI.ApiException ex) {
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);
         domain.setError(ex.getMessage());
