@@ -1,6 +1,7 @@
 package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -48,34 +49,23 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
             case PASSED:
                 color = ContextCompat.getColor(context, R.color.passed);
                 textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
-                holder.toggle.setImageResource(R.drawable.ic_keyboard_arrow_down_white_48dp);
-                holder.toggle.setAlpha(1f);
                 break;
             case FAILED:
                 color = ContextCompat.getColor(context, R.color.failed);
                 textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
-                holder.toggle.setImageResource(R.drawable.ic_keyboard_arrow_down_white_48dp);
-                holder.toggle.setAlpha(1f);
-                holder.recommendationImage.setImageResource(R.drawable.ic_error_white_48dp);
-                holder.recommendationImage.setAlpha(1f);
+                holder.recommendationImage.setImageResource(R.drawable.baseline_error_outline_24);
                 break;
             default:
             case SKIPPED:
                 color = ContextCompat.getColor(context, R.color.white);
                 textColor = ContextCompat.getColor(context, android.R.color.primary_text_light);
                 textSecondaryColor = ContextCompat.getColor(context, android.R.color.secondary_text_light);
-                holder.toggle.setImageResource(R.drawable.ic_keyboard_arrow_down_black_48dp);
-                holder.toggle.setAlpha(.54f);
-                holder.recommendationImage.setImageResource(R.drawable.ic_info_black_48dp);
-                holder.recommendationImage.setAlpha(.54f);
+                holder.recommendationImage.setImageResource(R.drawable.outline_info_24);
                 break;
             case INFO:
                 color = ContextCompat.getColor(context, R.color.info);
                 textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
-                holder.toggle.setImageResource(R.drawable.ic_keyboard_arrow_down_white_48dp);
-                holder.toggle.setAlpha(1f);
-                holder.recommendationImage.setImageResource(R.drawable.ic_info_white_48dp);
-                holder.recommendationImage.setAlpha(1f);
+                holder.recommendationImage.setImageResource(R.drawable.outline_info_24);
                 break;
         }
 
@@ -85,9 +75,11 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
         holder.description.setTextColor(textSecondaryColor);
         holder.description.setText(diagnostic.description);
 
+        holder.recommendationImage.setImageTintList(ColorStateList.valueOf(textSecondaryColor));
         holder.recommendationText.setTextColor(textSecondaryColor);
         holder.recommendationText.setText(diagnostic.recommendation);
 
+        holder.toggle.setImageTintList(ColorStateList.valueOf(textSecondaryColor));
         holder.toggle.setVisibility(diagnostic.recommendation != null ? View.VISIBLE : View.GONE);
         holder.toggle.setOnClickListener(new View.OnClickListener() {
             @Override
