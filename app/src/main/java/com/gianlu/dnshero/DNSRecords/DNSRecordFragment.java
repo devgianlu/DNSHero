@@ -64,7 +64,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
     @Override
     @SuppressWarnings("unchecked")
     public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        RecyclerViewLayout layout = new RecyclerViewLayout(inflater);
+        RecyclerViewLayout layout = new RecyclerViewLayout(requireContext());
         layout.disableSwipeRefresh();
 
         Bundle args = getArguments();
