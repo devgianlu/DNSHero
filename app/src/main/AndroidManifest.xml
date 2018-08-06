@@ -46,10 +46,6 @@
 
         <!-- Preferences activity -->
         <activity
-            android:name="com.gianlu.commonutils.LogsActivity"
-            android:parentActivityName=".PreferencesActivity" />
-
-        <activity
             android:name=".PreferencesActivity"
             android:parentActivityName=".DomainActivity" />
 
