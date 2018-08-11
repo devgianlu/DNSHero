@@ -84,7 +84,7 @@ public class DomainActivity extends ActivityWithDialog {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.domain_preferences:
-                startActivity(new Intent(this, PreferencesActivity.class));
+                startActivity(new Intent(this, PreferenceActivity.class));
                 return true;
             case android.R.id.home:
                 onBackPressed();

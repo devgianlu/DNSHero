@@ -1,2 +1,3 @@
-include ':app', ':CommonUtils'
+include ':app', ':CommonUtils', ':MaterialPreferences'
 project(':CommonUtils').projectDir = new File(settingsDir, '../CommonUtils/utils')
+project(':MaterialPreferences').projectDir = new File(settingsDir, '../MaterialPreferences/library')
