@@ -1,7 +1,6 @@
 package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -42,44 +41,32 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Domain.Diagnostic diagnostic = diagnostics.get(position);
 
-        int color;
         int textColor;
-        int textSecondaryColor;
         switch (diagnostic.status) {
             case PASSED:
-                color = ContextCompat.getColor(context, R.color.passed);
-                textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
+                textColor = ContextCompat.getColor(context, R.color.passed);
                 break;
             case FAILED:
-                color = ContextCompat.getColor(context, R.color.failed);
-                textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
+                textColor = ContextCompat.getColor(context, R.color.failed);
                 holder.recommendationImage.setImageResource(R.drawable.baseline_error_outline_24);
                 break;
             default:
             case SKIPPED:
-                color = ContextCompat.getColor(context, R.color.white);
-                textColor = ContextCompat.getColor(context, android.R.color.primary_text_light);
-                textSecondaryColor = ContextCompat.getColor(context, android.R.color.secondary_text_light);
+                textColor = ContextCompat.getColor(context, R.color.white);
                 holder.recommendationImage.setImageResource(R.drawable.outline_info_24);
                 break;
             case INFO:
-                color = ContextCompat.getColor(context, R.color.info);
-                textColor = textSecondaryColor = ContextCompat.getColor(context, android.R.color.primary_text_dark);
+                textColor = ContextCompat.getColor(context, R.color.info);
                 holder.recommendationImage.setImageResource(R.drawable.outline_info_24);
                 break;
         }
 
-        holder.card.setCardBackgroundColor(color);
         holder.title.setTextColor(textColor);
-        holder.title.setText(diagnostic.name);
-        holder.description.setTextColor(textSecondaryColor);
-        holder.description.setText(diagnostic.description);
 
-        holder.recommendationImage.setImageTintList(ColorStateList.valueOf(textSecondaryColor));
-        holder.recommendationText.setTextColor(textSecondaryColor);
+        holder.title.setText(diagnostic.name);
+        holder.description.setText(diagnostic.description);
         holder.recommendationText.setText(diagnostic.recommendation);
 
-        holder.toggle.setImageTintList(ColorStateList.valueOf(textSecondaryColor));
         holder.toggle.setVisibility(diagnostic.recommendation != null ? View.VISIBLE : View.GONE);
         holder.toggle.setOnClickListener(new View.OnClickListener() {
             @Override

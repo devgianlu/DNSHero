@@ -39,15 +39,8 @@
             android:name=".DomainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <!-- Logs activity -->
-        <activity
-            android:name="com.gianlu.commonutils.LogsActivity"
-            android:parentActivityName=".PreferencesActivity" />
-
         <!-- Preferences activity -->
-        <activity
-            android:name=".PreferencesActivity"
-            android:parentActivityName=".DomainActivity" />
+        <activity android:name=".PreferenceActivity" />
 
         <!-- Logs provider -->
         <provider
