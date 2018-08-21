@@ -25,7 +25,6 @@ android {
     productFlavors {
         foss {
             dimension 'main'
-            versionNameSuffix '-foss'
         }
 
         standard {
