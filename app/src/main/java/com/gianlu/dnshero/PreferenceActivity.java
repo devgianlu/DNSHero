@@ -31,4 +31,9 @@ public class PreferenceActivity extends BasePreferenceActivity {
     protected String getOpenSourceUrl() {
         return "https://github.com/devgianlu/DNSHero";
     }
+
+    @Override
+    protected boolean disablePayPalOnGooglePlay() {
+        return false;
+    }
 }
