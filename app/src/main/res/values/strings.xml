@@ -51,4 +51,5 @@
     <string name="failed">Failed</string>
     <string name="info">Info</string>
     <string name="skipped">Skipped</string>
+    <string name="favorite">Favorite</string>
 </resources>

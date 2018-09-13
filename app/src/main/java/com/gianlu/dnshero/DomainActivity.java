@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.gianlu.commonutils.Dialogs.ActivityWithDialog;
+import com.gianlu.commonutils.Preferences.Prefs;
 import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
 import com.gianlu.dnshero.Domain.DiagnosticFragment;
 import com.gianlu.dnshero.Domain.NameserversFragment;
@@ -28,6 +29,17 @@ public class DomainActivity extends ActivityWithDialog {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.domain, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem favorite = menu.findItem(R.id.domain_favorite);
+
+        Domain domain = (Domain) getIntent().getSerializableExtra("domain");
+        if (domain != null)
+            favorite.setIcon(Prefs.setContains(PK.FAVORITES, domain.name) ? R.drawable.baseline_favorite_24 : R.drawable.baseline_favorite_border_24);
+
         return true;
     }
 
@@ -89,6 +101,19 @@ public class DomainActivity extends ActivityWithDialog {
             case android.R.id.home:
                 onBackPressed();
                 return true;
+            case R.id.domain_favorite:
+                Domain domain = (Domain) getIntent().getSerializableExtra("domain");
+                if (domain != null) {
+                    if (Prefs.setContains(PK.FAVORITES, domain.name))
+                        Prefs.removeFromSet(PK.FAVORITES, domain.name);
+                    else
+                        Prefs.addToSet(PK.FAVORITES, domain.name);
+
+                    invalidateOptionsMenu();
+                    return true;
+                } else {
+                    return false;
+                }
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,20 +1,25 @@
 package com.gianlu.dnshero;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.gianlu.commonutils.Toaster;
+import com.gianlu.dnshero.Favorites.FavoritesAdapter;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
 
@@ -38,6 +43,18 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        Button preferences = findViewById(R.id.loading_preferences);
+        preferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoadingActivity.this, PreferenceActivity.class));
+            }
+        });
+
+        RecyclerView favorites = findViewById(R.id.loading_favorites);
+        favorites.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        favorites.setAdapter(new FavoritesAdapter(this));
+
         final ImageButton search = findViewById(R.id.loading_search);
         form = findViewById(R.id.loading_form);
         loading = findViewById(R.id.loading_loading);
@@ -55,12 +72,10 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
         domain.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
@@ -92,9 +107,9 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                 loading.setVisibility(View.VISIBLE);
                 form.setVisibility(View.GONE);
 
-                ZoneVisionAPI.get().search(fragment.substring(1), LoadingActivity.this);
+                ZoneVisionAPI.get().search(fragment.substring(1), this);
 
-                ThisApplication.sendAnalytics(LoadingActivity.this, Utils.ACTION_SEARCH_INTENT);
+                ThisApplication.sendAnalytics(this, Utils.ACTION_SEARCH_INTENT);
             }
         }
     }

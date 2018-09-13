@@ -5,10 +5,21 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/loading_preferences"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="24dp"
+        android:gravity="end|top"
+        android:text="@string/preferences"
+        android:textColor="@color/white" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4" />
+        android:layout_weight="0.3" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,6 +80,13 @@
                 android:tint="@color/bright_foreground_dark" />
         </LinearLayout>
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/loading_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp" />
 
     <View
         android:layout_width="match_parent"
