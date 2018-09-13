@@ -13,6 +13,7 @@ import com.gianlu.dnshero.PK;
 import com.gianlu.dnshero.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
     public FavoritesAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
         this.favorites = new ArrayList<>(Prefs.getSet(PK.FAVORITES, new HashSet<String>()));
+
+        Collections.sort(favorites);
     }
 
     @NonNull
@@ -49,7 +52,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
             super(inflater.inflate(R.layout.item_favorite, parent, false));
             domain = (TextView) itemView;
 
-            FontsManager.set(domain, FontsManager.ROBOTO_MEDIUM);
+            FontsManager.set(domain, FontsManager.ROBOTO_LIGHT);
         }
     }
 }

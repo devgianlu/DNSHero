@@ -122,6 +122,10 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
     @Override
     public void onException(@NonNull Exception ex) {
         Toaster.with(this).message(R.string.searchFailed).ex(ex).show();
+
+        loading.setVisibility(View.GONE);
+        form.setVisibility(View.VISIBLE);
+        domain.setError(ex.getMessage());
     }
 
     @Override
