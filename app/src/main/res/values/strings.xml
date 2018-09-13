@@ -42,7 +42,7 @@
     <string name="aaaaRecord"><![CDATA[<b>AAAA record:</b>]]> %s</string>
     <string name="aaaaSource">AAAA source</string>
     <string name="aSource">A source</string>
-    <string name="absentLowercase">absent</string>
+    <string name="absentLowercase"><![CDATA[<i>absent</i>]]></string>
     <string name="aTtl"><![CDATA[<b>A TTL:</b> %ds]]></string>
     <string name="aaaaTtl"><![CDATA[<b>AAAA TTL:</b> %ds]]></string>
     <string name="noRecords">No records found</string>
