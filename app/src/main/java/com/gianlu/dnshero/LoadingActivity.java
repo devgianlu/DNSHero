@@ -18,17 +18,24 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.Toaster;
 import com.gianlu.dnshero.Favorites.FavoritesAdapter;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
 
-public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.OnSearch {
+public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.OnSearch, FavoritesAdapter.Listener {
     private TextInputLayout domain;
     private ProgressBar loading;
     private LinearLayout form;
+    private RecyclerView favorites;
 
-    @SuppressWarnings("ConstantConditions")
+    @Override
+    protected void onResume() {
+        super.onResume();
+        favorites.setAdapter(new FavoritesAdapter(this, this));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,15 +58,15 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
             }
         });
 
-        RecyclerView favorites = findViewById(R.id.loading_favorites);
+        favorites = findViewById(R.id.loading_favorites);
         favorites.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        favorites.setAdapter(new FavoritesAdapter(this));
+        favorites.setAdapter(new FavoritesAdapter(this, this));
 
         final ImageButton search = findViewById(R.id.loading_search);
         form = findViewById(R.id.loading_form);
         loading = findViewById(R.id.loading_loading);
         domain = findViewById(R.id.loading_domain);
-        domain.getEditText().setOnKeyListener(new View.OnKeyListener() {
+        CommonUtils.getEditText(domain).setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     search.performClick();
@@ -69,7 +76,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
                 return false;
             }
         });
-        domain.getEditText().addTextChangedListener(new TextWatcher() {
+        CommonUtils.getEditText(domain).addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -88,10 +95,11 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
             @Override
             @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {
-                String query = domain.getEditText().getText().toString();
+                String query = CommonUtils.getText(domain);
                 if (!query.isEmpty()) {
                     loading.setVisibility(View.VISIBLE);
                     form.setVisibility(View.GONE);
+                    favorites.setVisibility(View.GONE);
 
                     ZoneVisionAPI.get().search(query, LoadingActivity.this);
 
@@ -106,6 +114,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
             if (fragment != null) {
                 loading.setVisibility(View.VISIBLE);
                 form.setVisibility(View.GONE);
+                favorites.setVisibility(View.GONE);
 
                 ZoneVisionAPI.get().search(fragment.substring(1), this);
 
@@ -126,6 +135,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);
         domain.setError(ex.getMessage());
+        favorites.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -133,5 +143,15 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);
         domain.setError(ex.getMessage());
+        favorites.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onDomainSelected(@NonNull String domain) {
+        loading.setVisibility(View.VISIBLE);
+        form.setVisibility(View.GONE);
+        favorites.setVisibility(View.GONE);
+
+        ZoneVisionAPI.get().search(domain, this);
     }
 }

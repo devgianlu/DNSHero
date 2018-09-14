@@ -52,4 +52,10 @@
     <string name="info">Info</string>
     <string name="skipped">Skipped</string>
     <string name="favorite">Favorite</string>
+    <string name="favorites">Favorites</string>
+    <string name="clearFavorites">Clear favorites</string>
+    <string name="clearFavorites_summary">Remove all favorite domains.</string>
+    <string name="removeFavorite">Remove favorite(s)</string>
+    <string name="removeFavorite_summary">Remove some favorite domains.</string>
+    <string name="remove">Remove</string>
 </resources>

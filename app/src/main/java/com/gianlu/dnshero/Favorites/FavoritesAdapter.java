@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -19,10 +20,12 @@ import java.util.List;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
     private final LayoutInflater inflater;
+    private final Listener listener;
     private final List<String> favorites;
 
-    public FavoritesAdapter(Context context) {
+    public FavoritesAdapter(Context context, Listener listener) {
         this.inflater = LayoutInflater.from(context);
+        this.listener = listener;
         this.favorites = new ArrayList<>(Prefs.getSet(PK.FAVORITES, new HashSet<String>()));
 
         Collections.sort(favorites);
@@ -36,13 +39,24 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String domain = favorites.get(position);
+        final String domain = favorites.get(position);
         holder.domain.setText(domain);
+
+        holder.domain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) listener.onDomainSelected(domain);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return favorites.size();
+    }
+
+    public interface Listener {
+        void onDomainSelected(@NonNull String domain);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
