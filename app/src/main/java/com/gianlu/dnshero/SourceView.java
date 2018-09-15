@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gianlu.commonutils.FontsManager;
 import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.NetIO.DNSRecord;
 
@@ -36,7 +37,7 @@ public class SourceView extends LinearLayout {
         source = findViewById(R.id.sourceView_source);
         rtt = findViewById(R.id.sourceView_rtt);
         badge = findViewById(R.id.sourceView_badge);
-        badge.setTypeface("fonts/Roboto-Black.ttf");
+        badge.setTypeface(FontsManager.ROBOTO_BLACK);
     }
 
     public void setSource(DNSRecord<?> dns, boolean authoritative) {

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.gianlu.commonutils.CommonUtils;
+import com.gianlu.commonutils.FontsManager;
 import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.GlueView;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -42,7 +43,7 @@ public class RootNameserverFragment extends Fragment {
             return null;
 
         SuperTextView name = layout.findViewById(R.id.rootNsFragment_name);
-        name.setTypeface("fonts/Roboto-Medium.ttf");
+        name.setTypeface(FontsManager.ROBOTO_MEDIUM);
         name.setText(root.name);
 
         SuperTextView rtt = layout.findViewById(R.id.rootNsFragment_rtt);
