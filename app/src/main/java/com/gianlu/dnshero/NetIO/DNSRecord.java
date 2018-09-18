@@ -1,8 +1,12 @@
 package com.gianlu.dnshero.NetIO;
 
+import android.os.Build;
+import android.support.annotation.Keep;
+
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.Utils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,11 +20,17 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
 
     public DNSRecord(JSONObject obj, Class<E> entryClass) throws JSONException {
         source = obj.getString("source");
-        records = CommonUtils.toTList(obj.getJSONArray("records"), entryClass, this);
         rtt = Utils.parseMs(obj.getString("rtt"));
+
+        try {
+            records = Entry.list(obj.getJSONArray("records"), entryClass);
+        } catch (ReflectiveOperationException ex) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) throw new JSONException(ex);
+            else throw new JSONException(ex.getMessage());
+        }
     }
 
-    public abstract class Entry implements Serializable {
+    public static abstract class Entry implements Serializable {
         public final String name;
         public final int ttl;
 
@@ -29,10 +39,17 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
             ttl = obj.getInt("ttl");
         }
 
+        static <E extends Entry> ArrayList<E> list(JSONArray array, Class<E> clazz) throws JSONException, ReflectiveOperationException {
+            ArrayList<E> list = new ArrayList<>(array.length());
+            for (int i = 0; i < array.length(); i++)
+                list.add(clazz.getConstructor(JSONObject.class).newInstance(array.getJSONObject(i)));
+            return list;
+        }
+
         public abstract boolean equals(Object obj);
     }
 
-    public class SOAEntry extends Entry implements Serializable {
+    public static class SOAEntry extends Entry implements Serializable {
         public final String mname;
         public final String rname;
         public final int serial;
@@ -41,6 +58,7 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         public final int expire;
         public final int minimum_ttl;
 
+        @Keep
         public SOAEntry(JSONObject obj) throws JSONException {
             super(obj);
 
@@ -73,9 +91,10 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
     }
 
-    public class AEntry extends Entry implements Serializable {
+    public static class AEntry extends Entry implements Serializable {
         public final String address;
 
+        @Keep
         public AEntry(JSONObject obj) throws JSONException {
             super(obj);
             address = obj.getString("address");
@@ -91,9 +110,10 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
     }
 
-    public class CNAMEEntry extends Entry implements Serializable {
+    public static class CNAMEEntry extends Entry implements Serializable {
         public final String target;
 
+        @Keep
         public CNAMEEntry(JSONObject obj) throws JSONException {
             super(obj);
 
@@ -110,9 +130,10 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
     }
 
-    public class TXTEntry extends Entry implements Serializable {
+    public static class TXTEntry extends Entry implements Serializable {
         public final ArrayList<String> text;
 
+        @Keep
         public TXTEntry(JSONObject obj) throws JSONException {
             super(obj);
 
@@ -129,10 +150,11 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
     }
 
-    public class MXEntry extends Entry implements Serializable {
+    public static class MXEntry extends Entry implements Serializable {
         public final int preference;
         public final String exchange;
 
+        @Keep
         public MXEntry(JSONObject obj) throws JSONException {
             super(obj);
 
