@@ -103,7 +103,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
 
                     ZoneVisionAPI.get().search(query, LoadingActivity.this);
 
-                    ThisApplication.sendAnalytics(LoadingActivity.this, Utils.ACTION_SEARCH);
+                    ThisApplication.sendAnalytics(Utils.ACTION_SEARCH);
                 }
             }
         });
@@ -118,7 +118,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
 
                 ZoneVisionAPI.get().search(fragment.substring(1), this);
 
-                ThisApplication.sendAnalytics(this, Utils.ACTION_SEARCH_INTENT);
+                ThisApplication.sendAnalytics(Utils.ACTION_SEARCH_INTENT);
             }
         }
     }
