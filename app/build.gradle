@@ -10,8 +10,8 @@ android {
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 15
-        versionName "1.2.5"
+        versionCode 16
+        versionName "1.3.0"
     }
 
     buildTypes {
