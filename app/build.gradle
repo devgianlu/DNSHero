@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-if (getGradle().getStartParameter().getTaskRequests().toString().contains("standard")) {
-    apply plugin: 'io.fabric'
-}
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 28
@@ -27,7 +25,6 @@ android {
         foss {
             dimension 'main'
         }
-
         standard {
             dimension 'main'
         }
@@ -35,16 +32,8 @@ android {
 }
 
 dependencies {
-    standardApi(project(':CommonUtils')) {
-        exclude group: 'com.getkeepsafe.taptargetview'
-    }
-
-    fossApi(project(':CommonUtils')) {
-        exclude group: 'com.android.billingclient'
-        exclude group: 'com.google.firebase'
-        exclude group: 'com.crashlytics.sdk.android'
-        exclude group: 'com.getkeepsafe.taptargetview'
-    }
-
     api 'com.squareup.okhttp3:okhttp:3.11.0'
+    api(project(':CommonUtils')) {
+        exclude group: 'com.getkeepsafe.taptargetview'
+    }
 }
