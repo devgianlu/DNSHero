@@ -2,10 +2,6 @@ package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +17,11 @@ import com.gianlu.dnshero.GlueView;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.Utils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 public class RootNameserverFragment extends Fragment {
     public static RootNameserverFragment getInstance(Context context, Domain domain) {

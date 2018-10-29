@@ -1,7 +1,6 @@
 package com.gianlu.dnshero.NetIO;
 
 import android.os.Build;
-import android.support.annotation.Keep;
 
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.Utils;
@@ -12,6 +11,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import androidx.annotation.Keep;
 
 public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
     public final String source;

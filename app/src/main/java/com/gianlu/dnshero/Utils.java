@@ -1,8 +1,8 @@
 package com.gianlu.dnshero;
 
-import android.support.annotation.NonNull;
-
 import java.text.DecimalFormat;
+
+import androidx.annotation.NonNull;
 
 public final class Utils {
     public static final String ACTION_SEARCH = "search_domain";

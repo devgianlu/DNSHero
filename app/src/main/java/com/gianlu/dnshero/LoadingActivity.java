@@ -3,12 +3,6 @@ package com.gianlu.dnshero;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -23,6 +17,13 @@ import com.gianlu.commonutils.Toaster;
 import com.gianlu.dnshero.Favorites.FavoritesAdapter;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
+import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.OnSearch, FavoritesAdapter.Listener {
     private TextInputLayout domain;
@@ -59,7 +60,7 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
         });
 
         favorites = findViewById(R.id.loading_favorites);
-        favorites.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        favorites.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         favorites.setAdapter(new FavoritesAdapter(this, this));
 
         final ImageButton search = findViewById(R.id.loading_search);

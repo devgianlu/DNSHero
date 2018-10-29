@@ -1,13 +1,14 @@
 package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
+
+import androidx.annotation.NonNull;
 
 public class TXTAdapter extends DNSRecordsAdapter<DNSRecord.TXTEntry, TXTAdapter.ViewHolder> {
 
@@ -17,7 +18,7 @@ public class TXTAdapter extends DNSRecordsAdapter<DNSRecord.TXTEntry, TXTAdapter
 
     @Override
     protected void onBindViewHolder(ViewHolder holder, int position, DNSRecord.TXTEntry authoritative, DNSRecord.TXTEntry resolver) {
-        holder.text.setText((String) authoritative.text.get(0));
+        holder.text.setText(authoritative.text.get(0));
     }
 
     @Override

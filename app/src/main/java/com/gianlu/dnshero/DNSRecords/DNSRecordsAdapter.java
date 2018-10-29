@@ -1,9 +1,6 @@
 package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +17,10 @@ import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.SourceView;
 
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DNSRecordsAdapter.ViewHolder> extends RecyclerView.Adapter<VH> {
     protected final Context context;

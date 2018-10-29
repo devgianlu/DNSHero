@@ -2,11 +2,6 @@ package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +13,13 @@ import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
 import java.lang.reflect.InvocationTargetException;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAdapter<E, ? extends DNSRecordsAdapter.ViewHolder>> extends Fragment {
 
@@ -80,7 +82,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
             return layout;
         }
 
-        layout.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        layout.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
         if (authoritative.hasSomethingRelevant()) {
             try {

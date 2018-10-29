@@ -1,13 +1,14 @@
 package com.gianlu.dnshero.DNSRecords;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
+
+import androidx.annotation.NonNull;
 
 public class AAdapter extends DNSRecordsAdapter<DNSRecord.AEntry, AAdapter.ViewHolder> {
 

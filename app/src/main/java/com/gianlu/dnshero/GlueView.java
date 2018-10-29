@@ -2,9 +2,6 @@ package com.gianlu.dnshero;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -18,6 +15,10 @@ import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.NetIO.Domain;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 
 public class GlueView extends LinearLayout {
     private final int dp4;

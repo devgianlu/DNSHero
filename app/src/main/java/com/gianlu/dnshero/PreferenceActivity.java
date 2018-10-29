@@ -2,9 +2,6 @@ package com.gianlu.dnshero;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import com.gianlu.commonutils.Preferences.BasePreferenceActivity;
@@ -16,6 +13,10 @@ import com.yarolegovich.mp.MaterialStandardPreference;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 public class PreferenceActivity extends BasePreferenceActivity {
     @NonNull

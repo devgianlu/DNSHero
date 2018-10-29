@@ -2,8 +2,6 @@ package com.gianlu.dnshero.NetIO;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.UiThread;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,6 +10,8 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

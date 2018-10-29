@@ -1,7 +1,6 @@
 package com.gianlu.dnshero;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 import com.gianlu.commonutils.FontsManager;
 import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.NetIO.DNSRecord;
+
+import androidx.annotation.Nullable;
 
 public class SourceView extends LinearLayout {
     private final SuperTextView badge;
