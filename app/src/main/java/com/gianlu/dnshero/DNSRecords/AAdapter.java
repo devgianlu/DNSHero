@@ -8,8 +8,10 @@ import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
+@Keep
 public class AAdapter extends DNSRecordsAdapter<DNSRecord.AEntry, AAdapter.ViewHolder> {
 
     public AAdapter(Context context, Domain.DNSRecordsArrayList<DNSRecord.AEntry> authoritative, Domain.DNSRecordsArrayList<DNSRecord.AEntry> resolver) {

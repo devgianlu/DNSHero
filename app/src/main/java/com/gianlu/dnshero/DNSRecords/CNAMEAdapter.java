@@ -8,8 +8,10 @@ import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
+@Keep
 public class CNAMEAdapter extends DNSRecordsAdapter<DNSRecord.CNAMEEntry, CNAMEAdapter.ViewHolder> {
 
     public CNAMEAdapter(Context context, Domain.DNSRecordsArrayList<DNSRecord.CNAMEEntry> authoritative, Domain.DNSRecordsArrayList<DNSRecord.CNAMEEntry> resolver) {
