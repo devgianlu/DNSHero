@@ -18,7 +18,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class ZoneVisionAPI {
-    private static final String BASE_URL = "http://api.zone.vision/";
+    private static final String BASE_URL = "https://api.zone.vision/";
     private static ZoneVisionAPI instance;
     private final ExecutorService executorService;
     private final OkHttpClient client;
