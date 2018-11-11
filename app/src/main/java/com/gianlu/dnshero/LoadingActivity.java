@@ -97,7 +97,12 @@ public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.
             @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {
                 String query = CommonUtils.getText(domain);
-                if (!query.isEmpty()) {
+                if (query.equals(".")) {
+                    loading.setVisibility(View.GONE);
+                    form.setVisibility(View.VISIBLE);
+                    domain.setError("Root domain isn't supported.");
+                    favorites.setVisibility(View.VISIBLE);
+                } else if (!query.isEmpty()) {
                     loading.setVisibility(View.VISIBLE);
                     form.setVisibility(View.GONE);
                     favorites.setVisibility(View.GONE);
