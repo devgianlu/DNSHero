@@ -1,7 +1,6 @@
 package com.gianlu.dnshero;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -11,14 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.NetIO.Domain;
 
 import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 
 public class GlueView extends LinearLayout {
     private final int dp4;
@@ -63,33 +60,27 @@ public class GlueView extends LinearLayout {
             }
         });
 
+        LayoutInflater inflater = LayoutInflater.from(getContext());
         if (glue != null && !glue.isEmpty()) {
-            int secondary = ContextCompat.getColor(getContext(), android.R.color.secondary_text_light);
-            int accent = ContextCompat.getColor(getContext(), R.color.colorAccent);
-
             boolean first = true;
             for (Domain.Glue.Entry entry : glue) {
-                LinearLayout item = new LinearLayout(getContext());
-                item.setOrientation(VERTICAL);
-
-                SuperTextView name = new SuperTextView(getContext(), entry.name);
-                name.setTextColor(secondary);
-                name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                item.addView(name);
-
-                SuperTextView address = new SuperTextView(getContext(), entry.address);
-                address.setTextColor(accent);
-                address.setTypeface(Typeface.DEFAULT_BOLD);
-                item.addView(address);
-
+                LinearLayout item = (LinearLayout) inflater.inflate(R.layout.item_glue, this, false);
                 glues.addView(item);
+
+                TextView name = item.findViewById(R.id.glueItem_name);
+                name.setText(entry.name);
+
+                TextView address = item.findViewById(R.id.glueItem_address);
+                address.setText(entry.address);
 
                 LinearLayout.LayoutParams params = (LayoutParams) item.getLayoutParams();
                 if (!first) params.topMargin = dp4;
                 first = false;
             }
         } else {
-            glues.addView(new SuperTextView(getContext(), getContext().getString(R.string.noGlueRecords), ContextCompat.getColor(getContext(), android.R.color.secondary_text_light)));
+            TextView text = (TextView) inflater.inflate(R.layout.item_secondary_text, glues, false);
+            text.setText(R.string.noGlueRecords);
+            glues.addView(text);
         }
     }
 }

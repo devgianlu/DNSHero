@@ -23,38 +23,38 @@
                 android:id="@+id/nsItem_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/primary_text_light"
+                android:textColor="?android:textColorPrimary"
                 android:textSize="20sp" />
 
             <com.gianlu.commonutils.SuperTextView
                 android:id="@+id/nsItem_rtt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textColor="?android:textColorSecondary" />
 
             <com.gianlu.commonutils.SuperTextView
                 android:id="@+id/nsItem_a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textColor="?android:textColorSecondary" />
 
             <com.gianlu.commonutils.SuperTextView
                 android:id="@+id/nsItem_aTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textColor="?android:textColorSecondary" />
 
             <com.gianlu.commonutils.SuperTextView
                 android:id="@+id/nsItem_aaaa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textColor="?android:textColorSecondary" />
 
             <com.gianlu.commonutils.SuperTextView
                 android:id="@+id/nsItem_aaaaTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textColor="?android:textColorSecondary" />
 
             <com.gianlu.dnshero.GlueView
                 android:id="@+id/nsItem_glue"

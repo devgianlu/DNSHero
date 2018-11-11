@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/passed"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="?android:textColorSecondary"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/info"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="?android:textColorSecondary"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/failed"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="?android:textColorSecondary"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/skipped"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="?android:textColorSecondary"
             android:textSize="18sp" />
 
     </LinearLayout>

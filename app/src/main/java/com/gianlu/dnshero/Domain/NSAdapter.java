@@ -44,7 +44,7 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
         Domain.NS authoritative = this.authoritative.get(position);
 
         holder.source.setText(authoritative.source);
-        holder.rtt.setHtml(R.string.rttBlack, Utils.formatRTT(authoritative.rtt));
+        holder.rtt.setHtml(R.string.rtt, Utils.formatRTT(authoritative.rtt));
         holder.glue.setGlue(authoritative.glue);
 
         if (authoritative.a.records.isEmpty()) {

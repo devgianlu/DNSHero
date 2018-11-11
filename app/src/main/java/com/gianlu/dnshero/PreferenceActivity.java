@@ -8,9 +8,10 @@ import com.gianlu.commonutils.Preferences.BasePreferenceActivity;
 import com.gianlu.commonutils.Preferences.BasePreferenceFragment;
 import com.gianlu.commonutils.Preferences.MaterialAboutPreferenceItem;
 import com.gianlu.commonutils.Preferences.Prefs;
+import com.yarolegovich.mp.MaterialCheckboxPreference;
 import com.yarolegovich.mp.MaterialStandardPreference;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class PreferenceActivity extends BasePreferenceActivity {
     @NonNull
     @Override
     protected List<MaterialAboutPreferenceItem> getPreferencesItems() {
-        return Collections.singletonList(new MaterialAboutPreferenceItem(R.string.favorites, R.drawable.baseline_favorite_24, FavoritesFragment.class));
+        return Arrays.asList(new MaterialAboutPreferenceItem(R.string.general, R.drawable.baseline_settings_24, GeneralFragment.class),
+                new MaterialAboutPreferenceItem(R.string.favorites, R.drawable.baseline_favorite_24, FavoritesFragment.class));
     }
 
     @Override
@@ -44,6 +46,25 @@ public class PreferenceActivity extends BasePreferenceActivity {
     @Override
     protected boolean disablePayPalOnGooglePlay() {
         return false;
+    }
+
+    public static class GeneralFragment extends BasePreferenceFragment {
+
+        @Override
+        protected void buildPreferences(@NonNull Context context) {
+            MaterialCheckboxPreference nightMode = new MaterialCheckboxPreference.Builder(context)
+                    .defaultValue(PK.NIGHT_MODE.fallback())
+                    .key(PK.NIGHT_MODE.key())
+                    .build();
+            nightMode.setTitle(R.string.prefs_nightMode);
+            nightMode.setSummary(R.string.prefs_nightMode_summary);
+            addPreference(nightMode);
+        }
+
+        @Override
+        public int getTitleRes() {
+            return R.string.general;
+        }
     }
 
     public static final class FavoritesFragment extends BasePreferenceFragment {

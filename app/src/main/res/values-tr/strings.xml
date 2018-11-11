@@ -15,8 +15,7 @@
     <string name="address"><b>Adres:</b> %s</string>
     <string name="v4">v4</string>
     <string name="v6">v6</string>
-    <string name="rttBlack"><b><font color='black'>RTT:</font></b> %s</string>
-    <string name="rttWhite"><b><font color='white'>RTT:</font></b> %s</string>
+    <string name="rtt"><![CDATA[<b>RTT:</b>]]> %s</string>
     <string name="noGlueRecords">Bu nameserver için glue kaydı yok</string>
     <string name="mx">MX</string>
     <string name="ttl"><b>TTL:</b> %ds</string>
@@ -57,4 +56,5 @@
     <string name="removeFavorite">Favori(ler)i kaldır</string>
     <string name="removeFavorite_summary">Bazı favori alan adlarını kaldır.</string>
     <string name="remove">Kaldır</string>
+    <string name="general">Genel</string>
 </resources>

@@ -2,13 +2,13 @@ package com.gianlu.dnshero.Domain;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.FontsManager;
@@ -20,7 +20,6 @@ import com.gianlu.dnshero.Utils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 public class RootNameserverFragment extends Fragment {
@@ -48,14 +47,13 @@ public class RootNameserverFragment extends Fragment {
         name.setText(root.name);
 
         SuperTextView rtt = layout.findViewById(R.id.rootNsFragment_rtt);
-        rtt.setHtml(R.string.rttBlack, Utils.formatRTT(root.rtt));
+        rtt.setHtml(R.string.rtt, Utils.formatRTT(root.rtt));
 
         final LinearLayout nameservers = layout.findViewById(R.id.rootNsFragment_nameservers);
         for (String nameserver : root.nameservers) {
-            SuperTextView textView = new SuperTextView(getContext(), nameserver);
-            textView.setTextColor(ContextCompat.getColor(getContext(), android.R.color.secondary_text_light));
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            nameservers.addView(textView);
+            TextView text = (TextView) inflater.inflate(R.layout.item_secondary_text, nameservers, false);
+            text.setText(nameserver);
+            nameservers.addView(text);
         }
 
         final ImageButton toggleNs = layout.findViewById(R.id.rootNsFragment_toggleNs);

@@ -40,13 +40,13 @@
                     android:id="@+id/dnsRecordItem_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/secondary_text_light" />
+                    android:textColor="?android:textColorSecondary" />
 
                 <com.gianlu.commonutils.SuperTextView
                     android:id="@+id/dnsRecordItem_ttl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/secondary_text_light" />
+                    android:textColor="?android:textColorSecondary" />
 
             </LinearLayout>
 
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sources"
-                android:textColor="@android:color/primary_text_dark"
+                android:textColor="?android:textColorPrimary"
                 android:textStyle="bold" />
 
             <LinearLayout

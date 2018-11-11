@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.gianlu.commonutils.CommonUtils;
+import com.gianlu.commonutils.Dialogs.ActivityWithDialog;
 import com.gianlu.commonutils.Toaster;
 import com.gianlu.dnshero.Favorites.FavoritesAdapter;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -19,11 +20,10 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class LoadingActivity extends AppCompatActivity implements ZoneVisionAPI.OnSearch, FavoritesAdapter.Listener {
+public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI.OnSearch, FavoritesAdapter.Listener {
     private TextInputLayout domain;
     private ProgressBar loading;
     private LinearLayout form;

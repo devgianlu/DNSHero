@@ -16,8 +16,7 @@
     <string name="address"><![CDATA[<b>Address:</b> %s]]></string>
     <string name="v4">v4</string>
     <string name="v6">v6</string>
-    <string name="rttBlack"><![CDATA[<b><font color=\'black\'>RTT:</font></b>]]> %s</string>
-    <string name="rttWhite"><![CDATA[<b><font color=\'white\'>RTT:</font></b>]]> %s</string>
+    <string name="rtt"><![CDATA[<b>RTT:</b>]]> %s</string>
     <string name="noGlueRecords">No glue records provided for this nameserver</string>
     <string name="mx">MX</string>
     <string name="ttl"><![CDATA[<b>TTL:</b> %ds]]></string>
@@ -58,4 +57,5 @@
     <string name="removeFavorite">Remove favorite(s)</string>
     <string name="removeFavorite_summary">Remove some favorite domains.</string>
     <string name="remove">Remove</string>
+    <string name="general">General</string>
 </resources>

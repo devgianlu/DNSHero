@@ -8,42 +8,42 @@
         android:id="@+id/soaItem_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_primaryDns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_serial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_retry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_expire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
     <com.gianlu.commonutils.SuperTextView
         android:id="@+id/soaItem_minimumTtl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="?android:textColorSecondary" />
 
 </LinearLayout>
