@@ -2,7 +2,6 @@ package com.gianlu.dnshero.Favorites;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -24,10 +23,10 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
     private final Listener listener;
     private final List<String> favorites;
 
-    public FavoritesAdapter(Context context, Listener listener) {
+    public FavoritesAdapter(@NonNull Context context, Listener listener) {
         this.inflater = LayoutInflater.from(context);
         this.listener = listener;
-        this.favorites = new ArrayList<>(Prefs.getSet(PK.FAVORITES, new HashSet<String>()));
+        this.favorites = new ArrayList<>(Prefs.getSet(PK.FAVORITES, new HashSet<>()));
 
         Collections.sort(favorites);
     }
@@ -43,11 +42,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         final String domain = favorites.get(position);
         holder.domain.setText(domain);
 
-        holder.domain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) listener.onDomainSelected(domain);
-            }
+        holder.domain.setOnClickListener(v -> {
+            if (listener != null) listener.onDomainSelected(domain);
         });
     }
 

@@ -57,12 +57,7 @@ public class RootNameserverFragment extends Fragment {
         }
 
         final ImageButton toggleNs = layout.findViewById(R.id.rootNsFragment_toggleNs);
-        toggleNs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonUtils.handleCollapseClick(toggleNs, nameservers);
-            }
-        });
+        toggleNs.setOnClickListener(v -> CommonUtils.handleCollapseClick(toggleNs, nameservers));
 
         GlueView glue = layout.findViewById(R.id.rootNsFragment_glue);
         glue.setGlue(root.glue);

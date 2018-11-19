@@ -50,12 +50,7 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         Button preferences = findViewById(R.id.loading_preferences);
-        preferences.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoadingActivity.this, PreferenceActivity.class));
-            }
-        });
+        preferences.setOnClickListener(v -> startActivity(new Intent(LoadingActivity.this, PreferenceActivity.class)));
 
         favorites = findViewById(R.id.loading_favorites);
         favorites.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
@@ -66,36 +61,30 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         loading = findViewById(R.id.loading_loading);
         domain = findViewById(R.id.loading_domain);
         CommonUtils.clearTextOnEdit(domain);
-        CommonUtils.getEditText(domain).setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    search.performClick();
-                    return true;
-                }
-
-                return false;
+        CommonUtils.getEditText(domain).setOnKeyListener((v, keyCode, event) -> {
+            if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                search.performClick();
+                return true;
             }
+
+            return false;
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @SuppressWarnings("ConstantConditions")
-            public void onClick(View v) {
-                String query = CommonUtils.getText(domain);
-                if (query.equals(".")) {
-                    loading.setVisibility(View.GONE);
-                    form.setVisibility(View.VISIBLE);
-                    domain.setError("Root domain isn't supported.");
-                    favorites.setVisibility(View.VISIBLE);
-                } else if (!query.isEmpty()) {
-                    loading.setVisibility(View.VISIBLE);
-                    form.setVisibility(View.GONE);
-                    favorites.setVisibility(View.GONE);
+        search.setOnClickListener(v -> {
+            String query = CommonUtils.getText(domain);
+            if (query.equals(".")) {
+                loading.setVisibility(View.GONE);
+                form.setVisibility(View.VISIBLE);
+                domain.setError("Root domain isn't supported.");
+                favorites.setVisibility(View.VISIBLE);
+            } else if (!query.isEmpty()) {
+                loading.setVisibility(View.VISIBLE);
+                form.setVisibility(View.GONE);
+                favorites.setVisibility(View.GONE);
 
-                    ZoneVisionAPI.get().search(query, LoadingActivity.this);
+                ZoneVisionAPI.get().search(query, LoadingActivity.this);
 
-                    ThisApplication.sendAnalytics(Utils.ACTION_SEARCH);
-                }
+                ThisApplication.sendAnalytics(Utils.ACTION_SEARCH);
             }
         });
 

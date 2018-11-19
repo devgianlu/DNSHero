@@ -25,7 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DiagnosticFragment extends Fragment {
 
-    public static DiagnosticFragment getInstance(Context context, Domain domain) {
+    @NonNull
+    public static DiagnosticFragment getInstance(@NonNull Context context, @NonNull Domain domain) {
         DiagnosticFragment fragment = new DiagnosticFragment();
         fragment.setHasOptionsMenu(true);
         Bundle args = new Bundle();

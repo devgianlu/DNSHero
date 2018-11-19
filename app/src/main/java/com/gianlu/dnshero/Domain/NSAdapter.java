@@ -70,12 +70,7 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
         holder.aSource.setSource(authoritative.a, false);
         holder.aaaaSource.setSource(authoritative.aaaa, false);
 
-        holder.toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CommonUtils.handleCollapseClick(holder.toggle, holder.details);
-            }
-        });
+        holder.toggle.setOnClickListener(view -> CommonUtils.handleCollapseClick(holder.toggle, holder.details));
 
         CommonUtils.setRecyclerViewTopMargin(context, holder);
     }

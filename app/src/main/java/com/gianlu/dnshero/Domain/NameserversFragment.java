@@ -20,7 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NameserversFragment extends Fragment {
 
-    public static NameserversFragment getInstance(Context context, Domain domain) {
+    @NonNull
+    public static NameserversFragment getInstance(@NonNull Context context, @NonNull Domain domain) {
         NameserversFragment fragment = new NameserversFragment();
         Bundle args = new Bundle();
         args.putString("title", context.getString(R.string.nameservers));

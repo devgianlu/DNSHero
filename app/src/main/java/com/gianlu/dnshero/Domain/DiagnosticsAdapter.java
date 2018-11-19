@@ -26,7 +26,7 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
     private final LayoutInflater inflater;
     private final List<Domain.Diagnostic> diagnostics;
 
-    public DiagnosticsAdapter(Context context, List<Domain.Diagnostic> diagnostics) {
+    public DiagnosticsAdapter(@NonNull Context context, List<Domain.Diagnostic> diagnostics) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.diagnostics = diagnostics;
@@ -69,12 +69,7 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
         holder.recommendationText.setText(diagnostic.recommendation);
 
         holder.toggle.setVisibility(diagnostic.recommendation != null ? View.VISIBLE : View.GONE);
-        holder.toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonUtils.handleCollapseClick(holder.toggle, holder.recommendation);
-            }
-        });
+        holder.toggle.setOnClickListener(v -> CommonUtils.handleCollapseClick(holder.toggle, holder.recommendation));
 
         CommonUtils.setRecyclerViewTopMargin(context, holder);
     }

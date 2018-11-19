@@ -37,52 +37,37 @@ public class ZoneVisionAPI {
     }
 
     public void search(@NonNull final String query, final OnSearch listener) {
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                try (final Response resp = client.newCall(new Request.Builder()
-                        .get().url(BASE_URL + query.trim()).build()).execute()) {
+        executorService.execute(() -> {
+            try (final Response resp = client.newCall(new Request.Builder()
+                    .get().url(BASE_URL + query.trim()).build()).execute()) {
 
-                    JSONObject json = null;
-                    ResponseBody body = resp.body();
-                    if (body != null) json = new JSONObject(body.string());
+                JSONObject json = null;
+                ResponseBody body = resp.body();
+                if (body != null) json = new JSONObject(body.string());
 
-                    if (json != null && resp.code() >= 200 && resp.code() < 300) {
-                        final Domain domain = new Domain(json);
+                if (json != null && resp.code() >= 200 && resp.code() < 300) {
+                    final Domain domain = new Domain(json);
 
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (listener != null) listener.onDone(domain);
-                            }
-                        });
-                    } else if (json != null && (resp.code() == 400 || resp.code() == 500)) {
-                        String error = json.getString("error");
-                        throw new ApiException(error);
-                    } else {
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (listener != null)
-                                    listener.onException(new StatusCodeException(resp));
-                            }
-                        });
-                    }
-                } catch (IOException | JSONException ex) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (listener != null) listener.onException(ex);
-                        }
+                    handler.post(() -> {
+                        if (listener != null) listener.onDone(domain);
                     });
-                } catch (final ApiException ex) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (listener != null) listener.onApiException(ex);
-                        }
+                } else if (json != null && (resp.code() == 400 || resp.code() == 500)) {
+                    String error = json.getString("error");
+                    throw new ApiException(error);
+                } else {
+                    handler.post(() -> {
+                        if (listener != null)
+                            listener.onException(new StatusCodeException(resp));
                     });
                 }
+            } catch (IOException | JSONException ex) {
+                handler.post(() -> {
+                    if (listener != null) listener.onException(ex);
+                });
+            } catch (final ApiException ex) {
+                handler.post(() -> {
+                    if (listener != null) listener.onApiException(ex);
+                });
             }
         });
     }

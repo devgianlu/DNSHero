@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,12 +52,7 @@ public class GlueView extends LinearLayout {
         addView(layout);
 
         final LinearLayout glues = layout.findViewById(R.id.glueView_glues);
-        layout.findViewById(R.id.glueView_toggle).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonUtils.handleCollapseClick((ImageButton) v, glues);
-            }
-        });
+        layout.findViewById(R.id.glueView_toggle).setOnClickListener(v -> CommonUtils.handleCollapseClick((ImageButton) v, glues));
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         if (glue != null && !glue.isEmpty()) {

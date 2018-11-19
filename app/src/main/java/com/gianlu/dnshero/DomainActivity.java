@@ -16,7 +16,6 @@ import com.gianlu.dnshero.Domain.RootNameserverFragment;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 public class DomainActivity extends ActivityWithDialog {
@@ -49,7 +48,7 @@ public class DomainActivity extends ActivityWithDialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domain);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.domain_toolbar));
+        setSupportActionBar(findViewById(R.id.domain_toolbar));
         if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ViewPager pager = findViewById(R.id.domain_pager);

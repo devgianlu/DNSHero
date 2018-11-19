@@ -3,7 +3,6 @@ package com.gianlu.dnshero.DNSRecords;
 import android.content.Context;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -48,12 +47,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
 
         holder.name.setHtml(R.string.name, authoritative.name);
         holder.ttl.setHtml(R.string.ttl, authoritative.ttl);
-        holder.toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonUtils.handleCollapseClick(holder.toggle, holder.details);
-            }
-        });
+        holder.toggle.setOnClickListener(v -> CommonUtils.handleCollapseClick(holder.toggle, holder.details));
 
         holder.sources.removeAllViews();
 
