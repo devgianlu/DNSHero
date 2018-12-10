@@ -1,9 +1,8 @@
-/.idea/
-/.gradle/
-/build/
-/**/build/
-/**/release/
-
+.idea
+.gradle
+/build
+/app/build/
+/app/**/release/
 local.properties
 google-services.json
 *.iml
