@@ -60,7 +60,7 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         form = findViewById(R.id.loading_form);
         loading = findViewById(R.id.loading_loading);
         domain = findViewById(R.id.loading_domain);
-        CommonUtils.clearTextOnEdit(domain);
+        CommonUtils.clearErrorOnEdit(domain);
         CommonUtils.getEditText(domain).setOnKeyListener((v, keyCode, event) -> {
             if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                 search.performClick();
