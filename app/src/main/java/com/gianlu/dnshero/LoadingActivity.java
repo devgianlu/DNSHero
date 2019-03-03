@@ -82,7 +82,7 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
                 form.setVisibility(View.GONE);
                 favorites.setVisibility(View.GONE);
 
-                ZoneVisionAPI.get().search(query, LoadingActivity.this);
+                ZoneVisionAPI.get().search(query, null, this);
 
                 ThisApplication.sendAnalytics(Utils.ACTION_SEARCH);
             }
@@ -96,7 +96,7 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
                 form.setVisibility(View.GONE);
                 favorites.setVisibility(View.GONE);
 
-                ZoneVisionAPI.get().search(fragment.substring(1), this);
+                ZoneVisionAPI.get().search(fragment.substring(1), null, this);
 
                 ThisApplication.sendAnalytics(Utils.ACTION_SEARCH_INTENT);
             }
@@ -132,6 +132,6 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         form.setVisibility(View.GONE);
         favorites.setVisibility(View.GONE);
 
-        ZoneVisionAPI.get().search(domain, this);
+        ZoneVisionAPI.get().search(domain, null, this);
     }
 }
