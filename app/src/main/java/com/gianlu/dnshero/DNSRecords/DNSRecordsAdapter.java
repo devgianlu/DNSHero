@@ -22,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DNSRecordsAdapter.ViewHolder> extends RecyclerView.Adapter<VH> {
-    protected final Context context;
     protected final Domain.DNSRecordsArrayList<E> authoritative;
     protected final Domain.DNSRecordsArrayList<E> resolver;
     private final LayoutInflater inflater;
@@ -31,7 +30,6 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
     private final int dp8;
 
     DNSRecordsAdapter(Context context, Domain.DNSRecordsArrayList<E> authoritative, Domain.DNSRecordsArrayList<E> resolver) {
-        this.context = context;
         this.relevantAuthoritative = authoritative.createRelevantDataList();
         this.authoritative = authoritative;
         this.relevantResolver = resolver.createRelevantDataList();
@@ -41,7 +39,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
     }
 
     @Override
-    public final void onBindViewHolder(@NonNull final VH holder, int position) {
+    public final void onBindViewHolder(@NonNull VH holder, int position) {
         E authoritative = relevantAuthoritative.get(position);
         E resolver = relevantResolver.get(position);
 
@@ -53,7 +51,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
 
         boolean first = true;
         for (DNSRecord<E> dns : this.authoritative.listRecordsThatHas(authoritative)) {
-            SourceView view = new SourceView(context, dns, true);
+            SourceView view = new SourceView(holder.itemView.getContext(), dns, true);
             holder.sources.addView(view);
 
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) view.getLayoutParams();
@@ -64,7 +62,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
         }
 
         for (DNSRecord<E> dns : this.resolver.listRecordsThatHas(resolver)) {
-            SourceView view = new SourceView(context, dns, false);
+            SourceView view = new SourceView(holder.itemView.getContext(), dns, false);
             holder.sources.addView(view);
 
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) view.getLayoutParams();
@@ -76,7 +74,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
 
         onBindViewHolder(holder, position, authoritative, resolver);
 
-        CommonUtils.setRecyclerViewTopMargin(context, holder);
+        CommonUtils.setRecyclerViewTopMargin(holder);
     }
 
     protected abstract void onBindViewHolder(VH holder, int position, E authoritative, E resolver);
