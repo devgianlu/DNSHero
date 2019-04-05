@@ -1,8 +1,6 @@
 package com.gianlu.dnshero;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
 
 import com.gianlu.commonutils.Preferences.BasePreferenceActivity;
 import com.gianlu.commonutils.Preferences.BasePreferenceFragment;
@@ -70,56 +68,40 @@ public class PreferenceActivity extends BasePreferenceActivity {
     public static final class FavoritesFragment extends BasePreferenceFragment {
 
         private void showRemoveDialog(Context context) {
-            final String[] entries = Prefs.getSet(PK.FAVORITES, new HashSet<String>()).toArray(new String[0]);
+            final String[] entries = Prefs.getSet(PK.FAVORITES, new HashSet<>()).toArray(new String[0]);
             final boolean[] checked = new boolean[entries.length];
             for (int i = 0; i < checked.length; i++) checked[i] = false;
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.removeFavorite)
-                    .setMultiChoiceItems(entries, checked, new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                            checked[which] = isChecked;
+                    .setMultiChoiceItems(entries, checked, (dialog, which, isChecked) -> checked[which] = isChecked)
+                    .setPositiveButton(R.string.remove, (dialog, which) -> {
+                        for (int i = 0; i < checked.length; i++) {
+                            if (checked[i]) Prefs.removeFromSet(PK.FAVORITES, entries[i]);
                         }
-                    })
-                    .setPositiveButton(R.string.remove, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            for (int i = 0; i < checked.length; i++) {
-                                if (checked[i]) Prefs.removeFromSet(PK.FAVORITES, entries[i]);
-                            }
 
-                            if (Prefs.isSetEmpty(PK.FAVORITES)) onBackPressed();
-                        }
+                        if (Prefs.isSetEmpty(PK.FAVORITES)) onBackPressed();
                     }).setNegativeButton(android.R.string.cancel, null);
 
             showDialog(builder);
         }
 
         @Override
-        protected void buildPreferences(@NonNull final Context context) {
+        protected void buildPreferences(@NonNull Context context) {
             if (!Prefs.isSetEmpty(PK.FAVORITES)) {
                 final MaterialStandardPreference remove = new MaterialStandardPreference(context);
                 remove.setTitle(R.string.removeFavorite);
                 remove.setSummary(R.string.removeFavorite_summary);
-                remove.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showRemoveDialog(context);
-                    }
-                });
+                remove.setOnClickListener(v -> showRemoveDialog(context));
                 addPreference(remove);
             }
 
             MaterialStandardPreference clear = new MaterialStandardPreference(context);
             clear.setTitle(R.string.clearFavorites);
             clear.setSummary(R.string.clearFavorites_summary);
-            clear.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Prefs.putSet(PK.FAVORITES, new HashSet<String>());
-                    onBackPressed();
-                }
+            clear.setOnClickListener(v -> {
+                Prefs.putSet(PK.FAVORITES, new HashSet<>());
+                onBackPressed();
             });
             addPreference(clear);
         }

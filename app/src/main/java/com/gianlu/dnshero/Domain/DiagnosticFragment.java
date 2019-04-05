@@ -77,7 +77,7 @@ public class DiagnosticFragment extends Fragment {
         }
 
         layout.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-        layout.loadListData(new DiagnosticsAdapter(getContext(), diagnostics));
+        layout.loadListData(new DiagnosticsAdapter(requireContext(), diagnostics));
 
         return layout;
     }
