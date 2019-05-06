@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gianlu.commonutils.FontsManager;
-import com.gianlu.commonutils.SuperTextView;
-import com.gianlu.dnshero.NetIO.DNSRecord;
-
 import androidx.annotation.Nullable;
+
+import com.gianlu.commonutils.CasualViews.SuperTextView;
+import com.gianlu.commonutils.FontsManager;
+import com.gianlu.dnshero.NetIO.DNSRecord;
 
 public class SourceView extends LinearLayout {
     private final SuperTextView badge;

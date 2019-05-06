@@ -8,8 +8,11 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.gianlu.commonutils.CasualViews.SuperTextView;
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.SuperTextView;
 import com.gianlu.dnshero.GlueView;
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -18,9 +21,6 @@ import com.gianlu.dnshero.SourceView;
 import com.gianlu.dnshero.Utils;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
     private final LayoutInflater inflater;

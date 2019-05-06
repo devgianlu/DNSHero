@@ -3,13 +3,13 @@ package com.gianlu.dnshero.DNSRecords;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.gianlu.commonutils.SuperTextView;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+
+import com.gianlu.commonutils.CasualViews.SuperTextView;
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
-
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
 
 @Keep
 public class SOAAdapter extends DNSRecordsAdapter<DNSRecord.SOAEntry, SOAAdapter.ViewHolder> {

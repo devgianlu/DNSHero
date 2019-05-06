@@ -6,17 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gianlu.commonutils.RecyclerViewLayout;
-import com.gianlu.dnshero.NetIO.Domain;
-import com.gianlu.dnshero.R;
-
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.gianlu.commonutils.CasualViews.RecyclerViewLayout;
+import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.dnshero.R;
+
+import java.util.ArrayList;
 
 public class NameserversFragment extends Fragment {
 

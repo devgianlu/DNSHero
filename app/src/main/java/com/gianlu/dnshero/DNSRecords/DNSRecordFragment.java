@@ -6,20 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gianlu.commonutils.Logging;
-import com.gianlu.commonutils.RecyclerViewLayout;
-import com.gianlu.dnshero.NetIO.DNSRecord;
-import com.gianlu.dnshero.NetIO.Domain;
-import com.gianlu.dnshero.R;
-
-import java.lang.reflect.InvocationTargetException;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.gianlu.commonutils.CasualViews.RecyclerViewLayout;
+import com.gianlu.commonutils.Logging;
+import com.gianlu.dnshero.NetIO.DNSRecord;
+import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.dnshero.R;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAdapter<E, ? extends DNSRecordsAdapter.ViewHolder>> extends Fragment {
 
