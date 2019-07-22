@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.gianlu.commonutils.FontsManager;
 import com.gianlu.commonutils.Preferences.Prefs;
 import com.gianlu.dnshero.PK;
@@ -14,9 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
     private final LayoutInflater inflater;
@@ -63,7 +63,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
             super(inflater.inflate(R.layout.item_favorite, parent, false));
             domain = (TextView) itemView;
 
-            FontsManager.set(domain, FontsManager.ROBOTO_LIGHT);
+            FontsManager.set(FontsManager.ROBOTO_LIGHT, domain);
         }
     }
 }

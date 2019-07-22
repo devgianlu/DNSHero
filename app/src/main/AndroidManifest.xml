@@ -18,7 +18,9 @@
         <!-- Start activity -->
         <activity
             android:name=".LoadingActivity"
+            android:configChanges="uiMode"
             android:theme="@style/FullscreenTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,10 +42,13 @@
         <!-- Domain (all info) activity -->
         <activity
             android:name=".DomainActivity"
+            android:configChanges="uiMode"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Preferences activity -->
-        <activity android:name=".PreferenceActivity" />
+        <activity
+            android:name=".PreferenceActivity"
+            android:configChanges="uiMode" />
 
         <!-- Logs provider -->
         <provider
