@@ -218,9 +218,13 @@ public class Domain implements Serializable {
 
         RootNameserver(JSONObject obj) throws JSONException {
             name = obj.getString("source");
-            nameservers = CommonUtils.toStringsList(obj.getJSONArray("name-servers"), true);
             glue = new Glue(obj.getJSONObject("glue"));
             rtt = Utils.parseMs(obj.getString("rtt"));
+
+            JSONArray array = obj.getJSONArray("name-servers");
+            nameservers = new ArrayList<>(array.length());
+            for (int i = 0; i < array.length(); i++)
+                nameservers.add(array.getJSONObject(i).getString("name"));
         }
     }
 
