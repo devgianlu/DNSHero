@@ -51,35 +51,30 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="36dp"
+            android:baselineAligned="false"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="48dp">
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loading_domain"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="@string/domain">
+                android:hint="@string/domain"
+                android:textColorHint="@color/white"
+                app:endIconDrawable="@drawable/baseline_search_24"
+                app:endIconMode="custom"
+                app:endIconTint="@color/white">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:layout_width="match_parent"
+                    android:backgroundTint="@color/white"
                     android:layout_height="wrap_content"
                     android:inputType="textUri"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageButton
-                android:id="@+id/loading_search"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:padding="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/baseline_search_24"
-                android:tint="@color/bright_foreground_dark" />
         </LinearLayout>
     </LinearLayout>
 
