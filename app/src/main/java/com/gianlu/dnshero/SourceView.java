@@ -43,6 +43,8 @@ public class SourceView extends LinearLayout {
 
     public void setSource(DNSRecord<?> dns, boolean authoritative) {
         source.setText(dns.source);
+        Utils.clickToCopy(source);
+
         badge.setText(getContext().getString(authoritative ? R.string.authoritativeServer : R.string.publicResolver));
         rtt.setHtml(R.string.rtt, Utils.formatRTT(dns.rtt));
     }

@@ -8,13 +8,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.NetIO.Domain;
 
 import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 
 public class GlueView extends LinearLayout {
     private final int dp4;
@@ -66,6 +66,7 @@ public class GlueView extends LinearLayout {
 
                 TextView address = item.findViewById(R.id.glueItem_address);
                 address.setText(entry.address);
+                Utils.clickToCopy(address);
 
                 LinearLayout.LayoutParams params = (LayoutParams) item.getLayoutParams();
                 if (!first) params.topMargin = dp4;

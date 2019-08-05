@@ -4,12 +4,13 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
-
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
+import com.gianlu.dnshero.Utils;
 
 @Keep
 public class CNAMEAdapter extends DNSRecordsAdapter<DNSRecord.CNAMEEntry, CNAMEAdapter.ViewHolder> {
@@ -36,6 +37,7 @@ public class CNAMEAdapter extends DNSRecordsAdapter<DNSRecord.CNAMEEntry, CNAMEA
             super(parent, R.layout.header_cname);
 
             target = (TextView) header.getChildAt(0);
+            Utils.clickToCopy(target);
         }
     }
 }

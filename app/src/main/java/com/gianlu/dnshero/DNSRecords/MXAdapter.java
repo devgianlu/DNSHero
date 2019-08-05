@@ -4,12 +4,13 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
-
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
+import com.gianlu.dnshero.Utils;
 
 @Keep
 public class MXAdapter extends DNSRecordsAdapter<DNSRecord.MXEntry, MXAdapter.ViewHolder> {
@@ -38,6 +39,8 @@ public class MXAdapter extends DNSRecordsAdapter<DNSRecord.MXEntry, MXAdapter.Vi
             super(parent, R.layout.header_mx);
 
             exchange = header.findViewById(R.id.mxHeader_exchange);
+            Utils.clickToCopy(exchange);
+
             preference = header.findViewById(R.id.mxHeader_preference);
         }
     }

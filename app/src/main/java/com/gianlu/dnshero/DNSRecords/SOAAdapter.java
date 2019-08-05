@@ -10,6 +10,7 @@ import com.gianlu.commonutils.CasualViews.SuperTextView;
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
+import com.gianlu.dnshero.Utils;
 
 @Keep
 public class SOAAdapter extends DNSRecordsAdapter<DNSRecord.SOAEntry, SOAAdapter.ViewHolder> {
@@ -21,8 +22,14 @@ public class SOAAdapter extends DNSRecordsAdapter<DNSRecord.SOAEntry, SOAAdapter
     @Override
     protected void onBindViewHolder(ViewHolder holder, int position, DNSRecord.SOAEntry authoritative, DNSRecord.SOAEntry resolver) {
         holder.email.setHtml(R.string.emailLabel, authoritative.getEmailAddress());
+        Utils.clickToCopy(holder.email, authoritative.getEmailAddress());
+
         holder.primaryDns.setHtml(R.string.primaryDns, authoritative.mname);
+        Utils.clickToCopy(holder.primaryDns, authoritative.name);
+
         holder.serial.setHtml(R.string.serial, authoritative.serial);
+        Utils.clickToCopy(holder.serial, String.valueOf(authoritative.serial));
+
         holder.refresh.setHtml(R.string.refresh, authoritative.refresh);
         holder.retry.setHtml(R.string.soaRetry, authoritative.retry);
         holder.expire.setHtml(R.string.expire, authoritative.expire);

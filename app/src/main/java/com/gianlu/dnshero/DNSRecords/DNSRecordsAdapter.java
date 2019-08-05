@@ -18,6 +18,7 @@ import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.SourceView;
+import com.gianlu.dnshero.Utils;
 
 import java.util.List;
 
@@ -44,6 +45,8 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
         E resolver = relevantResolver.get(position);
 
         holder.name.setHtml(R.string.name, authoritative.name);
+        Utils.clickToCopy(holder.name, authoritative.name);
+
         holder.ttl.setHtml(R.string.ttl, authoritative.ttl);
         holder.toggle.setOnClickListener(v -> CommonUtils.handleCollapseClick(holder.toggle, holder.details));
 

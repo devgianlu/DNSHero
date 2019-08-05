@@ -4,12 +4,13 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
-
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
+import com.gianlu.dnshero.Utils;
 
 @Keep
 public class TXTAdapter extends DNSRecordsAdapter<DNSRecord.TXTEntry, TXTAdapter.ViewHolder> {
@@ -36,6 +37,7 @@ public class TXTAdapter extends DNSRecordsAdapter<DNSRecord.TXTEntry, TXTAdapter
             super(parent, R.layout.header_txt);
 
             text = (TextView) header.getChildAt(0);
+            Utils.clickToCopy(text);
         }
     }
 }

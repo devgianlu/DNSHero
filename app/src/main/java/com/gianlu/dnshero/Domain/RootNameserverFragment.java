@@ -43,6 +43,7 @@ public class RootNameserverFragment extends Fragment {
             return null;
 
         SuperTextView name = layout.findViewById(R.id.rootNsFragment_name);
+        Utils.clickToCopy(name);
         name.setTypeface(FontsManager.ROBOTO_MEDIUM);
         name.setText(root.name);
 
@@ -53,6 +54,8 @@ public class RootNameserverFragment extends Fragment {
         for (String nameserver : root.nameservers) {
             TextView text = (TextView) inflater.inflate(R.layout.item_secondary_text, nameservers, false);
             text.setText(nameserver);
+            Utils.clickToCopy(text);
+
             nameservers.addView(text);
         }
 

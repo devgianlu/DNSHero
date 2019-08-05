@@ -53,6 +53,8 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
         } else {
             DNSRecord.AEntry entry = authoritative.a.records.get(0);
             holder.a.setHtml(R.string.aRecord, entry.address);
+            Utils.clickToCopy(holder.a, entry.address);
+
             holder.aTtl.setVisibility(View.VISIBLE);
             holder.aTtl.setHtml(R.string.aTtl, entry.ttl);
         }
@@ -63,6 +65,8 @@ public class NSAdapter extends RecyclerView.Adapter<NSAdapter.ViewHolder> {
         } else {
             DNSRecord.AEntry entry = authoritative.aaaa.records.get(0);
             holder.aaaa.setHtml(R.string.aaaaRecord, entry.address);
+            Utils.clickToCopy(holder.aaaa, entry.address);
+
             holder.aaaaTtl.setVisibility(View.VISIBLE);
             holder.aaaaTtl.setHtml(R.string.aaaaTtl, entry.ttl);
         }
