@@ -9,9 +9,8 @@ android:
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_87bfe74f2152_key -iv $encrypted_87bfe74f2152_iv
-    -in .travis/keystore.jks.enc -out .travis/keystore.jks -d
-  - openssl aes-256-cbc -K $encrypted_87bfe74f2152_key -iv $encrypted_87bfe74f2152_iv
-    -in .travis/secrets.json.enc -out .travis/secrets.json -d
+    -in .travis/secrets.tar.enc -out .travis/secrets.tar -d
+  - tar xvf .travis/secrets.tar -C .travis
   - chmod +x gradlew .travis/*.sh
 
 script:
