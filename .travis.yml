@@ -17,18 +17,15 @@ script:
   - .travis/build.sh
 
 before_deploy:
-  - export APP_VERSION=$(./gradlew :app:printVersionName)
-  - export APP_CHANGELOG=$(cat app/src/main/play/release-notes/en-GB/production.txt)
+  - curl https://github.com/lindell/github-release-cli/releases/download/LATEST_RELEASE/github-releaser-travis -L --output github-releaser && chmod +x github-releaser
+  - export BODY=$(cat app/src/main/play/release-notes/en-GB/production.txt)
+  - export RELEASE_NAME="Release $(./gradlew :app:printVersionName)"
+  - export FILES=app/build/outputs/apk/foss/release/*
 
 deploy:
-  - provider: releases
-    api_key: "$GITHUB_TOKEN"
-    file: app/build/outputs/apk/foss/release/*
-    file_glob: true
+  - provider: script
+    script: ./github-releaser -draft -verbose
     skip_cleanup: true
-    draft: true
-    name: "Release $APP_VERSION"
-    body: "$APP_CHANGELOG"
     on:
       repo: devgianlu/DNSHero
       branch: master
