@@ -2,7 +2,7 @@
 set -ev
 
 if [[ -z "${TRAVIS_TAG}" ]]; then
-    ./gradlew assembleRelease publish
-else
     ./gradlew build connectedCheck
+else
+    ./gradlew assembleRelease publish
 fi
