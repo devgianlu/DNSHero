@@ -1,3 +1,6 @@
-Release 1.4.3:
-- Updated third-part dependencies
-- Minor bug fixes
+### Added
+- Click to copy feature
+
+### Changed
+- Fixed loading page colors
+- Fixed visible JSON due to changes in the API
