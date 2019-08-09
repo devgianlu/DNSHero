@@ -4,3 +4,6 @@
 ### Changed
 - Fixed loading page colors
 - Fixed visible JSON due to changes in the API
+
+### Removed
+- Website donations on Google Play

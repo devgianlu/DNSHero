@@ -43,7 +43,7 @@ public class PreferenceActivity extends BasePreferenceActivity {
 
     @Override
     protected boolean disableOtherDonationsOnGooglePlay() {
-        return false;
+        return true;
     }
 
     public static class GeneralFragment extends BasePreferenceFragment {
