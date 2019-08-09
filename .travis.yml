@@ -1,22 +1,45 @@
 language: android
 android:
   components:
-  - tools
-  - tools
-  - platform-tools
-  - build-tools-28.0.3
-  - android-28
-  - extra
+    - tools
+    - platform-tools
+    - build-tools-28.0.3
+    - android-28
+    - extra-google-google_play_services
 
 before_install:
-- chmod +x gradlew
+  - openssl aes-256-cbc -K $encrypted_87bfe74f2152_key -iv $encrypted_87bfe74f2152_iv
+    -in .travis/keystore.jks.enc -out .travis/keystore.jks -d
+  - openssl aes-256-cbc -K $encrypted_87bfe74f2152_key -iv $encrypted_87bfe74f2152_iv
+    -in .travis/secrets.json.enc -out .travis/secrets.json -d
+  - chmod +x gradlew .travis/*.sh
+
+script:
+  - ".travis/build.sh"
+
+before_deploy:
+  - export APP_VERSION=$(./gradlew :app:printVersionName)
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: qD8WixE5dpxKyiDEEPdrWVchBxMw7NKLrSNeUEJIb+p9Wq/yJ4cf3DScXYJToFJ/SB5JPCjjyj7rudOJ2wUMydJ01UGVJ+vbR/dTIXjtQxRJ7bDuqq4AGeUjZvDeBhigrA6hxWsqkzbRZzPEMcsWPa77Bs5drwiSJVixS2kLWgH3cKzLHZaqRQnlOeX20MHcPLFr/K0buFBg+qKUazx/z56qJuT0hh6+DYbXhdB9qK3bcGgUPE7rEaq6qfK0o3bZibCxtxFpMQR9qNXHnxfV5hUnq/k/YHQUNwFVo8kA3mSniYd9LxycLQ5nlwcbA2EgjKoJmQ3GYg1VLNsXVbWbw4aAl54h/7k7JzlCfpmM4DDrN62hGYzcoU+dD1WkAQob7a20pmmUmZI5LYUOJPIrpS98/DjDQdnkGeU/waCswSmjIYCqWhX2n0F1yYmC8X9nD2tRUCSyAAT3jFotLyRCsbjy1zg5xBFDw/Lgvd2ixgsnlVVKJrAo4q396WWstcL/2oGR/+J5K/Otlh0BBjJ+ND6tlKqOMFVLm6sE8WL0490Y9C2kumf9kDXV3QqganPnGS7/2MqqJBHrqhDXUbSZhkcExYfZwFjMqHA+Fi6yAFUvtNBC5W6nydWi2Nh1k5QiHtxCnukVnGU7iN0o+tT/H5d3UEklT+xIE0tILWcrXII=
+    file: app/build/outputs/apk/foss/release/*
+    file_glob: true
+    skip_cleanup: true
+    draft: true
+    name: Release $APP_VERSION
+    on:
+      repo: devgianlu/DNSHero
+      branch: master
+      tags: true
 
 before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
-  - $HOME/.android/build-cache
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+    - "$HOME/.android/build-cache"

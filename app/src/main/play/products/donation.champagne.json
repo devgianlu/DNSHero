@@ -1,0 +1,327 @@
+{
+  "defaultLanguage": "en-GB",
+  "defaultPrice": {
+    "currency": "EUR",
+    "priceMicros": "20000000"
+  },
+  "listings": {
+    "en-GB": {
+      "description": "Buy me some Champagne to celebrate when I'll become millionaire",
+      "title": "Some Champagne"
+    }
+  },
+  "packageName": "com.gianlu.dnshero",
+  "prices": {
+    "DZ": {
+      "currency": "DZD",
+      "priceMicros": "2625000000"
+    },
+    "SA": {
+      "currency": "SAR",
+      "priceMicros": "88990000"
+    },
+    "AU": {
+      "currency": "AUD",
+      "priceMicros": "32990000"
+    },
+    "AT": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "BH": {
+      "currency": "USD",
+      "priceMicros": "23990000"
+    },
+    "BD": {
+      "currency": "BDT",
+      "priceMicros": "1900000000"
+    },
+    "BE": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "BO": {
+      "currency": "BOB",
+      "priceMicros": "164990000"
+    },
+    "BR": {
+      "currency": "BRL",
+      "priceMicros": "75990000"
+    },
+    "BG": {
+      "currency": "BGN",
+      "priceMicros": "46990000"
+    },
+    "KH": {
+      "currency": "USD",
+      "priceMicros": "23990000"
+    },
+    "CA": {
+      "currency": "CAD",
+      "priceMicros": "29990000"
+    },
+    "CL": {
+      "currency": "CLP",
+      "priceMicros": "15000000000"
+    },
+    "CY": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "CO": {
+      "currency": "COP",
+      "priceMicros": "70000000000"
+    },
+    "KR": {
+      "currency": "KRW",
+      "priceMicros": "27000000000"
+    },
+    "CR": {
+      "currency": "CRC",
+      "priceMicros": "13700000000"
+    },
+    "HR": {
+      "currency": "HRK",
+      "priceMicros": "185000000"
+    },
+    "DK": {
+      "currency": "DKK",
+      "priceMicros": "185000000"
+    },
+    "EG": {
+      "currency": "EGP",
+      "priceMicros": "419990000"
+    },
+    "AE": {
+      "currency": "AED",
+      "priceMicros": "87990000"
+    },
+    "EE": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "RU": {
+      "currency": "RUB",
+      "priceMicros": "1399000000"
+    },
+    "PH": {
+      "currency": "PHP",
+      "priceMicros": "1200000000"
+    },
+    "FI": {
+      "currency": "EUR",
+      "priceMicros": "24990000"
+    },
+    "FR": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "DE": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "GH": {
+      "currency": "GHS",
+      "priceMicros": "110000000"
+    },
+    "JP": {
+      "currency": "JPY",
+      "priceMicros": "2620000000"
+    },
+    "GR": {
+      "currency": "EUR",
+      "priceMicros": "24990000"
+    },
+    "IN": {
+      "currency": "INR",
+      "priceMicros": "1550000000"
+    },
+    "ID": {
+      "currency": "IDR",
+      "priceMicros": "319000000000"
+    },
+    "IE": {
+      "currency": "EUR",
+      "priceMicros": "24990000"
+    },
+    "IL": {
+      "currency": "ILS",
+      "priceMicros": "85000000"
+    },
+    "IT": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "KZ": {
+      "currency": "KZT",
+      "priceMicros": "7990000000"
+    },
+    "KE": {
+      "currency": "KES",
+      "priceMicros": "2500000000"
+    },
+    "KW": {
+      "currency": "USD",
+      "priceMicros": "23990000"
+    },
+    "LV": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "LB": {
+      "currency": "LBP",
+      "priceMicros": "36000000000"
+    },
+    "LI": {
+      "currency": "CHF",
+      "priceMicros": "23000000"
+    },
+    "LT": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "LU": {
+      "currency": "EUR",
+      "priceMicros": "22990000"
+    },
+    "MY": {
+      "currency": "MYR",
+      "priceMicros": "99990000"
+    },
+    "MA": {
+      "currency": "MAD",
+      "priceMicros": "224990000"
+    },
+    "MX": {
+      "currency": "MXN",
+      "priceMicros": "425000000"
+    },
+    "NG": {
+      "currency": "NGN",
+      "priceMicros": "8580000000"
+    },
+    "NO": {
+      "currency": "NOK",
+      "priceMicros": "235000000"
+    },
+    "NZ": {
+      "currency": "NZD",
+      "priceMicros": "37990000"
+    },
+    "OM": {
+      "currency": "USD",
+      "priceMicros": "23990000"
+    },
+    "NL": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "PK": {
+      "currency": "PKR",
+      "priceMicros": "2500000000"
+    },
+    "PE": {
+      "currency": "PEN",
+      "priceMicros": "76990000"
+    },
+    "PL": {
+      "currency": "PLN",
+      "priceMicros": "104990000"
+    },
+    "PT": {
+      "currency": "EUR",
+      "priceMicros": "24990000"
+    },
+    "QA": {
+      "currency": "QAR",
+      "priceMicros": "88000000"
+    },
+    "HK": {
+      "currency": "HKD",
+      "priceMicros": "188000000"
+    },
+    "GB": {
+      "currency": "GBP",
+      "priceMicros": "21990000"
+    },
+    "CZ": {
+      "currency": "CZK",
+      "priceMicros": "649990000"
+    },
+    "RO": {
+      "currency": "RON",
+      "priceMicros": "109990000"
+    },
+    "SG": {
+      "currency": "SGD",
+      "priceMicros": "31990000"
+    },
+    "SK": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "SI": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "ES": {
+      "currency": "EUR",
+      "priceMicros": "23990000"
+    },
+    "LK": {
+      "currency": "LKR",
+      "priceMicros": "3650000000"
+    },
+    "US": {
+      "currency": "USD",
+      "priceMicros": "23990000"
+    },
+    "ZA": {
+      "currency": "ZAR",
+      "priceMicros": "309990000"
+    },
+    "SE": {
+      "currency": "SEK",
+      "priceMicros": "239000000"
+    },
+    "CH": {
+      "currency": "CHF",
+      "priceMicros": "23000000"
+    },
+    "TH": {
+      "currency": "THB",
+      "priceMicros": "800000000"
+    },
+    "TW": {
+      "currency": "TWD",
+      "priceMicros": "750000000"
+    },
+    "TZ": {
+      "currency": "TZS",
+      "priceMicros": "53000000000"
+    },
+    "TR": {
+      "currency": "TRY",
+      "priceMicros": "81990000"
+    },
+    "UA": {
+      "currency": "UAH",
+      "priceMicros": "609990000"
+    },
+    "HU": {
+      "currency": "HUF",
+      "priceMicros": "7790000000"
+    },
+    "VN": {
+      "currency": "VND",
+      "priceMicros": "542000000000"
+    },
+    "MO": {
+      "currency": "MOP",
+      "priceMicros": "189000000"
+    }
+  },
+  "purchaseType": "managedUser",
+  "sku": "donation.champagne",
+  "status": "active"
+}
