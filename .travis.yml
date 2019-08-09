@@ -17,14 +17,13 @@ script:
   - .travis/build.sh
 
 before_deploy:
-  - curl https://github.com/lindell/github-release-cli/releases/download/1.3.0/github-releaser-travis -L --output github-releaser && chmod +x github-releaser
-  - export BODY=$(cat app/src/main/play/release-notes/en-GB/production.txt)
-  - export RELEASE_NAME="Release $(./gradlew :app:printVersionName)"
-  - export FILES=app/build/outputs/apk/foss/release/*
+  - export RELEASE_NOTES=$(cat app/src/main/play/release-notes/en-GB/production.txt)
+  - export RELEASE_NAME="Release $(./gradlew -q :app:printVersionName)"
+  - export APK_FILE=app/build/outputs/apk/foss/release/app-foss-release.apk
 
 deploy:
   - provider: script
-    script: ./github-releaser -draft -verbose
+    script: ./github-release.sh
     skip_cleanup: true
     on:
       repo: devgianlu/DNSHero
