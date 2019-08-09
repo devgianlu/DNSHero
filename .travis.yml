@@ -14,20 +14,21 @@ before_install:
   - chmod +x gradlew .travis/*.sh
 
 script:
-  - ".travis/build.sh"
+  - .travis/build.sh
 
 before_deploy:
   - export APP_VERSION=$(./gradlew :app:printVersionName)
+  - export APP_CHANGELOG=$(cat app/src/main/play/release-notes/en-GB/production.txt)
 
 deploy:
   - provider: releases
-    api_key:
-      secure: qD8WixE5dpxKyiDEEPdrWVchBxMw7NKLrSNeUEJIb+p9Wq/yJ4cf3DScXYJToFJ/SB5JPCjjyj7rudOJ2wUMydJ01UGVJ+vbR/dTIXjtQxRJ7bDuqq4AGeUjZvDeBhigrA6hxWsqkzbRZzPEMcsWPa77Bs5drwiSJVixS2kLWgH3cKzLHZaqRQnlOeX20MHcPLFr/K0buFBg+qKUazx/z56qJuT0hh6+DYbXhdB9qK3bcGgUPE7rEaq6qfK0o3bZibCxtxFpMQR9qNXHnxfV5hUnq/k/YHQUNwFVo8kA3mSniYd9LxycLQ5nlwcbA2EgjKoJmQ3GYg1VLNsXVbWbw4aAl54h/7k7JzlCfpmM4DDrN62hGYzcoU+dD1WkAQob7a20pmmUmZI5LYUOJPIrpS98/DjDQdnkGeU/waCswSmjIYCqWhX2n0F1yYmC8X9nD2tRUCSyAAT3jFotLyRCsbjy1zg5xBFDw/Lgvd2ixgsnlVVKJrAo4q396WWstcL/2oGR/+J5K/Otlh0BBjJ+ND6tlKqOMFVLm6sE8WL0490Y9C2kumf9kDXV3QqganPnGS7/2MqqJBHrqhDXUbSZhkcExYfZwFjMqHA+Fi6yAFUvtNBC5W6nydWi2Nh1k5QiHtxCnukVnGU7iN0o+tT/H5d3UEklT+xIE0tILWcrXII=
+    api_key: "$GITHUB_TOKEN"
     file: app/build/outputs/apk/foss/release/*
     file_glob: true
     skip_cleanup: true
     draft: true
-    name: Release $APP_VERSION
+    name: "Release $APP_VERSION"
+    body: "$APP_CHANGELOG"
     on:
       repo: devgianlu/DNSHero
       branch: master
