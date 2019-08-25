@@ -13,10 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.CasualViews.RecyclerViewLayout;
+import com.gianlu.commonutils.CasualViews.RecyclerMessageView;
 import com.gianlu.commonutils.Dialogs.DialogUtils;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
@@ -66,7 +65,7 @@ public class DiagnosticFragment extends Fragment {
     @Override
     @SuppressWarnings("unchecked")
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        RecyclerViewLayout layout = new RecyclerViewLayout(requireContext());
+        RecyclerMessageView layout = new RecyclerMessageView(requireContext());
         layout.disableSwipeRefresh();
 
         Bundle args = getArguments();
@@ -76,7 +75,7 @@ public class DiagnosticFragment extends Fragment {
             return layout;
         }
 
-        layout.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        layout.linearLayoutManager(RecyclerView.VERTICAL, false);
         layout.loadListData(new DiagnosticsAdapter(requireContext(), diagnostics));
 
         return layout;

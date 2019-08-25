@@ -10,10 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.CasualViews.RecyclerViewLayout;
+import com.gianlu.commonutils.CasualViews.RecyclerMessageView;
 import com.gianlu.commonutils.Logging;
 import com.gianlu.dnshero.NetIO.DNSRecord;
 import com.gianlu.dnshero.NetIO.Domain;
@@ -66,7 +65,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
     @Override
     @SuppressWarnings("unchecked")
     public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        RecyclerViewLayout layout = new RecyclerViewLayout(requireContext());
+        RecyclerMessageView layout = new RecyclerMessageView(requireContext());
         layout.disableSwipeRefresh();
 
         Bundle args = getArguments();
@@ -82,7 +81,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
             return layout;
         }
 
-        layout.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        layout.linearLayoutManager(RecyclerView.VERTICAL, false);
 
         if (authoritative.hasSomethingRelevant()) {
             try {
