@@ -61,17 +61,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/domain"
-                android:textColorHint="@color/white"
+                style="@style/CustomTextInput"
+                android:backgroundTint="@color/white"
+                android:foregroundTint="@color/white"
                 app:endIconDrawable="@drawable/baseline_search_24"
-                app:endIconMode="custom"
-                app:endIconTint="@color/white">
+                app:endIconMode="custom">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:layout_width="match_parent"
-                    android:backgroundTint="@color/white"
                     android:layout_height="wrap_content"
-                    android:inputType="textUri"
                     android:textColor="@color/white"
+                    android:textCursorDrawable="@null"
+                    android:inputType="textUri"
                     android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>

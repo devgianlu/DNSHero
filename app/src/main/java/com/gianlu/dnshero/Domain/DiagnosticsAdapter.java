@@ -9,15 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.ViewHolder> {
@@ -50,7 +50,7 @@ public class DiagnosticsAdapter extends RecyclerView.Adapter<DiagnosticsAdapter.
                 break;
             default:
             case SKIPPED:
-                CommonUtils.setTextColor(holder.title, R.color.white);
+                CommonUtils.setTextColorFromAttr(holder.title, R.attr.colorOnSurface);
                 holder.recommendationImage.setImageResource(R.drawable.outline_info_24);
                 break;
             case INFO:

@@ -1,3 +1,15 @@
 <resources>
+
     <style name="AppTheme" parent="BaseAppTheme" />
+
+    <style name="CustomTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/custom_text_field_stroke</item>
+        <item name="endIconTint">@color/white</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="helperTextTextColor">@color/white</item>
+        <item name="hintTextColor">@color/colorSecondary</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
 </resources>
