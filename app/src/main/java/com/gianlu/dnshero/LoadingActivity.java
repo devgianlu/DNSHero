@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -27,11 +28,19 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
     private ProgressBar loading;
     private LinearLayout form;
     private RecyclerView favorites;
+    private TextView favoritesLabel;
 
     @Override
     protected void onResume() {
         super.onResume();
-        favorites.setAdapter(new FavoritesAdapter(this, this));
+        loadFavorites();
+    }
+
+    private void loadFavorites() {
+        FavoritesAdapter adapter = new FavoritesAdapter(this, this);
+        favorites.setAdapter(adapter);
+        if (adapter.getItemCount() == 0) favoritesLabel.setVisibility(View.GONE);
+        else favoritesLabel.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -51,9 +60,10 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         Button preferences = findViewById(R.id.loading_preferences);
         preferences.setOnClickListener(v -> startActivity(new Intent(LoadingActivity.this, PreferenceActivity.class)));
 
+        favoritesLabel = findViewById(R.id.loading_favoritesLabel);
         favorites = findViewById(R.id.loading_favorites);
         favorites.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        favorites.setAdapter(new FavoritesAdapter(this, this));
+        loadFavorites();
 
         form = findViewById(R.id.loading_form);
         loading = findViewById(R.id.loading_loading);
@@ -76,7 +86,6 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
             if (fragment != null) {
                 loading.setVisibility(View.VISIBLE);
                 form.setVisibility(View.GONE);
-                favorites.setVisibility(View.GONE);
 
                 ZoneVisionAPI.get().search(fragment.substring(1), null, this);
 
@@ -91,11 +100,9 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
             loading.setVisibility(View.GONE);
             form.setVisibility(View.VISIBLE);
             domain.setError("Root domain isn't supported.");
-            favorites.setVisibility(View.VISIBLE);
         } else if (!query.isEmpty()) {
             loading.setVisibility(View.VISIBLE);
             form.setVisibility(View.GONE);
-            favorites.setVisibility(View.GONE);
 
             ZoneVisionAPI.get().search(query, null, this);
 
@@ -115,7 +122,6 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);
         domain.setError(ex.getMessage());
-        favorites.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -123,15 +129,13 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);
         domain.setError(ex.getMessage());
-        favorites.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void onDomainSelected(@NonNull String domain) {
+    public void onDomainSelected(@NonNull String domainStr) {
         loading.setVisibility(View.VISIBLE);
         form.setVisibility(View.GONE);
-        favorites.setVisibility(View.GONE);
 
-        ZoneVisionAPI.get().search(domain, null, this);
+        ZoneVisionAPI.get().search(domainStr, null, this);
     }
 }
