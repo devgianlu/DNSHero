@@ -2,6 +2,8 @@
 
     <style name="AppTheme" parent="BaseAppTheme" />
 
+    <style name="AppTheme.Preferences" />
+
     <style name="CustomTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/custom_text_field_stroke</item>
         <item name="endIconTint">@color/white</item>

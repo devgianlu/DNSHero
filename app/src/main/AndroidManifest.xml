@@ -48,7 +48,8 @@
         <!-- Preferences activity -->
         <activity
             android:name=".PreferenceActivity"
-            android:configChanges="uiMode" />
+            android:configChanges="uiMode"
+            android:theme="@style/AppTheme.Preferences" />
 
         <!-- Logs provider -->
         <provider
