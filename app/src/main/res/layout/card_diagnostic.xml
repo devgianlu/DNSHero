@@ -2,9 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp">
+    android:layout_marginBottom="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,16 +18,12 @@
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
-        <ImageButton
-            android:id="@+id/diagnosticCard_toggle"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="end"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/baseline_keyboard_arrow_down_24"
-            android:tint="?colorOnSurface" />
+        <TextView
+            android:id="@+id/diagnosticCard_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?colorOnSurface"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:id="@+id/diagnosticCard_recommendation"
@@ -35,8 +31,8 @@
             android:layout_height="0dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="8dp"
             android:paddingTop="16dp"
+            android:paddingBottom="8dp"
             android:visibility="gone">
 
             <ImageView
@@ -51,12 +47,15 @@
                 android:textColor="?colorOnSurface" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/diagnosticCard_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnSurface"
-            android:textSize="14sp" />
-
+        <ImageButton
+            android:id="@+id/diagnosticCard_toggle"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="end"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/baseline_keyboard_arrow_down_24"
+            android:tint="?colorOnSurface" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
