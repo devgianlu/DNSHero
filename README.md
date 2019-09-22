@@ -3,6 +3,7 @@
 </h1>
 
 [![Build Status](https://travis-ci.com/devgianlu/DNSHero.svg?branch=master)](https://travis-ci.com/devgianlu/DNSHero)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/370276fbf50d4c7cad8c3bb1cb91ec59)](https://www.codacy.com/manual/devgianlu/DNSHero?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devgianlu/DNSHero&amp;utm_campaign=Badge_Grade)
 [![Translate - with Stringlate](https://img.shields.io/badge/translate%20with-stringlate-green.svg)](https://lonamiwebs.github.io/stringlate/translate?git=https%3A%2F%2Fgithub.com%2Fdevgianlu%2FDNSHero)
 [![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://gianlu.xyz/donate/)
 
