@@ -12,7 +12,7 @@
         android:textColor="@android:color/primary_text_dark"
         android:textSize="18sp" />
 
-    <com.gianlu.commonutils.CasualViews.SuperTextView
+    <com.gianlu.commonutils.misc.SuperTextView
         android:id="@+id/sourceView_badge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:textSize="12sp"
         app:textAllCaps="true" />
 
-    <com.gianlu.commonutils.CasualViews.SuperTextView
+    <com.gianlu.commonutils.misc.SuperTextView
         android:id="@+id/sourceView_rtt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

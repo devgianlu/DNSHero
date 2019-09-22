@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.dnshero.api.Domain;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.Domain;
+package com.gianlu.dnshero.domain;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,8 +14,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
+import com.gianlu.dnshero.api.Domain;
 
 import java.util.List;
 

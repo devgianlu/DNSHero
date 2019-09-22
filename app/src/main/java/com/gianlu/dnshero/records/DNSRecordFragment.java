@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.DNSRecords;
+package com.gianlu.dnshero.records;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.CasualViews.RecyclerMessageView;
-import com.gianlu.commonutils.Logging;
-import com.gianlu.dnshero.NetIO.DNSRecord;
-import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.commonutils.logging.Logging;
+import com.gianlu.commonutils.misc.RecyclerMessageView;
 import com.gianlu.dnshero.R;
+import com.gianlu.dnshero.api.DNSRecord;
+import com.gianlu.dnshero.api.Domain;
 
 import java.lang.reflect.InvocationTargetException;
 

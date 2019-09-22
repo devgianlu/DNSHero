@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.DNSRecords;
+package com.gianlu.dnshero.records;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -12,13 +12,13 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.CasualViews.SuperTextView;
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.dnshero.NetIO.DNSRecord;
-import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.commonutils.misc.SuperTextView;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.SourceView;
 import com.gianlu.dnshero.Utils;
+import com.gianlu.dnshero.api.DNSRecord;
+import com.gianlu.dnshero.api.Domain;
 
 import java.util.List;
 

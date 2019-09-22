@@ -34,13 +34,13 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.gianlu.commonutils.CasualViews.SuperTextView
+                <com.gianlu.commonutils.misc.SuperTextView
                     android:id="@+id/dnsRecordItem_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="?android:textColorSecondary" />
 
-                <com.gianlu.commonutils.CasualViews.SuperTextView
+                <com.gianlu.commonutils.misc.SuperTextView
                     android:id="@+id/dnsRecordItem_ttl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

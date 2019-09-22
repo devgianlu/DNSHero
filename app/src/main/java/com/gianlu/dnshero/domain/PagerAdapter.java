@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.Domain;
+package com.gianlu.dnshero.domain;
 
 import android.os.Bundle;
 

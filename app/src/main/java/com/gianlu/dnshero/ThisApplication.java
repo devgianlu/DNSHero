@@ -1,7 +1,7 @@
 package com.gianlu.dnshero;
 
 
-import com.gianlu.commonutils.Analytics.AnalyticsApplication;
+import com.gianlu.commonutils.analytics.AnalyticsApplication;
 
 public class ThisApplication extends AnalyticsApplication {
     @Override

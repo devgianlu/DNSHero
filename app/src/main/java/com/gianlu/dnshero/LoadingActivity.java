@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.Dialogs.ActivityWithDialog;
-import com.gianlu.commonutils.Toaster;
-import com.gianlu.dnshero.Favorites.FavoritesAdapter;
-import com.gianlu.dnshero.NetIO.Domain;
-import com.gianlu.dnshero.NetIO.ZoneVisionAPI;
+import com.gianlu.commonutils.dialogs.ActivityWithDialog;
+import com.gianlu.commonutils.ui.Toaster;
+import com.gianlu.dnshero.api.Domain;
+import com.gianlu.dnshero.api.ZoneVisionAPI;
+import com.gianlu.dnshero.favorites.FavoritesAdapter;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI.OnSearch, FavoritesAdapter.Listener {
