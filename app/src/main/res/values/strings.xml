@@ -58,4 +58,6 @@
     <string name="removeFavorite_summary">Remove some favorite domains.</string>
     <string name="remove">Remove</string>
     <string name="general">General</string>
+    <string name="typeDomainHere">Type a domain here:</string>
+    <string name="orPickFromFavorites">Or pick one from your favorites:</string>
 </resources>

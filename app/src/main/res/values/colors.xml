@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#424358</color>
-    <color name="colorPrimaryDark">#313242</color>
-    <color name="colorAccent">#5DD8EA</color>
+    <color name="colorPrimaryTranslucent">#BB424358</color>
+    <color name="colorPrimaryVariant">#313242</color>
+    <color name="colorSecondary">#5DD8EA</color>
+    <color name="colorSecondaryTranslucent">#BB5DD8EA</color>
+    <color name="colorSecondaryVariant">#0B3C51</color>
+
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorOnSecondary">@color/white</color>
 
     <color name="passed">#cced69</color>
     <color name="failed">#ed7069</color>

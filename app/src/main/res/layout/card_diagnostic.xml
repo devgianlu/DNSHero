@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
-    app:cardElevation="2dp">
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -25,7 +22,7 @@
             android:id="@+id/diagnosticCard_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/dim_foreground_dark"
+            android:textColor="?colorOnSurface"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -34,20 +31,20 @@
             android:layout_height="0dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="8dp"
             android:paddingTop="16dp"
+            android:paddingBottom="8dp"
             android:visibility="gone">
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_marginEnd="8dp"
-                android:tint="@color/dim_foreground_dark" />
+                android:tint="?colorOnSurface" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/dim_foreground_dark" />
+                android:textColor="?colorOnSurface" />
         </LinearLayout>
 
         <ImageButton
@@ -59,8 +56,6 @@
             android:padding="4dp"
             android:scaleType="fitCenter"
             android:src="@drawable/baseline_keyboard_arrow_down_24"
-            android:tint="@color/bright_foreground_dark" />
-
+            android:tint="?colorOnSurface" />
     </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

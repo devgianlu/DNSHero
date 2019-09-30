@@ -51,42 +51,63 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="36dp"
-            android:baselineAligned="false"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/typeDomainHere"
+                android:textAlignment="center"
+                android:textAppearance="?textAppearanceCaption"
+                android:textColor="@color/white" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loading_domain"
-                android:layout_width="0dp"
+                style="@style/CustomTextInput"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:foregroundTint="@color/white"
                 android:hint="@string/domain"
-                android:textColorHint="@color/white"
                 app:endIconDrawable="@drawable/baseline_search_24"
-                app:endIconMode="custom"
-                app:endIconTint="@color/white">
+                app:endIconMode="custom">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:backgroundTint="@color/white"
                     android:layout_height="wrap_content"
                     android:inputType="textUri"
                     android:textColor="@color/white"
+                    android:textCursorDrawable="@null"
                     android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/loading_favoritesLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/orPickFromFavorites"
+                android:textAlignment="center"
+                android:textAppearance="?textAppearanceCaption"
+                android:textColor="@color/white" />
+
+            <com.gianlu.commonutils.misc.MaximumHeightRecyclerView
+                android:id="@+id/loading_favorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="48dp"
+                android:scrollbars="vertical"
+                app:maxHeight="180dp" />
         </LinearLayout>
     </LinearLayout>
-
-    <com.gianlu.commonutils.CasualViews.MaximumHeightRecyclerView
-        android:id="@+id/loading_favorites"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="48dp"
-        android:scrollbars="vertical"
-        app:maxHeight="180dp" />
 
     <View
         android:layout_width="match_parent"

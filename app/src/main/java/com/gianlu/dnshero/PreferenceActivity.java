@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
-import com.gianlu.commonutils.Preferences.BasePreferenceActivity;
-import com.gianlu.commonutils.Preferences.BasePreferenceFragment;
-import com.gianlu.commonutils.Preferences.MaterialAboutPreferenceItem;
-import com.gianlu.commonutils.Preferences.Prefs;
+import com.gianlu.commonutils.preferences.BasePreferenceActivity;
+import com.gianlu.commonutils.preferences.BasePreferenceFragment;
+import com.gianlu.commonutils.preferences.MaterialAboutPreferenceItem;
+import com.gianlu.commonutils.preferences.Prefs;
 import com.yarolegovich.mp.MaterialCheckboxPreference;
 import com.yarolegovich.mp.MaterialStandardPreference;
 

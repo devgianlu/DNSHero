@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.gianlu.commonutils.Toaster;
+import com.gianlu.commonutils.ui.Toaster;
 
 import java.text.DecimalFormat;
 
@@ -29,8 +29,8 @@ public final class Utils {
     public static void clickToCopy(@NonNull TextView view) {
         view.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard == null) return;
             clipboard.setPrimaryClip(ClipData.newPlainText("", view.getText().toString()));
-
             Toaster.with(view.getContext()).message(R.string.copiedToClipboard).show();
         });
     }
@@ -38,6 +38,7 @@ public final class Utils {
     public static void clickToCopy(@NonNull TextView view, @NonNull String text) {
         view.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard == null) return;
             clipboard.setPrimaryClip(ClipData.newPlainText("", text));
             Toaster.with(view.getContext()).message(R.string.copiedToClipboard).show();
         });

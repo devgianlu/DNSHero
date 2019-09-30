@@ -48,11 +48,12 @@
         <!-- Preferences activity -->
         <activity
             android:name=".PreferenceActivity"
-            android:configChanges="uiMode" />
+            android:configChanges="uiMode"
+            android:theme="@style/AppTheme.Preferences" />
 
         <!-- Logs provider -->
         <provider
-            android:name="com.gianlu.commonutils.LogsProvider"
+            android:name="com.gianlu.commonutils.logging.LogsProvider"
             android:authorities="com.gianlu.dnshero.logs"
             android:exported="false"
             android:grantUriPermissions="true">

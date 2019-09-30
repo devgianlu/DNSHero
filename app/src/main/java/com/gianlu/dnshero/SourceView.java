@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.gianlu.commonutils.CasualViews.SuperTextView;
-import com.gianlu.commonutils.FontsManager;
-import com.gianlu.dnshero.NetIO.DNSRecord;
+import com.gianlu.commonutils.misc.SuperTextView;
+import com.gianlu.commonutils.typography.FontsManager;
+import com.gianlu.dnshero.api.DNSRecord;
 
 public class SourceView extends LinearLayout {
     private final SuperTextView badge;

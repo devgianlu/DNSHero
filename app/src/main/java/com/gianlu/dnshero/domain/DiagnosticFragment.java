@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.Domain;
+package com.gianlu.dnshero.domain;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.CasualViews.RecyclerMessageView;
-import com.gianlu.commonutils.Dialogs.DialogUtils;
-import com.gianlu.dnshero.NetIO.Domain;
+import com.gianlu.commonutils.dialogs.DialogUtils;
+import com.gianlu.commonutils.misc.RecyclerMessageView;
 import com.gianlu.dnshero.R;
+import com.gianlu.dnshero.api.Domain;
 
 import java.util.ArrayList;
 
@@ -52,10 +52,9 @@ public class DiagnosticFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.diagnostic_help:
-                showHelpDialog();
-                return true;
+        if (item.getItemId() == R.id.diagnostic_help) {
+            showHelpDialog();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

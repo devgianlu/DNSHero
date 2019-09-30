@@ -6,17 +6,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.gianlu.commonutils.Dialogs.ActivityWithDialog;
-import com.gianlu.commonutils.Preferences.Prefs;
-import com.gianlu.dnshero.DNSRecords.DNSRecordFragment;
-import com.gianlu.dnshero.Domain.DiagnosticFragment;
-import com.gianlu.dnshero.Domain.NameserversFragment;
-import com.gianlu.dnshero.Domain.PagerAdapter;
-import com.gianlu.dnshero.Domain.RootNameserverFragment;
-import com.gianlu.dnshero.NetIO.Domain;
-import com.google.android.material.tabs.TabLayout;
-
 import androidx.viewpager.widget.ViewPager;
+
+import com.gianlu.commonutils.dialogs.ActivityWithDialog;
+import com.gianlu.commonutils.preferences.Prefs;
+import com.gianlu.dnshero.api.Domain;
+import com.gianlu.dnshero.domain.DiagnosticFragment;
+import com.gianlu.dnshero.domain.NameserversFragment;
+import com.gianlu.dnshero.domain.PagerAdapter;
+import com.gianlu.dnshero.domain.RootNameserverFragment;
+import com.gianlu.dnshero.records.DNSRecordFragment;
+import com.google.android.material.tabs.TabLayout;
 
 public class DomainActivity extends ActivityWithDialog {
 
@@ -114,9 +114,9 @@ public class DomainActivity extends ActivityWithDialog {
                 } else {
                     return false;
                 }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

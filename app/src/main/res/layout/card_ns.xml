@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    app:cardElevation="2dp">
+    android:layout_marginStart="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,31 +24,31 @@
                 android:textColor="?android:textColorPrimary"
                 android:textSize="20sp" />
 
-            <com.gianlu.commonutils.CasualViews.SuperTextView
+            <com.gianlu.commonutils.misc.SuperTextView
                 android:id="@+id/nsItem_rtt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?android:textColorSecondary" />
 
-            <com.gianlu.commonutils.CasualViews.SuperTextView
+            <com.gianlu.commonutils.misc.SuperTextView
                 android:id="@+id/nsItem_a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?android:textColorSecondary" />
 
-            <com.gianlu.commonutils.CasualViews.SuperTextView
+            <com.gianlu.commonutils.misc.SuperTextView
                 android:id="@+id/nsItem_aTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?android:textColorSecondary" />
 
-            <com.gianlu.commonutils.CasualViews.SuperTextView
+            <com.gianlu.commonutils.misc.SuperTextView
                 android:id="@+id/nsItem_aaaa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?android:textColorSecondary" />
 
-            <com.gianlu.commonutils.CasualViews.SuperTextView
+            <com.gianlu.commonutils.misc.SuperTextView
                 android:id="@+id/nsItem_aaaaTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,4 +111,4 @@
     </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

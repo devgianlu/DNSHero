@@ -1,4 +1,4 @@
-package com.gianlu.dnshero.Domain;
+package com.gianlu.dnshero.domain;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,13 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.gianlu.commonutils.CasualViews.SuperTextView;
 import com.gianlu.commonutils.CommonUtils;
-import com.gianlu.commonutils.FontsManager;
+import com.gianlu.commonutils.misc.SuperTextView;
+import com.gianlu.commonutils.typography.FontsManager;
 import com.gianlu.dnshero.GlueView;
-import com.gianlu.dnshero.NetIO.Domain;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.Utils;
+import com.gianlu.dnshero.api.Domain;
 
 public class RootNameserverFragment extends Fragment {
     public static RootNameserverFragment getInstance(Context context, Domain domain) {
