@@ -49,7 +49,11 @@
         <activity
             android:name=".PreferenceActivity"
             android:configChanges="uiMode"
-            android:theme="@style/AppTheme.Preferences" />
+            android:theme="@style/AppTheme.FullBlackNight" />
+
+        <activity
+            android:name="com.gianlu.commonutils.logging.LogsActivity"
+            android:theme="@style/AppTheme.FullBlackNight" />
 
         <!-- Logs provider -->
         <provider
