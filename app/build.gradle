@@ -5,6 +5,7 @@ plugins {
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
+def isFoss = false
 def isTravis = System.getenv("CI") == "true"
 android {
     compileSdkVersion 29
@@ -42,9 +43,11 @@ android {
     productFlavors {
         foss {
             dimension 'main'
+            isFoss = true
         }
         standard {
             dimension 'main'
+            isFoss = false
         }
     }
 
@@ -74,7 +77,7 @@ play {
 }
 
 dependencies {
-    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     implementation(project(':CommonUtils')) {
         exclude group: 'me.toptas.fancyshowcase'
     }
@@ -86,4 +89,6 @@ task printVersionName {
     }
 }
 
-apply plugin: 'com.google.gms.google-services'
+if (!isFoss) {
+    apply plugin: 'com.google.gms.google-services'
+}
