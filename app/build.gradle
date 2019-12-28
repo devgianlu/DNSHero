@@ -14,8 +14,8 @@ android {
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 27
-        versionName "1.6.1"
+        versionCode 28
+        versionName "1.6.2"
     }
 
     if (isTravis) {

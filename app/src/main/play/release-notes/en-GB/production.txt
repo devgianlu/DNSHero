@@ -1,2 +1,4 @@
 ### Changed
 - Updated libraries
+- Improved Toaster logging
+- (fix F-Droid build)

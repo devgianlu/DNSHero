@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.2] - 28-12-2019
+### Changed
+- Updated libraries
+- Improved Toaster logging
+- (fix F-Droid build)
+
+
 ## [1.6.1] - 21-12-2019
 ### Changed
 - Updated libraries
