@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.gianlu.commonutils.misc.SuperTextView;
-import com.gianlu.commonutils.typography.FontsManager;
 import com.gianlu.dnshero.api.DNSRecord;
 
 public class SourceView extends LinearLayout {
@@ -38,7 +37,6 @@ public class SourceView extends LinearLayout {
         source = findViewById(R.id.sourceView_source);
         rtt = findViewById(R.id.sourceView_rtt);
         badge = findViewById(R.id.sourceView_badge);
-        badge.setTypeface(FontsManager.ROBOTO_BLACK);
     }
 
     public void setSource(DNSRecord<?> dns, boolean authoritative) {

@@ -16,6 +16,7 @@
         android:id="@+id/sourceView_badge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_black"
         android:textColor="@color/colorAccent"
         android:textSize="12sp"
         app:textAllCaps="true" />

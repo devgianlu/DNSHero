@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gianlu.commonutils.preferences.Prefs;
-import com.gianlu.commonutils.typography.FontsManager;
 import com.gianlu.dnshero.PK;
 import com.gianlu.dnshero.R;
 
@@ -62,8 +61,6 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         public ViewHolder(ViewGroup parent) {
             super(inflater.inflate(R.layout.item_favorite, parent, false));
             domain = (TextView) itemView;
-
-            FontsManager.set(FontsManager.ROBOTO_LIGHT, domain);
         }
     }
 }
