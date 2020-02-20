@@ -7,7 +7,7 @@
     <string name="dnsRecords">DNS kayıtları</string>
     <string name="authoritative">Yetkili</string>
     <string name="resolver">Çözümleyici</string>
-    <string name="diagnostic">Tanı</string>
+    <string name="diagnostic">Tanılama</string>
     <string name="failedLoading">Yükleme başarısız oldu!</string>
     <string name="rootNameServer">Kök isim sunucusu</string>
     <string name="nameservers">İsim sunucu</string>
@@ -53,11 +53,11 @@
     <string name="favorite">Favori</string>
     <string name="favorites">Favoriler</string>
     <string name="clearFavorites">Favorileri temizle</string>
-    <string name="clearFavorites_summary">Tüm favori alan adlarını kaldır.</string>
+    <string name="clearFavorites_summary">Tüm alan adlarını favorilerimden kaldır.</string>
     <string name="removeFavorite">Favori(ler)i kaldır</string>
     <string name="removeFavorite_summary">Bazı favori alan adlarını kaldır.</string>
     <string name="remove">Kaldır</string>
     <string name="general">Genel</string>
-    <string name="typeDomainHere">Type a domain here:</string>
-    <string name="orPickFromFavorites">Or pick one from your favorites:</string>
+    <string name="typeDomainHere">Buraya bir alan adı yazın:</string>
+    <string name="orPickFromFavorites">Veya favorilerinizden birini seçin:</string>
 </resources>
