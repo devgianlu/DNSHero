@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.commonutils.misc.SuperTextView;
-import com.gianlu.commonutils.typography.FontsManager;
 import com.gianlu.dnshero.GlueView;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.Utils;
@@ -44,7 +43,6 @@ public class RootNameserverFragment extends Fragment {
 
         SuperTextView name = layout.findViewById(R.id.rootNsFragment_name);
         Utils.clickToCopy(name);
-        name.setTypeface(FontsManager.ROBOTO_MEDIUM);
         name.setText(root.name);
 
         SuperTextView rtt = layout.findViewById(R.id.rootNsFragment_rtt);

@@ -5,4 +5,5 @@
 /app/**/release/
 local.properties
 google-services.json
+!/app/src/foss/google-services.json
 *.iml

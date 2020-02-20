@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.com/devgianlu/DNSHero.svg?branch=master)](https://travis-ci.com/devgianlu/DNSHero)
 [![Crowdin](https://badges.crowdin.net/dnshero/localized.svg)](https://crowdin.com/project/dnshero)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/370276fbf50d4c7cad8c3bb1cb91ec59)](https://www.codacy.com/manual/devgianlu/DNSHero?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devgianlu/DNSHero&amp;utm_campaign=Badge_Grade)
+[![time tracker](https://wakatime.com/badge/github/devgianlu/DNSHero.svg)](https://wakatime.com/badge/github/devgianlu/DNSHero)
 [![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://gianlu.xyz/donate/)
 
 An Android app to inspect DNS zones like a superhero.

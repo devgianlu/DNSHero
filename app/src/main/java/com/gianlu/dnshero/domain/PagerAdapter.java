@@ -2,6 +2,7 @@ package com.gianlu.dnshero.domain;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,10 +12,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     private final Fragment[] fragments;
 
     public PagerAdapter(FragmentManager fm, Fragment... fragments) {
-        super(fm);
+        super(fm, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.fragments = fragments;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         return fragments[position];
