@@ -1,4 +1,6 @@
-### Changed
-- Updated libraries
-- Improved Toaster logging
-- (fix F-Droid build)
+### Added
+- Added Turkish translation
+
+### Fixed
+- Fixed donations being refunded
+- Fixed crash reporting (Google Play only)
