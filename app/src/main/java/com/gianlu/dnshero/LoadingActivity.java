@@ -3,6 +3,7 @@ package com.gianlu.dnshero;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -115,9 +116,12 @@ public class LoadingActivity extends ActivityWithDialog implements ZoneVisionAPI
         DomainActivity.startActivity(this, domain);
     }
 
+    private static final String TAG = LoadingActivity.class.getSimpleName();
+
     @Override
     public void onException(@NonNull Exception ex) {
-        Toaster.with(this).message(R.string.searchFailed).ex(ex).show();
+        Toaster.with(this).message(R.string.searchFailed).show();
+        Log.e(TAG, "Failed search.", ex);
 
         loading.setVisibility(View.GONE);
         form.setVisibility(View.VISIBLE);

@@ -2,6 +2,7 @@ package com.gianlu.dnshero.records;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gianlu.commonutils.logging.Logging;
 import com.gianlu.commonutils.misc.RecyclerMessageView;
 import com.gianlu.dnshero.R;
 import com.gianlu.dnshero.api.DNSRecord;
@@ -21,6 +21,8 @@ import com.gianlu.dnshero.api.Domain;
 import java.lang.reflect.InvocationTargetException;
 
 public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAdapter<E, ? extends DNSRecordsAdapter.ViewHolder>> extends Fragment {
+
+    private static final String TAG = DNSRecordFragment.class.getSimpleName();
 
     @SuppressWarnings("unchecked")
     private static <A extends DNSRecordsAdapter<E, VH>,
@@ -87,7 +89,7 @@ public class DNSRecordFragment<E extends DNSRecord.Entry, A extends DNSRecordsAd
             try {
                 layout.loadListData(adapterClass.getConstructor(Context.class, Domain.DNSRecordsArrayList.class, Domain.DNSRecordsArrayList.class).newInstance(getContext(), authoritative, resolver));
             } catch (java.lang.InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
-                Logging.log(ex);
+                Log.e(TAG, "Failed loading list data.", ex);
                 layout.showError(R.string.failedLoading);
                 return layout;
             }
