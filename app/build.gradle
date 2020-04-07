@@ -4,6 +4,7 @@ plugins {
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 def isTravis = System.getenv("CI") == "true"
 android {
