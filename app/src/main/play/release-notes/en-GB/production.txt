@@ -1,6 +1,2 @@
-### Added
-- Added Turkish translation
-
-### Fixed
-- Fixed donations being refunded
-- Fixed crash reporting (Google Play only)
+### Changed
+- Using Android logging
