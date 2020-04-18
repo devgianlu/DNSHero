@@ -9,9 +9,9 @@
     <string name="resolver">解决</string>
     <string name="diagnostic">诊断</string>
     <string name="failedLoading">加载失败！</string>
-    <string name="rootNameServer">根域名服务器</string>
+    <string name="rootNameServer">根命名服务器</string>
     <string name="nameservers">域名服务器</string>
-    <string name="glue">胶</string>
+    <string name="glue">Glue</string>
     <string name="name"><![CDATA[<b>名称:</b>]]> %s</string>
     <string name="address"><![CDATA[<b>地址:</b> %s]]></string>
     <string name="v4">v4</string>
@@ -37,8 +37,8 @@
     <string name="emailLabel"><![CDATA[<b>Email:</b>]]> %s</string>
     <string name="glueV4">Glue V4</string>
     <string name="glueV6">Glue V6</string>
-    <string name="aRecord"><![CDATA[<b>A record:</b>]]> %s</string>
-    <string name="aaaaRecord"><![CDATA[<b>AAAA record:</b>]]> %s</string>
+    <string name="aRecord"><![CDATA[<b>A 记录:</b>]]> %s</string>
+    <string name="aaaaRecord"><![CDATA[<b>AAAA 记录:</b>]]> %s</string>
     <string name="aaaaSource">AAAA source</string>
     <string name="aSource">A source</string>
     <string name="absentLowercase"><![CDATA[<i>缺席</i>]]></string>
@@ -55,7 +55,7 @@
     <string name="clearFavorites">清除收藏夹</string>
     <string name="clearFavorites_summary">删除所有收藏的域名。</string>
     <string name="removeFavorite">取消收藏</string>
-    <string name="removeFavorite_summary">删除所有收藏的域名。</string>
+    <string name="removeFavorite_summary">删除一些收藏的域名。</string>
     <string name="remove">移除</string>
     <string name="general">一般</string>
     <string name="typeDomainHere">在此输入域名：</string>
