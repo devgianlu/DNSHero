@@ -9,7 +9,7 @@
     <string name="resolver">解决</string>
     <string name="diagnostic">诊断</string>
     <string name="failedLoading">加载失败！</string>
-    <string name="rootNameServer">根命名服务器</string>
+    <string name="rootNameServer">根域名服务器</string>
     <string name="nameservers">域名服务器</string>
     <string name="glue">胶</string>
     <string name="name"><![CDATA[<b>名称:</b>]]> %s</string>
