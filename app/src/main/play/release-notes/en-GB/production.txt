@@ -1,2 +1,5 @@
+### Fixed
+- Fixed crash when submitting search (F-Droid only)
+
 ### Changed
-- Using Android logging
+- Update third-part libraries
