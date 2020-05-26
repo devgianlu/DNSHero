@@ -3,6 +3,7 @@ package com.gianlu.dnshero.api;
 import android.os.Build;
 
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.Utils;
@@ -72,12 +73,12 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
             minimum_ttl = obj.getInt("minimum-ttl");
         }
 
+        @NonNull
         public String getEmailAddress() {
             return rname.replaceFirst("\\.", "@");
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
@@ -102,7 +103,6 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
@@ -122,7 +122,6 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
@@ -142,7 +141,6 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
@@ -164,7 +162,6 @@ public class DNSRecord<E extends DNSRecord.Entry> implements Serializable {
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;

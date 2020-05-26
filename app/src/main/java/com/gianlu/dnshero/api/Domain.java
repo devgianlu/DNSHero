@@ -240,7 +240,7 @@ public class Domain implements Serializable {
             name = definition.getString("name");
             description = definition.getString("description");
             status = DiagnosticStatus.parse(obj.getString("status"));
-            recommendation = obj.optString("recommendation", null);
+            recommendation = CommonUtils.optString(obj, "recommendation");
 
             JSONObject sourcesObj = obj.getJSONObject("sources");
             sources = new HashMap<>();

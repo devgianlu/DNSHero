@@ -70,7 +70,6 @@ public class PreferenceActivity extends BasePreferenceActivity {
         private void showRemoveDialog(Context context) {
             final String[] entries = Prefs.getSet(PK.FAVORITES, new HashSet<>()).toArray(new String[0]);
             final boolean[] checked = new boolean[entries.length];
-            for (int i = 0; i < checked.length; i++) checked[i] = false;
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.removeFavorite)

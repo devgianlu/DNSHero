@@ -1,21 +1,13 @@
 <resources>
     <string name="app_name">DNS Hero</string>
-    <string name="heroWebsite" translatable="false">hero.com</string>
     <string name="domain">Domain</string>
     <string name="searchFailed">Search failed!</string>
     <string name="appName_domain">%s - DNSHero</string>
-    <string name="dnsRecords">DNS records</string>
-    <string name="authoritative">Authoritative</string>
-    <string name="resolver">Resolver</string>
     <string name="diagnostic">Diagnostic</string>
     <string name="failedLoading">Failed loading!</string>
     <string name="rootNameServer">Root nameserver</string>
     <string name="nameservers">Nameservers</string>
-    <string name="glue">Glue</string>
     <string name="name"><![CDATA[<b>Name:</b>]]> %s</string>
-    <string name="address"><![CDATA[<b>Address:</b> %s]]></string>
-    <string name="v4">v4</string>
-    <string name="v6">v6</string>
     <string name="rtt"><![CDATA[<b>RTT:</b>]]> %s</string>
     <string name="noGlueRecords">No glue records provided for this nameserver</string>
     <string name="mx">MX</string>

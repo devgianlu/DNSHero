@@ -84,8 +84,7 @@ public abstract class DNSRecordsAdapter<E extends DNSRecord.Entry, VH extends DN
 
     @Override
     public final int getItemCount() {
-        if (relevantAuthoritative.size() > relevantResolver.size()) return relevantResolver.size();
-        else return relevantAuthoritative.size();
+        return Math.min(relevantAuthoritative.size(), relevantResolver.size());
     }
 
     public abstract class ViewHolder extends RecyclerView.ViewHolder {
