@@ -1,2 +1,5 @@
+### Added
+- Added Indonesian translation
+
 ### Changed
 - Update third-part libraries
