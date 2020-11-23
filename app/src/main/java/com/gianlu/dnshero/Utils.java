@@ -20,10 +20,13 @@ public final class Utils {
         return new DecimalFormat("#.000").format(rtt) + "ms";
     }
 
-    public static float parseMs(String str) {
-        float value = Float.parseFloat(str.substring(0, str.length() - 2));
-        if (str.endsWith("µs")) return value / 1000f; // microseconds
-        else return value; // milliseconds
+    public static float parseMs(@NonNull String str) {
+        if (str.endsWith("ms") || str.endsWith("µs")) {
+            String sub = str.substring(0, str.length() - 2);
+            return Float.parseFloat(sub) / (str.endsWith("µs") ? 1000f : 1);
+        } else {
+            return Float.parseFloat(str);
+        }
     }
 
     public static void clickToCopy(@NonNull TextView view) {

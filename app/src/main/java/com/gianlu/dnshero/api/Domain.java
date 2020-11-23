@@ -1,6 +1,8 @@
 package com.gianlu.dnshero.api;
 
 
+import androidx.annotation.NonNull;
+
 import com.gianlu.commonutils.CommonUtils;
 import com.gianlu.dnshero.Utils;
 
@@ -24,7 +26,7 @@ public class Domain implements Serializable {
     public final DNSRecords resolver;
     public final ArrayList<Diagnostic> diagnostics;
 
-    public Domain(JSONObject obj) throws JSONException {
+    public Domain(@NonNull JSONObject obj) throws JSONException {
         name = obj.getString("name");
         apex = obj.getBoolean("apex");
         root = new RootNameserver(obj.getJSONObject("parent"));
@@ -216,7 +218,7 @@ public class Domain implements Serializable {
         public final ArrayList<String> nameservers;
         public final Glue glue;
 
-        RootNameserver(JSONObject obj) throws JSONException {
+        RootNameserver(@NonNull JSONObject obj) throws JSONException {
             name = obj.getString("source");
             glue = new Glue(obj.getJSONObject("glue"));
             rtt = Utils.parseMs(obj.getString("rtt"));
