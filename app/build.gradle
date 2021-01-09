@@ -22,10 +22,10 @@ android {
     if (isTravis) {
         signingConfigs {
             release {
-                storeFile file("../.travis/keystore.jks")
-                storePassword System.getenv("keystore_storePsswd")
-                keyAlias = System.getenv("keystore_keyAlias")
-                keyPassword System.getenv("keystore_keyPsswd")
+                storeFile file("../.github/keystore.jks")
+                storePassword System.getenv("KEYSTORE_STORE_PASS")
+                keyAlias = System.getenv("KEYSTORE_KEY_ALIAS")
+                keyPassword System.getenv("KEYSTORE_KEY_PASS")
             }
         }
     }
@@ -69,7 +69,7 @@ android {
 play {
     defaultToAppBundles.set(true)
     enabled.set(isTravis)
-    serviceAccountCredentials.set(file("../.travis/secrets.json"))
+    serviceAccountCredentials.set(file("../.github/secrets.json"))
     track.set("production")
     releaseStatus.set(com.github.triplet.gradle.androidpublisher.ReleaseStatus.DRAFT)
 }
