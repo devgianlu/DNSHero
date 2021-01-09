@@ -56,3 +56,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/foss/release/app-foss-release.apk
           asset_name: app-foss-release.apk
+          asset_content_type: application/vnd.android.package-archive
