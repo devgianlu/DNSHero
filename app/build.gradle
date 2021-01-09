@@ -6,7 +6,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
-def isTravis = System.getenv("CI") == "true"
+def isCi = System.getenv("CI") == "true"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -19,7 +19,7 @@ android {
         versionName "1.6.8"
     }
 
-    if (isTravis) {
+    if (isCi) {
         signingConfigs {
             release {
                 storeFile file("../.github/keystore.jks")
@@ -35,7 +35,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if (isTravis) signingConfig signingConfigs.release
+            if (isCi) signingConfig signingConfigs.release
         }
     }
 
@@ -68,7 +68,7 @@ android {
 
 play {
     defaultToAppBundles.set(true)
-    enabled.set(isTravis)
+    enabled.set(isCi)
     serviceAccountCredentials.set(file("../.github/secrets.json"))
     track.set("production")
     releaseStatus.set(com.github.triplet.gradle.androidpublisher.ReleaseStatus.DRAFT)
