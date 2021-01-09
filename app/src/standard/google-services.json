@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "584933090595",
+    "firebase_url": "https://dnshero-android.firebaseio.com",
+    "project_id": "dnshero-android",
+    "storage_bucket": "dnshero-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584933090595:android:3024d0a87861ef13209896",
+        "android_client_info": {
+          "package_name": "com.gianlu.dnshero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584933090595-t79ljuf3thg0e44tr199h7jjhr594m92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEnDilnm98F46QJHqEfhaR3wIiIg4IOJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584933090595-t79ljuf3thg0e44tr199h7jjhr594m92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
