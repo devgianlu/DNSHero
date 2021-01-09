@@ -1,2 +1,4 @@
 ### Fixed
-- Fixed crash because of API change
+- Fixed donation dialog
+- Fixed Crashlytics (Play Store version)
+- Minor bug fixes
