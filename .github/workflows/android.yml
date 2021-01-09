@@ -27,7 +27,7 @@ jobs:
   build:
     needs: setup
     runs-on: ubuntu-latest
-    if: !startsWith(github.ref, 'refs/tags/v')
+    if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
     steps:
       - name: Build with Gradle
         run: ./gradlew connectedCheck --no-daemon
@@ -35,7 +35,7 @@ jobs:
   publish:
     needs: setup
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     steps:
       - name: Publish with Gradle
         run: ./gradlew assembleRelease publish --no-daemon
