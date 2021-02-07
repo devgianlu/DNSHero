@@ -1,4 +1,4 @@
-DNS Hero, DNS alanlarını kolayca incelemenizi sağlar. Bu uygulama size kök ad sunucusu, alan adıyla ilişkili ad sunucuları ve çeşitli diğer DNS kayıtları (A, AAAA, MX, CNAME, TXT, SOA) hakkında bilgi verebilir. Ayrıca, bir tanılama çalıştırılırken etki alanı sağlığını da görüntüleyebilirsiniz.
+DNS Hero let you inspect DNS zones easily. Bu uygulama size kök ad sunucusu, alan adıyla ilişkili ad sunucuları ve çeşitli diğer DNS kayıtları (A, AAAA, MX, CNAME, TXT, SOA) hakkında bilgi verebilir. Ayrıca, bir tanılama çalıştırılırken etki alanı sağlığını da görüntüleyebilirsiniz.
 
 Bu proje açık kaynaklıdır. Repo https://github.com/devgianlu/DNSHero
 DNSimple tarafından http://zone.vision API kullanılarak oluşturulmuştur.
