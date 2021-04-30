@@ -3,8 +3,12 @@ plugins {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: 'com.google.firebase.firebase-perf'
+
+if (getGradle().getStartParameter().getTaskRequests()
+        .toString().contains("Standard")) {
+    apply plugin: 'com.google.firebase.crashlytics'
+    apply plugin: 'com.google.firebase.firebase-perf'
+}
 
 def isCi = System.getenv("CI") == "true"
 android {
