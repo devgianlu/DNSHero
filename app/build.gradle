@@ -59,7 +59,7 @@ android {
     }
 
     lintOptions {
-        warning 'MissingTranslation'
+        warning 'MissingTranslation', 'Instantiatable'
     }
 
     playConfigs {
