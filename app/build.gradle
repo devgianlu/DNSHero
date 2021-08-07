@@ -80,19 +80,13 @@ play {
 
 dependencies {
     implementation(project(':CommonUtils')) {
-        exclude group: 'me.toptas.fancyshowcase'
+        exclude group: 'com.github.faruktoptas', module: 'FancyShowCaseView'
     }
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation 'com.google.android.material:material:1.4.0'
 
     standardImplementation 'com.google.firebase:firebase-perf:20.0.2'
-}
-
-task printVersionName {
-    doLast {
-        println android.defaultConfig.versionName
-    }
 }
 
 apply plugin: 'com.google.gms.google-services'
