@@ -4,12 +4,6 @@ plugins {
 
 apply plugin: 'com.android.application'
 
-if (getGradle().getStartParameter().getTaskRequests()
-        .toString().contains("Standard")) {
-    apply plugin: 'com.google.firebase.crashlytics'
-    apply plugin: 'com.google.firebase.firebase-perf'
-}
-
 def isCi = System.getenv("CI") == "true"
 android {
     compileSdkVersion 30
@@ -19,8 +13,8 @@ android {
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 37
-        versionName "1.6.11"
+        versionCode 38
+        versionName "1.6.12"
     }
 
     if (isCi) {
@@ -90,3 +84,5 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
