@@ -21,7 +21,7 @@
     <string name="cname">CNAME</string>
     <string name="txt">TXT</string>
     <string name="soa">SOA</string>
-    <string name="serial"><![CDATA[<b>Serial:</b>]]> %d</string>
+    <string name="serial" comment="Serial number for this zone. If a secondary name server slaved to this one observes an increase in this number, the slave will assume that the zone has been updated and initiate a zone transfer.&#10;&#10;https://en.m.wikipedia.org/wiki/SOA_record"><![CDATA[<b>Serial:</b>]]> %d</string>
     <string name="refresh"><![CDATA[<b>Aktualisiert:</b>]]> %ds</string>
     <string name="soaRetry"><![CDATA[<b>Erneut versuchen:</b>]]> %ds</string>
     <string name="expire"><![CDATA[<b>Auslaufen:</b>]]> %ds</string>
