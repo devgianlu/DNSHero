@@ -28,6 +28,8 @@
     <string name="minimumTtl"><![CDATA[<b>Minimale TTL:</b>]]> %ds</string>
     <string name="primaryDns"><![CDATA[<b>Primäre DNS:</b>]]> %s</string>
     <string name="emailLabel"><![CDATA[<b>Email:</b>]]> %s</string>
+    <string name="glueV4">Glue V4</string>
+    <string name="glueV6">Glue V6</string>
     <string name="aRecord"><![CDATA[<b>A Eintrag:</b>]]> %s</string>
     <string name="aaaaRecord"><![CDATA[<b>AAAA Eintrag:</b>]]> %s</string>
     <string name="aaaaSource">AAAA Quelle</string>
