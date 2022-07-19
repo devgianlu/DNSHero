@@ -18,6 +18,7 @@
         <!-- Start activity -->
         <activity
             android:name=".LoadingActivity"
+            android:exported="true"
             android:configChanges="uiMode"
             android:theme="@style/FullscreenTheme">
 
