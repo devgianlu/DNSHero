@@ -52,7 +52,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    lintOptions {
+    lint {
         warning 'MissingTranslation', 'Instantiatable'
     }
 
