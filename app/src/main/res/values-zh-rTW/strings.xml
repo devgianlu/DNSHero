@@ -48,4 +48,9 @@
     <string name="clearFavorites">清除最愛</string>
     <string name="clearFavorites_summary">移除所有最愛網域。</string>
     <string name="removeFavorite">移除最愛</string>
+    <string name="removeFavorite_summary">移除部分最愛網域。</string>
+    <string name="remove">移除</string>
+    <string name="general">一般</string>
+    <string name="typeDomainHere">在這裡輸入網域：</string>
+    <string name="orPickFromFavorites">或從您的最愛中挑選：</string>
 </resources>
