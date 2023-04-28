@@ -1,1 +1,1 @@
-Inspect DNS zones like a superhero
+像一個超級英雄一般檢查 DNS 區域
