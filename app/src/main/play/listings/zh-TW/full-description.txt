@@ -1,0 +1,4 @@
+DNS Hero 可讓您輕鬆檢查 DNS 區域。 這個應用程式可以為您提供有關根名稱伺服器、與網域關聯的名稱伺服器和其他各種 DNS 記錄 (A、AAAA、MX、CNAME、TXT、SOA)。 您也可以在執行診斷時檢視網域健康程度。
+
+此專案在這裡開放原始碼：https://github.com/devgianlu/DNSHero。
+使用 DNSimple 的 http://zone.vision API 建置

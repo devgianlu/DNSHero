@@ -1,0 +1,4 @@
+DNS Hero let you inspect DNS zones easily. This app will give you information about the root nameserver, nameservers associated with the domain and various other DNS records (A, AAAA, MX, CNAME, TXT, SOA). You can also view the domain health as a diagnostic is run.
+
+This project is opensource at https://github.com/devgianlu/DNSHero.
+Built using the http://zone.vision API by DNSimple.
