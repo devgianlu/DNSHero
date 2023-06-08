@@ -13,8 +13,8 @@ android {
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 39
-        versionName "1.6.13"
+        versionCode 40
+        versionName "1.6.14"
     }
 
     if (isCi) {
