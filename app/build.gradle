@@ -6,13 +6,13 @@ apply plugin: 'com.android.application'
 
 def isCi = System.getenv("CI") == "true"
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     buildToolsVersion "33.0.0"
 
     defaultConfig {
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 39
         versionName "1.6.13"
     }
@@ -78,9 +78,9 @@ dependencies {
     }
 
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
 
-    standardImplementation 'com.google.firebase:firebase-perf:20.3.1'
+    standardImplementation 'com.google.firebase:firebase-perf:20.3.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
