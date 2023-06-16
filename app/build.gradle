@@ -80,7 +80,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
     implementation 'com.google.android.material:material:1.9.0'
 
-    standardImplementation 'com.google.firebase:firebase-perf:20.3.2'
+    standardImplementation 'com.google.firebase:firebase-perf:20.3.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
