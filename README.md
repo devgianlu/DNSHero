@@ -2,9 +2,9 @@
 <img src="Graphics/Banner.png" width=50%>
 </h1>
 
-[![Build Status](https://travis-ci.com/devgianlu/DNSHero.svg?branch=master)](https://travis-ci.com/devgianlu/DNSHero)
+![Android CI](https://github.com/devgianlu/DNSHero/workflows/Android%20CI/badge.svg?branch=master)
 [![Crowdin](https://badges.crowdin.net/dnshero/localized.svg)](https://crowdin.com/project/dnshero)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/370276fbf50d4c7cad8c3bb1cb91ec59)](https://www.codacy.com/manual/devgianlu/DNSHero?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devgianlu/DNSHero&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e0b150a08f9b4b939de7087fef1fdb3e)](https://app.codacy.com/gh/devgianlu/DNSHero/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![time tracker](https://wakatime.com/badge/github/devgianlu/DNSHero.svg)](https://wakatime.com/badge/github/devgianlu/DNSHero)
 
 An Android app to inspect DNS zones like a superhero.
