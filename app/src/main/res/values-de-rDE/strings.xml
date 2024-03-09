@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DNS-Held</string>
-    <string name="domain">Domain</string>
+    <string name="app_name">DNS Gero</string>
+    <string name="domain">Die Domain</string>
     <string name="searchFailed">Suche fehlgeschlagen!</string>
     <string name="appName_domain">%s - DNSHero</string>
     <string name="diagnostic">Diagnose</string>
