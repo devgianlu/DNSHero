@@ -8,6 +8,8 @@ apply plugin: 'com.android.application'
 
 def isCi = System.getenv("CI") == "true"
 android {
+    namespace 'com.gianlu.dnshero'
+
     defaultConfig {
         compileSdk 34
 
