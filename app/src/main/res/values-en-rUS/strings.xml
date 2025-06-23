@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name"></string>
     <string name="domain"></string>
+    <string name="searchFailed">!</string>
 </resources>
