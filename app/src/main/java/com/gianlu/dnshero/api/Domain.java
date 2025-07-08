@@ -133,7 +133,17 @@ public class Domain implements Serializable {
         }
     }
 
-    public static abstract class DNSRecordsArrayList<E extends DNSRecord.Entry> extends ArrayList<DNSRecord<E>> implements Serializable, Comparator<E> {
+    private static class DNSRecordsArrayListComparator<E extends DNSRecord.Entry> implements Comparator<E> {
+        @Override
+        public int compare(E e1, E e2) {
+            if (e1 instanceof DNSRecord.MXEntry && e2 instanceof DNSRecord.MXEntry)
+                return Integer.compare(((DNSRecord.MXEntry) e1).preference, ((DNSRecord.MXEntry) e2).preference);
+
+            return e1.name.compareToIgnoreCase(e2.name);
+        }
+    }
+
+    public static abstract class DNSRecordsArrayList<E extends DNSRecord.Entry> extends ArrayList<DNSRecord<E>> implements Serializable {
         DNSRecordsArrayList(JSONArray array, Class<E> entryClass) throws JSONException {
             makeList(array, entryClass);
         }
@@ -166,14 +176,9 @@ public class Domain implements Serializable {
                     if (!list.contains(entry))
                         list.add(entry);
 
-            Collections.sort(list, this);
+            Collections.sort(list, new DNSRecordsArrayListComparator<>());
 
             return list;
-        }
-
-        @Override
-        public int compare(E e1, E e2) {
-            return e1.name.compareToIgnoreCase(e2.name);
         }
     }
 
@@ -186,11 +191,6 @@ public class Domain implements Serializable {
     public static class MXEntries extends DNSRecordsArrayList<DNSRecord.MXEntry> implements Serializable {
         MXEntries(JSONArray array) throws JSONException {
             super(array, DNSRecord.MXEntry.class);
-        }
-
-        @Override
-        public int compare(DNSRecord.MXEntry o1, DNSRecord.MXEntry o2) {
-            return o1.preference - o2.preference;
         }
     }
 
