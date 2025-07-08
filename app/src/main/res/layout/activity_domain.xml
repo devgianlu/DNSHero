@@ -9,6 +9,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/domain_toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:elevation="0dp" />
