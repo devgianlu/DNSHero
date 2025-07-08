@@ -11,11 +11,11 @@ android {
     namespace 'com.gianlu.dnshero'
 
     defaultConfig {
-        compileSdk 34
+        compileSdk 36
 
         applicationId "com.gianlu.dnshero"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
 
         versionCode 41
         versionName "1.6.15"
