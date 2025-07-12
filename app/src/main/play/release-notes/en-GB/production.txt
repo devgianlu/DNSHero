@@ -1,3 +1,2 @@
 ### Changed
 - Updated libraries
-- Updated translations
