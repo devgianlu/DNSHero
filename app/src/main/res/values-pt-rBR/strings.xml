@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">DNS Hero</string>
+    <string name="domain">Domínio</string>
+    <string name="searchFailed">Pesquisa falhou!</string>
+</resources>
