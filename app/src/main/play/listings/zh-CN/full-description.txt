@@ -1,4 +1,4 @@
-DNS Hero let you inspect DNS zones easily. 此应用会为你提供关于根域名服务器，与该域名关联的名称服务器以及其他各种 DNS 记录（A，AAAA，MX，CNAME，TXT，SOA）。 You can also view the domain health as a diagnostic is run.
+DNS Hero让你轻松查看 DNS 区域。 此应用会为你提供关于根域名服务器，与该域名关联的名称服务器以及其他各种 DNS 记录（A，AAAA，MX，CNAME，TXT，SOA）。 您还可以通过运行诊断查看域名的运行状况。
 
-This project is opensource at https://github.com/devgianlu/DNSHero.
-Built using the http://zone.vision API by DNSimple.
+项目源代码位于 https://github.com/devgianlu/DNSHero。
+使用 DNSimple 的 http://zone.vision API 构建。
